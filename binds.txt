@@ -2,7 +2,11 @@
 ! IDLE_TIME 10
 
 R L' - alt+tab
-R R - a b c ;
+R R - ctrl+t
 R U R' U' - ctrl+z
-B2 - shift
+B B - shift+10.0s
 F R - space
+F F - ctrl+alt+t                            # terminal
+L' U' L U - alt+space c o d e 1.0s enter    # open vscode
+
+# comments

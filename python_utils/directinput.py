@@ -4,6 +4,8 @@ Requires: pip install evdev
 Requires access to /dev/uinput (run as root or add a udev rule).
 """
 
+import time
+
 from evdev import UInput
 from evdev import ecodes as e
 
@@ -25,6 +27,10 @@ CHAR_MAP.update(
         "8": e.KEY_8,
         "9": e.KEY_9,
         "0": e.KEY_0,
+        ",": e.KEY_COMMA,
+        ";": e.KEY_SEMICOLON,
+        ":": e.KEY_SEMICOLON,
+        "=": e.KEY_EQUAL,
     }
 )
 
@@ -59,3 +65,21 @@ def press_key(key):
 def release_key(key):
     ui.write(e.EV_KEY, key, 0)
     ui.syn()
+
+
+def execute_combo(keys_list):
+    for combo in keys_list:
+        # Delay step: e.g. ['1.0s']
+        if len(combo) == 1 and combo[0].endswith("s"):
+            try:
+                time.sleep(float(combo[0][:-1]))
+                continue
+            except ValueError:
+                pass
+        # Key combo: press all together, then release
+        keys = [CHAR_MAP[k] for k in combo if k in CHAR_MAP]
+        for k in keys:
+            press_key(k)
+        time.sleep(0.05)
+        for k in reversed(keys):
+            release_key(k)

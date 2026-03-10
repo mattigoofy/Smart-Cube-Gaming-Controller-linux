@@ -39,7 +39,8 @@ If you use AZERTY, switch your layout to QWERTY to get correct results
 
 ### 2. Set keybinds
 
-In `binds.txt` you can define what you want your move to map to what keybinds. This code was copied from [gan-to-keyboard](https://github.com/ImNotGLaDOS/gan-to-keyboard). Following piece comes from there GitHub.
+There are 2 options. The first one uses a 'console like'-approach. You scroll through the keyboard with U and R and select a letter with L.
+The second option is using predefined keybinds from a file. In `binds.txt` you can define what you want your move to map to what keybinds. This code was copied from [gan-to-keyboard](https://github.com/ImNotGLaDOS/gan-to-keyboard). Following piece comes from there GitHub.
 
 #### Binds
 

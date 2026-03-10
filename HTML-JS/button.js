@@ -1,5 +1,6 @@
 var button = document.getElementById("button").addEventListener("click", clicked)
 
-function clicked() {
-  connect()
+async function clicked() {
+  await connect()
+  console.log("connected")
 }

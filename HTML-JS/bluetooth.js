@@ -117,6 +117,7 @@ var ganDecoder = null;
           var amount = state[33];
           var turn = ["?", "B", "D", "L", "U", "R", "F"][face] + ["", "", "2", "'"][amount == 9 ? 2 : amount]; // twistCallback
           console.log(turn + ";GI");
+		  $('g-cube').gscramble(turn);
       } catch (ex) {
           alert("ERROR (K): " + ex.message);
       }

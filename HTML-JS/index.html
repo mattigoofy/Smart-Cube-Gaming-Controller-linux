@@ -4,10 +4,25 @@
 	<head>
 		<title>GoCube Bluetooth</title>
 		<meta charset="utf-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://molarmanful.github.io/gCube/gcube.min.js"></script>
 	</head>
 	<body>
 		<button id=button type="button"> Connect! </button>
+
+   	 	<g-cube>
+			<!-- <g-speed>10</g-speed>
+			<g-scramble>D2 R2 F2 R B L U2 F D L2 B2 L2 F' U2 B L2 D2 F2 D2 B</g-scramble>
+			<g-algorithm>R U R' U'</g-algorithm>
+			<g-highlight>flxcross</g-highlight>
+			<g-florian>0.2em,0.1em</g-florian> -->
+		</g-cube>  
+
 		<script src="bluetooth.js"></script>
 		<script src="button.js"></script>
+		<script>
+			$('g-cube').gscramble("R");
+			$('g-cube').gspeed(10);
+		</script>
 	</body>
 </html>
