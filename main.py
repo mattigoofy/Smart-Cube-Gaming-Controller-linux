@@ -2,104 +2,114 @@
 """
 Created on Tue Oct 27 01:55:49 2020
 
-@author: Christian
+@author: Mattigoofy
 """
 
+import http.server
+import os
+import subprocess
+import threading
+import time
 
-import os, time
-from directinput import press_key, release_key, CHAR_MAP
 from selenium import webdriver
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.chrome.service import Service
 
-capabilities = DesiredCapabilities.CHROME
-capabilities['goog:loggingPrefs'] = { 'browser':'ALL' }
+from python_utils.bind_reader import upload_binds
+from python_utils.directinput import CHAR_MAP, press_key, release_key
 
-driver = webdriver.Chrome(desired_capabilities=capabilities, executable_path=r'chromedriver.exe')
 
-html_location = os.path.dirname(os.path.abspath(__file__)) + "/index.html"
-driver.get(html_location)
+# Start webserver
+os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), "HTML-JS"))
+server = http.server.HTTPServer(
+    ("localhost", 8765), http.server.SimpleHTTPRequestHandler
+)
+thread = threading.Thread(target=server.serve_forever, daemon=True)
+thread.start()
 
-class Key:
-    def __init__(self, value, toggle, press_length=0.1, cancel_keys=[]):
-        self.value = value
-        self.toggle = toggle
-        self.press_length = press_length
-        self.cancel_keys = cancel_keys
 
-down1 = Key("s", True, cancel_keys=["s", "g"])
-down2 = Key("k", True, cancel_keys=["i", "k"])
+# Launch Chromium
+chromium_process = subprocess.Popen([
+    "/snap/bin/chromium",
+    "--remote-debugging-port=9222",
+    "--user-data-dir=/tmp/chrome-debug",
+    "--enable-features=WebBluetooth",
+    "http://localhost:8765/index.html"
+])
 
-dic_go = {"U": Key("a", True, cancel_keys=["a", "d"]),
-       "U'": Key("d", True, cancel_keys=["a", "d"]),
-       "D": down1,
-       "D'": down1,
-       "R": Key("g", False, press_length=0.1),
-       "R'": Key("g", False, press_length=0.1),
-       "L": Key("s", False, press_length=0.1),
-       "L'": Key("h", False, press_length=0.1),
-       "F": Key("f", False, press_length=0.1),
-       "F'": Key("f", False, press_length=0.1),
-       # "B": "a",
-       # "B'": "s"
-       }
+time.sleep(2)
 
-sekiro = {
-        "U": Key("d", True, cancel_keys=["a", "d", "l"]),
-        "U'": Key("a", True, cancel_keys=["a", "d", "l"]),
-        "D": Key("r", False, press_length=0.1),
-        "D'": Key("x", False, press_length=0.1),
-        "R": Key("w", True, cancel_keys=["s", "w", "l"]),
-        "R'": Key("s", True, cancel_keys=["s", "w", "l"]),
-        "L": Key("l", False, press_length=0.1),
-        "L'": Key("space", False, press_length=0.1),
-        "F": Key("i", False, press_length=0.1),
-        "F'": Key("o", False, press_length=0.1),
-        "B": Key("o", True, cancel_keys=["o", "i", "l"]),
-        "B'": Key("n", True, cancel_keys=["n"]),
-        }
 
-dic_gi = {"U": Key("j", True, cancel_keys=["j", "l"]),
-       "U'": Key("l", True, cancel_keys=["j", "l"]),
-       "D": down2,
-       "D'": down2,
-       "R": Key("i", False, press_length=0.1),
-       "R'": Key("i", False, press_length=0.1),
-       "L": Key("k", False, press_length=0.1),
-       "L'": Key("n", False, press_length=0.1),
-       "F": Key("m", False, press_length=0.1),
-       "F'": Key("m", False, press_length=0.1),
-       # "B": "v",
-       # "B'": "b"ksa
-       }
+options = webdriver.ChromeOptions()
+options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
+options.set_capability("goog:loggingPrefs", {"browser": "ALL"})
+driver = webdriver.Chrome(
+    options=options, service=Service("/snap/bin/chromium.chromedriver")
+)
 
-dics = {"GO": dic_go, "GI": dic_gi}
+print(driver.title)
+print(driver.current_url)
 
-pressed_keys = {}
 
-def updateKeys():
-    for key, val in pressed_keys.copy().items():
-        if not key.toggle:
-            if time.time() > val + key.press_length:
-                release_key(CHAR_MAP[key.value])
-                del pressed_keys[key]
 
-while True:
-    for entry in driver.get_log('browser'):
-        try:
-            entry = str(entry).split('"')[1].split(";")
-            new_key = sekiro[entry[0].replace("\\", "")]
-            old_pressed_keys = pressed_keys.copy()  # Used to prevent toggle key from toggling itself off immediately
-            pressed_keys[new_key] = time.time()
+binds, constants = upload_binds()
+move_history = []
+last_move_time = time.time()
 
-            # Check if new_key is in cancel_keys of already toggled keys
-            for key in old_pressed_keys:
-                if new_key.value in key.cancel_keys:
-                    release_key(CHAR_MAP[key.value])
-                    del pressed_keys[key]
+def execute_combo(keys_list):
+    for combo in keys_list:
+        # Delay step: e.g. ['1.0s']
+        if len(combo) == 1 and combo[0].endswith("s"):
+            try:
+                time.sleep(float(combo[0][:-1]))
+                continue
+            except ValueError:
+                pass
+        # Key combo: press all together, then release
+        keys = [CHAR_MAP[k] for k in combo if k in CHAR_MAP]
+        for k in keys:
+            press_key(k)
+        time.sleep(0.05)
+        for k in reversed(keys):
+            release_key(k)
 
-            if new_key not in old_pressed_keys:
-                press_key(CHAR_MAP[new_key.value])
-        except:
-            pass
 
-    updateKeys()
+def find_match(history):
+    best, best_len = None, 0
+
+    for formula in binds:
+        n = len(formula)
+        if n <= len(history) and tuple(history[-n:]) == formula and n > best_len:
+            best, best_len = formula, n
+
+    return best
+
+
+try: 
+    while True:
+        for entry in driver.get_log("browser"):
+            try:
+                entry = str(entry).split('"')[1].split(";")
+                move = entry[0].replace("\\", "")
+
+                now = time.time()
+                if now - last_move_time > constants["idle_time"]:
+                    move_history.clear()
+                last_move_time = now
+
+                move_history.append(move)
+
+                match = find_match(move_history)
+                print(match)
+                if match:
+                    execute_combo(binds[match])
+                    if constants["delete_mode"] == "flush":
+                        move_history.clear()
+                    elif constants["delete_mode"] == "postfix":
+                        del move_history[-len(match) :]
+                    # 'keep': leave history unchanged
+            except Exception:
+                pass
+
+finally:
+    driver.quit()
+    chromium_process.terminate()

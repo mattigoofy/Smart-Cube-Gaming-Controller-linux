@@ -1,0 +1,8 @@
+! DELETION FLUSH
+! IDLE_TIME 10
+
+R L' - alt+tab
+R R - a b c ;
+R U R' U' - ctrl+z
+B2 - shift
+F R - space

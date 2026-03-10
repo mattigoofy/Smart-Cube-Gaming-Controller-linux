@@ -2,5 +2,6 @@
 
 *.log
 *.bat
+*.venv
 _gitignore
 __pycache__
