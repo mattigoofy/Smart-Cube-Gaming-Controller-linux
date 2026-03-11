@@ -1,6 +1,11 @@
-var button = document.getElementById("button").addEventListener("click", clicked)
+const button = document.getElementById("button");
 
-async function clicked() {
-  await connect()
-  console.log("connected")
-}
+button.addEventListener("click", async () => {
+    button.disabled = true;
+    try {
+        await connect();
+        button.textContent = "Connected";
+    } catch (ex) {
+        button.disabled = false;
+    }
+});

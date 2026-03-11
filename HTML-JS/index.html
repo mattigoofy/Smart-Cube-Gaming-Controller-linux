@@ -1,28 +1,50 @@
 <!DOCTYPE html>
-
-<html>
-	<head>
-		<title>GoCube Bluetooth</title>
-		<meta charset="utf-8">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="https://molarmanful.github.io/gCube/gcube.min.js"></script>
-	</head>
-	<body>
-		<button id=button type="button"> Connect! </button>
-
-   	 	<g-cube>
-			<!-- <g-speed>10</g-speed>
-			<g-scramble>D2 R2 F2 R B L U2 F D L2 B2 L2 F' U2 B L2 D2 F2 D2 B</g-scramble>
-			<g-algorithm>R U R' U'</g-algorithm>
-			<g-highlight>flxcross</g-highlight>
-			<g-florian>0.2em,0.1em</g-florian> -->
-		</g-cube>  
-
-		<script src="bluetooth.js"></script>
-		<script src="button.js"></script>
-		<script>
-			$('g-cube').gscramble("R");
-			$('g-cube').gspeed(10);
-		</script>
-	</body>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Smart Cube Controller</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://molarmanful.github.io/gCube/gcube.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Smart Cube Controller</h1>
+        <div class="top-row">
+            <div class="cube-section">
+                <button id="button">Connect</button>
+                <p id="status"></p>
+                <g-cube></g-cube>
+            </div>
+            <div class="mode-panel">
+                <div class="mode-tabs">
+                    <button class="tab-btn" id="tab-binds" data-mode="BINDS">Binds</button>
+                    <button class="tab-btn" id="tab-console" data-mode="CONSOLE">Console</button>
+                </div>
+                <div class="tab-content" id="panel-binds">
+                    <div class="binds-header">
+                        <span>Edit binds.txt</span>
+                        <div>
+                            <button id="binds-reload">Reload</button>
+                            <button id="binds-save">Save</button>
+                        </div>
+                    </div>
+                    <textarea id="binds-editor" spellcheck="false"></textarea>
+                    <p id="binds-status"></p>
+                </div>
+                <div class="tab-content hidden" id="panel-console">
+                    <p id="shift-indicator">SHIFT: OFF</p>
+                    <div id="keyboard"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="bluetooth.js"></script>
+    <script src="button.js"></script>
+    <script src="mode.js"></script>
+    <script>
+        $('g-cube').gscramble("x2");
+    </script>
+</body>
 </html>
