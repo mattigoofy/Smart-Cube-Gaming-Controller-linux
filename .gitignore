@@ -5,3 +5,4 @@
 *.venv
 _gitignore
 __pycache__
+tools/data/*.xml
