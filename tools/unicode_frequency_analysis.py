@@ -110,7 +110,7 @@ def iter_article_texts(xml_path: str):
                 elem.clear()
 
 
-def count_characters(xml_path: str, limit: int | None = None) -> Counter[str]:
+def count_characters_wiki(xml_path: str, limit: int | None = None) -> Counter[str]:
     counter: Counter[str] = Counter()
     pages_processed = 0
 
@@ -127,6 +127,16 @@ def count_characters(xml_path: str, limit: int | None = None) -> Counter[str]:
             break
 
     print(f"\nDone. {pages_processed:,} articles, {len(counter):,} unique characters.")
+    return counter
+
+
+def count_characters_generic(filepath: str, limit: int | None = None) -> Counter[str]:
+    counter: Counter[str] = Counter()
+
+    with open(filepath, 'r') as file:
+        counter.update(file.read())
+
+    print(f"\nDone. {len(counter):,} unique characters.")
     return counter
 
 
@@ -160,7 +170,8 @@ def print_top(counter: Counter[str], n: int = 30) -> None:
 
 def main():
     limit = None
-    counter = count_characters('tools/data/simplewiki-latest-pages-articles-multistream.xml', limit=limit)
+    counter = count_characters_wiki('tools/data/simplewiki-latest-pages-articles-multistream.xml', limit=limit)
+    # counter = count_characters_generic("tools/data/sample_text.txt")
     print_top(counter, n=30)
     save_frequencies(counter, 'tools/data/character_usage_frequencies')
 
