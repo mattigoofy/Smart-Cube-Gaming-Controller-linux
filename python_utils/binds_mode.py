@@ -3,7 +3,7 @@ import threading
 import time
 
 from .bind_reader import upload_binds
-from .directinput import execute_combo, write_unicode_string
+from .directinput import execute_combo
 from .server import binds_reload_event, move_queue
 
 
