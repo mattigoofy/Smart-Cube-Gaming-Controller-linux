@@ -57,8 +57,6 @@ CHAR_MAP["shift"] = e.KEY_LEFTSHIFT
 CHAR_MAP["ctrl"] = e.KEY_LEFTCTRL
 CHAR_MAP["alt"] = e.KEY_LEFTALT
 
-UNPRINTABLE_KEYS = ["space", "enter", "return", "tab", "backspace", "left arrow", "right arrow", "up arrow", "down arrow", "shift", "ctrl", "alt"]
-
 # Create a UInput device. On some systems providing capabilities is required,
 # but the default should work for most cases.
 ui = UInput()
@@ -89,12 +87,13 @@ def execute_combo(keys_list):
             except ValueError:
                 pass
 
-        # Key combo: press all together, then release
-        if (len(combo) == 1) and not combo in UNPRINTABLE_KEYS:
+        # Single character
+        if (len(combo) == 1) and not combo in CHAR_MAP.keys():
             write_unicode_string(combo)
             # Don't execute the rest of this code; short-circuit
             return
 
+        # Key combo: press all together, then release
         keys = [CHAR_MAP[k] for k in combo if k in CHAR_MAP]
         for k in keys:
             press_key(k)
