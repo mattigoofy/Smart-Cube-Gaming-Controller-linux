@@ -30,8 +30,16 @@
                             <button id="binds-save">Save</button>
                         </div>
                     </div>
+                    <div class="binds-picker-row">
+                        <label for="binds-file-select">Bind file</label>
+                        <select id="binds-file-select"></select>
+                    </div>
                     <textarea id="binds-editor" spellcheck="false"></textarea>
                     <p id="binds-status"></p>
+                    <div class="history-section">
+                        <div class="history-header">Pending buffer</div>
+                        <textarea id="moves-history" readonly spellcheck="false"></textarea>
+                    </div>
                 </div>
                 <div class="tab-content hidden" id="panel-console">
                     <p id="shift-indicator">SHIFT: OFF</p>

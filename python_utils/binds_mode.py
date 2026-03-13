@@ -4,7 +4,7 @@ import time
 
 from .bind_reader import upload_binds
 from .directinput import execute_combo
-from .server import binds_reload_event, move_queue
+from .server import binds_reload_event, clear_binds_buffer, move_queue, set_binds_buffer
 
 
 def _find_match(history: list, binds: dict, greedy: bool = False):
@@ -16,6 +16,7 @@ def _find_match(history: list, binds: dict, greedy: bool = False):
         binds (list)
         greedy (bool): When True, it tries to find the shortest occurrence. When False, it finds the longest. Example: `F R U B U'`, with `U` and `R U B` as valid bindings. When greedy, it finds `U`, and immediately returns `U`, when not greedy, it first finds `R`, then `R U` (and doesn't return `U`), then `R U B`, and returns `R U B`.
     """
+
     def greedy_search(history: list, binds: dict):
         best, best_len = None, 0
         for formula in binds:
@@ -23,7 +24,7 @@ def _find_match(history: list, binds: dict, greedy: bool = False):
             if n <= len(history) and tuple(history[-n:]) == formula and n > best_len:
                 best, best_len = formula, n
         return best
-    
+
     if greedy:
         return greedy_search(history, binds)
     else:
@@ -33,7 +34,7 @@ def _find_match(history: list, binds: dict, greedy: bool = False):
                 prefix = formula[:length]
                 if len(history) >= length and tuple(history[-length:]) == prefix:
                     return None  # Still potentially mid-sequence, wait for more moves
-                
+
         # No formula can grow further, find the longest possible sequence now
         return greedy_search(history, binds)
 
@@ -42,6 +43,7 @@ def run_binds_mode(stop_event: threading.Event, binds_path):
     binds, constants = upload_binds(binds_path)
     move_history: list[str] = []
     last_move_time = time.time()
+    clear_binds_buffer()
 
     while not stop_event.is_set():
         if binds_reload_event.is_set():
@@ -57,9 +59,11 @@ def run_binds_mode(stop_event: threading.Event, binds_path):
         now = time.time()
         if now - last_move_time > constants["idle_time"]:
             move_history.clear()
+            set_binds_buffer(move_history)
         last_move_time = now
 
         move_history.append(move)
+        set_binds_buffer(move_history)
 
         match = _find_match(move_history, binds)
         if match:
@@ -69,3 +73,6 @@ def run_binds_mode(stop_event: threading.Event, binds_path):
                 move_history.clear()
             elif constants["delete_mode"] == "postfix":
                 del move_history[-len(match) :]
+            set_binds_buffer(move_history)
+
+    clear_binds_buffer()

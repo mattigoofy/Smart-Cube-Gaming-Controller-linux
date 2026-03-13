@@ -4,15 +4,14 @@ Requires: pip install evdev
 Requires access to /dev/uinput (run as root or add a udev rule).
 """
 
+import platform
 import subprocess
 import time
 
-from evdev import UInput
-from evdev import ecodes as e
-
 import pyautogui
 import pyperclip
-import platform
+from evdev import UInput
+from evdev import ecodes as e
 
 # Build a CHAR_MAP mapping similar to the previous Windows layout.
 CHAR_MAP = {}
@@ -57,6 +56,22 @@ CHAR_MAP["shift"] = e.KEY_LEFTSHIFT
 CHAR_MAP["ctrl"] = e.KEY_LEFTCTRL
 CHAR_MAP["alt"] = e.KEY_LEFTALT
 
+
+UNPRINTABLE_KEYS = [
+    "space",
+    "enter",
+    "return",
+    "tab",
+    "backspace",
+    "left arrow",
+    "right arrow",
+    "up arrow",
+    "down arrow",
+    "shift",
+    "ctrl",
+    "alt",
+]
+
 # Create a UInput device. On some systems providing capabilities is required,
 # but the default should work for most cases.
 ui = UInput()
@@ -87,10 +102,14 @@ def execute_combo(keys_list):
             except ValueError:
                 pass
 
-        # Single character
-        if (len(combo) == 1) and not combo in CHAR_MAP.keys():
-            write_unicode_string(combo)
-            # Don't execute the rest of this code; short-circuit
+        # Single characters
+        if (len(combo) == 1) and combo not in list(CHAR_MAP.keys()):
+            if combo[0] not in UNPRINTABLE_KEYS:
+                write_unicode_string(combo[0])
+            else:
+                press_key(CHAR_MAP[combo[0]])
+                release_key(CHAR_MAP[combo[0]])
+            # Don't execute the rest of this code; short-circuits
             return
 
         # Key combo: press all together, then release
@@ -101,9 +120,14 @@ def execute_combo(keys_list):
         for k in reversed(keys):
             release_key(k)
 
+
 def write_unicode_string(text: str):
     pyperclip.copy(text)
     if platform.system() == "Darwin":
         pyautogui.hotkey("command", "v")
     else:
-        pyautogui.hotkey("ctrl", "v")
+        press_key(CHAR_MAP["ctrl"])
+        press_key(CHAR_MAP["v"])
+        release_key(CHAR_MAP["ctrl"])
+        release_key(CHAR_MAP["v"])
+   

@@ -6,6 +6,8 @@ const KEYBOARD = [
 ];
 
 let cursorPollTimer = null;
+let movesPollTimer = null;
+let isUpdatingBindsSelect = false;
 
 // --- Build virtual keyboard grid once ---
 (function buildKeyboard() {
@@ -46,6 +48,7 @@ function activateTab(mode) {
 
     if (mode === "BINDS") {
         stopCursorPoll();
+        loadBindsOptions();
         loadBinds();
     } else if (mode === "CONSOLE") {
         startCursorPoll();
@@ -53,6 +56,37 @@ function activateTab(mode) {
 }
 
 // --- Binds editor ---
+async function loadBindsOptions() {
+    try {
+        const res = await fetch("/binds/options");
+        if (!res.ok) {
+            throw new Error(await res.text());
+        }
+        const data = await res.json();
+        const select = document.getElementById("binds-file-select");
+        const previousValue = select.value;
+
+        isUpdatingBindsSelect = true;
+        select.innerHTML = "";
+        data.files.forEach(file => {
+            const option = document.createElement("option");
+            option.value = file;
+            option.textContent = file;
+            select.appendChild(option);
+        });
+
+        if (data.files.includes(data.selected)) {
+            select.value = data.selected;
+        } else if (data.files.includes(previousValue)) {
+            select.value = previousValue;
+        }
+        isUpdatingBindsSelect = false;
+    } catch (ex) {
+        isUpdatingBindsSelect = false;
+        setBindsStatus("Failed to load bind files: " + ex.message, true);
+    }
+}
+
 async function loadBinds() {
     try {
         const res = await fetch("/binds");
@@ -63,6 +97,24 @@ async function loadBinds() {
 }
 
 document.getElementById("binds-reload").addEventListener("click", loadBinds);
+
+document.getElementById("binds-file-select").addEventListener("change", async ev => {
+    if (isUpdatingBindsSelect) {
+        return;
+    }
+    const selected = ev.target.value;
+    try {
+        const res = await fetch("/binds/select", { method: "POST", body: selected });
+        if (!res.ok) {
+            throw new Error(await res.text());
+        }
+        await loadBinds();
+        setBindsStatus("Switched bind file.", false);
+    } catch (ex) {
+        setBindsStatus("Switch failed: " + ex.message, true);
+        await loadBindsOptions();
+    }
+});
 
 document.getElementById("binds-save").addEventListener("click", async () => {
     const content = document.getElementById("binds-editor").value;
@@ -83,6 +135,35 @@ function setBindsStatus(msg, isError) {
     el.textContent = msg;
     el.className = isError ? "error" : "ok";
     setTimeout(() => { el.textContent = ""; el.className = ""; }, 3000);
+}
+
+// --- Move history polling ---
+function startMovesPoll() {
+    stopMovesPoll();
+    pollMovesHistory();
+    movesPollTimer = setInterval(pollMovesHistory, 250);
+}
+
+function stopMovesPoll() {
+    if (movesPollTimer !== null) {
+        clearInterval(movesPollTimer);
+        movesPollTimer = null;
+    }
+}
+
+async function pollMovesHistory() {
+    try {
+        const res = await fetch("/moves/history?limit=80");
+        if (!res.ok) {
+            return;
+        }
+        const { moves } = await res.json();
+        const el = document.getElementById("moves-history");
+        el.value = (moves || []).join(" ");
+        el.scrollTop = el.scrollHeight;
+    } catch (_) {
+        // ignore poll errors silently
+    }
 }
 
 // --- Virtual keyboard cursor polling ---
@@ -119,4 +200,5 @@ function updateKeyboard(row, col, shiftlock) {
 }
 
 // Activate BINDS tab by default on page load
+startMovesPoll();
 activateTab("BINDS");

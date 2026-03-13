@@ -137,6 +137,26 @@ g-cube {
     resize: vertical;
 }
 
+.binds-picker-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.85rem;
+    color: #c7c7c7;
+}
+
+#binds-file-select {
+    flex: 1;
+    min-width: 0;
+    background: #0f0e17;
+    color: #e0e0e0;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 0.35rem 0.5rem;
+    font-size: 0.85rem;
+}
+
 #binds-status {
     font-size: 0.8rem;
     margin: 0.25rem 0 0;
@@ -145,6 +165,30 @@ g-cube {
 
 #binds-status.ok    { color: #2ecc71; }
 #binds-status.error { color: #e74c3c; }
+
+.history-section {
+    margin-top: 0.8rem;
+}
+
+.history-header {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-bottom: 0.35rem;
+}
+
+#moves-history {
+    width: 100%;
+    min-height: 92px;
+    max-height: 140px;
+    background: #0f0e17;
+    color: #b6d7ff;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 0.5rem;
+    font-family: monospace;
+    font-size: 0.85rem;
+    resize: vertical;
+}
 
 /* --- Virtual keyboard --- */
 #shift-indicator {
