@@ -1,0 +1,32 @@
+[
+    {
+        "type": "Command",
+        "name": "DELETION",
+        "value": "FLUSH"
+    },
+    {
+        "type": "Command",
+        "name": "IDLE_TIME",
+        "value": "10"
+    },
+    {
+        "type": "bind",
+        "formula": "R L'",
+        "keys": "alt+tab"
+    },
+    {
+        "type": "bind",
+        "formula": "R R",
+        "keys": "ctrl+t"
+    },
+    {
+        "type": "bind",
+        "formula": "R U R' U'",
+        "keys": "ctrl+z"
+    },
+    {
+        "type": "shell",
+        "formula": "F F",
+        "command": "ls ~"
+    }
+]

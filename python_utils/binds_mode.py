@@ -38,14 +38,14 @@ def _find_match(history: list, binds: dict, greedy: bool = False):
         return greedy_search(history, binds)
 
 
-def run_binds_mode(stop_event: threading.Event):
-    binds, constants = upload_binds()
+def run_binds_mode(stop_event: threading.Event, binds_path):
+    binds, constants = upload_binds(binds_path)
     move_history: list[str] = []
     last_move_time = time.time()
 
     while not stop_event.is_set():
         if binds_reload_event.is_set():
-            binds, constants = upload_binds()
+            binds, constants = upload_binds(binds_path)
             binds_reload_event.clear()
             print("Binds reloaded.")
 

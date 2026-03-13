@@ -4,6 +4,7 @@ Requires: pip install evdev
 Requires access to /dev/uinput (run as root or add a udev rule).
 """
 
+import subprocess
 import time
 
 from evdev import UInput
@@ -73,6 +74,11 @@ def release_key(key):
 
 def execute_combo(keys_list):
     for combo in keys_list:
+        # Shell command
+        if combo[0] == "__shell__":
+            subprocess.Popen(combo[1], shell=True)
+            continue
+
         # Delay step: e.g. ['1.0s']
         if len(combo) == 1 and combo[0].endswith("s"):
             try:
