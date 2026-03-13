@@ -1,52 +1,28 @@
-R - l
-L - s
-U - i
-B - n
-D - a
+R - L
+L - I
+U - S
+B - O
+D - T
 F - space
-L' - r
-U' - o
-B' - t
-D' - e
-R' R - A
-R' L - 9
-R' B - 1
-R' D - enter
-R' F - .
-F' R - v
-F' L - ,
-F' U - w
-F' B - p
-F' D - m
-F' F - d
-R' R' - x
-R' L' - I
-R' U' - T
-R' B' - k
-R' F' - b
-F' R' - y
-F' L' - g
-F' U' - f
-F' B' - u
-F' D' - c
-F' F' - h
-R' U U - 5
-R' U B - E
-R' U D - G
-R' U F - q
-R' U U' - R
-R' U B' - H
-R' U D' - B
-R' U F' - :
-R' D' R - D
-R' D' L - 2
-R' D' U - P
-R' D' B - M
-R' D' D - 0
-R' D' F - S
-R' D' R' - F
-R' D' L' - U
-R' D' U' - ’
-R' D' B' - 8
-R' D' D' - j
-R' D' F' - W
+R' - H
+L' - R
+U' - N
+B' - A
+D' - E
+F' R - V
+F' U - Y
+F' B - F
+F' D - P
+F' F - C
+F' R' - W
+F' L' - B
+F' U' - G
+F' B' - U
+F' D' - M
+F' F' - D
+F' L B - Z
+F' L D - J
+F' L F - K
+F' L B' - Q
+F' L D' - X
+F' L F' - enter

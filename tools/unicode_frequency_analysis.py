@@ -170,10 +170,11 @@ def print_top(counter: Counter[str], n: int = 30) -> None:
 
 def main():
     limit = None
-    counter = count_characters_wiki('tools/data/simplewiki-latest-pages-articles-multistream.xml', limit=limit)
-    # counter = count_characters_generic("tools/data/sample_text.txt")
+    # counter = count_characters_wiki('tools/data/simplewiki-latest-pages-articles-multistream.xml', limit=limit)
+    counter = count_characters_generic("tools/data/sample_text_simplified.txt")
     print_top(counter, n=30)
-    save_frequencies(counter, 'tools/data/character_usage_frequencies')
+    # save_frequencies(counter, 'tools/data/character_usage_frequencies')
+    save_frequencies(counter, 'tools/data/character_usage_frequencies_tiny')
 
 
 if __name__ == "__main__":
