@@ -33,8 +33,15 @@ class HuffmanTree:
     """
     def __init__(self, degree: int) -> None:
         self.degree: int = degree
+        self._tree: HuffmanTreeNode | None = None
         self._symbol_distribution_table: list[tuple[str, int]]
         self._number_unique_symbols: int
+
+    @property
+    def tree(self):
+        if not self._tree:
+            raise ValueError("No tree available. Please generate the tree first.")
+        return self._tree
 
     def set_frequency_analysis(self, filepath: str) -> None:
         with open(filepath, 'r', encoding="utf-8") as file:
@@ -50,7 +57,7 @@ class HuffmanTree:
             for i in range(number_ghost_nodes):
                 self._symbol_distribution_table.append((_GHOST_NODE_PREFIX + str(i), 0))
 
-    def generate(self) -> HuffmanTreeNode:
+    def generate(self) -> None:
         # Min-heap
         heap: list[HuffmanTreeNode] = []
         for symbol, frequency in self._symbol_distribution_table:
@@ -66,8 +73,8 @@ class HuffmanTree:
             parent.children = children
             heapq.heappush(heap, parent)
  
-        self.root = heap[0]
-        return self.root
+        root = heap[0]
+        self._tree = root
 
 
 class HuffmanTable:
@@ -75,13 +82,19 @@ class HuffmanTable:
     A mapping of every symbol to its Huffman code.
     """
     def __init__(self) -> None:
-        self.mapping: dict[str, str] = {}
+        self._mapping: dict[str, str] = {}
         self._binary_digit_mapping: dict[int, str] = {}
 
-    def from_tree(self, root: HuffmanTreeNode, degree: int) -> HuffmanTable:
-        self.bits_per_edge = number_of_binary_digits(degree)
-        self.mapping = {}
-        self._walk(root, "")
+    @property
+    def mapping(self):
+        if not self._mapping:
+            ValueError("No mapping available. Please generate the table first.")
+        return self._mapping
+
+    def from_tree(self, root: HuffmanTree) -> HuffmanTable:
+        self.bits_per_edge = number_of_binary_digits(root.degree)
+        self._mapping = {}
+        self._walk(root.tree, "")
         return self
     
     def set_binary_digit_mapping(self, mapping: dict[int, str]):
@@ -170,7 +183,7 @@ def main():
     tree = HuffmanTree(degree=12)
     # tree.set_frequency_analysis('tools/data/character_usage_frequencies_5000_articles.json')
     tree.set_frequency_analysis('tools/data/character_usage_frequencies_full')
-    root = tree.generate()
+    tree.generate()
     table = HuffmanTable()
     table.set_binary_digit_mapping({
         0: "R ",
@@ -186,8 +199,8 @@ def main():
         10: "F ",
         11: "F' "
     })
-    table.from_tree(root, degree=12)
-    table.to_bindfile('tools/data/mapping.txt', sort_type=HuffmanTable.SortType.ShortestFirst)
+    table.from_tree(tree)
+    table.to_bindfile('tools/data/mappings/mapping.txt', sort_type=HuffmanTable.SortType.ShortestFirst)
 
 if __name__ == '__main__':
     main()
