@@ -182,7 +182,8 @@ def number_of_binary_digits(degree: int) -> int:
 def main():
     tree = HuffmanTree(degree=12)
     # tree.set_frequency_analysis('tools/data/character_usage_frequencies_5000_articles.json')
-    tree.set_frequency_analysis('tools/data/character_usage_frequencies_full')
+    # tree.set_frequency_analysis('tools/data/character_usage_frequencies_full')
+    tree.set_frequency_analysis('tools/data/character_usage_frequencies_tiny')
     tree.generate()
     table = HuffmanTable()
     table.set_binary_digit_mapping({
@@ -200,7 +201,8 @@ def main():
         11: "F' "
     })
     table.from_tree(tree)
-    table.to_bindfile('tools/data/mappings/mapping.txt', sort_type=HuffmanTable.SortType.ShortestFirst)
+    # table.to_bindfile('tools/data/mappings/mapping.txt', sort_type=HuffmanTable.SortType.ShortestFirst)
+    table.to_bindfile('tools/data/mappings/mapping_tiny.txt', sort_type=HuffmanTable.SortType.ShortestFirst)
 
 if __name__ == '__main__':
     main()
