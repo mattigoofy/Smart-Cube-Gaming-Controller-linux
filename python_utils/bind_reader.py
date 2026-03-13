@@ -13,14 +13,28 @@ import re
 logger = logging.getLogger("Bind_Uploader")
 
 
-def upload_binds() -> tuple[dict[tuple[str], list[list[str]]], dict[str, any]]:
+def upload_binds(file_path:str) -> tuple[dict[tuple[str], list[list[str]]], dict[str, any]]:
+    if file_path[-3:] == "txt":
+        binds, constants = upload_binds_txt(file_path)
+    elif file_path[-4:] == "json":
+        binds, constants = upload_binds_json(file_path)
+    else:
+        raise ValueError('Unsupported filetype.')
+    
+    return binds, constants
+
+
+
+def upload_binds_txt(
+    file: str,
+) -> tuple[dict[tuple[str], list[list[str]]], dict[str, any]]:
     """
     loads binds from binds.txt
     ret: dict[<formula>, [<key bind>, ...]], dict{'delete_mode': 'flush/postfix/keep', 'idle_time': float}
     """
     ret: dict[tuple[str], str] = {}
     constants = {"delete_mode": "flush", "idle_time": 10}
-    with open("binds.txt") as file:
+    with open(file) as file:
         binds = file.read()
 
         for bind in binds.split("\n"):
@@ -79,17 +93,17 @@ def upload_binds() -> tuple[dict[tuple[str], list[list[str]]], dict[str, any]]:
     return ret, constants
 
 
-def upload_binds_json() -> tuple[dict[tuple[str], list[list[str]]], dict[str, any]]:
+def upload_binds_json(
+    file: str,
+) -> tuple[dict[tuple[str], list[list[str]]], dict[str, any]]:
     """
     Loads binds from a JSON file.
     Returns: (binds dict, constants dict) — same shape as the .txt version.
     """
-    path: str = "binds.json"
-
     binds: dict[tuple[str], list[list[str]]] = {}
     constants = {"delete_mode": "flush", "idle_time": 10}
 
-    with open(path) as f:
+    with open(file) as f:
         entries = json.load(f)
 
     for entry in entries:

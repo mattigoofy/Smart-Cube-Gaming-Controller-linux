@@ -7,7 +7,9 @@ from python_utils.console_mode import run_console_mode
 from python_utils.server import mode_queue, start_server
 
 HTML_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "HTML-JS")
-BINDS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "binds.json")
+BINDS_PATH = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "tools/data/mappings/mapping.txt"
+)
 PORT = 8766
 URL = f"http://localhost:{PORT}/index.html"
 
@@ -20,7 +22,12 @@ active_thread = None
 try:
     # start on binds
     active_thread = threading.Thread(
-        target=run_binds_mode, args=(stop_event,), daemon=True
+        target=run_binds_mode,
+        args=(
+            stop_event,
+            BINDS_PATH,
+        ),
+        daemon=True,
     )
     active_thread.start()
     while True:
@@ -33,7 +40,12 @@ try:
 
         if mode == "BINDS":
             active_thread = threading.Thread(
-                target=run_binds_mode, args=(stop_event,), daemon=True
+                target=run_binds_mode,
+                args=(
+                    stop_event,
+                    BINDS_PATH,
+                ),
+                daemon=True,
             )
         elif mode == "CONSOLE":
             active_thread = threading.Thread(
