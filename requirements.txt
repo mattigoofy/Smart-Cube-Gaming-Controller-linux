@@ -1,2 +1,3 @@
 # Python modules required for program to run (Linux)
 evdev
+wikitextparser
