@@ -6,7 +6,9 @@ Created on Tue Oct 27 01:55:49 2020
 find full code at: https://github.com/ImNotGLaDOS/gan-to-keyboard
 """
 
+import json
 import logging
+import re
 
 logger = logging.getLogger("Bind_Uploader")
 
@@ -75,3 +77,65 @@ def upload_binds() -> tuple[dict[tuple[str], list[list[str]]], dict[str, any]]:
     ret_repr = "\n".join([repr(bind) for bind in ret.items()])
     logger.info(f"Readed binds:\n{ret_repr}")
     return ret, constants
+
+
+def upload_binds_json() -> tuple[dict[tuple[str], list[list[str]]], dict[str, any]]:
+    """
+    Loads binds from a JSON file.
+    Returns: (binds dict, constants dict) — same shape as the .txt version.
+    """
+    path: str = "binds.json"
+
+    binds: dict[tuple[str], list[list[str]]] = {}
+    constants = {"delete_mode": "flush", "idle_time": 10}
+
+    with open(path) as f:
+        entries = json.load(f)
+
+    for entry in entries:
+        entry_type = entry.get("type", "").lower()
+
+        # --- Commands / settings ---
+        if entry_type == "command":
+            name = entry.get("name", "").casefold()
+            value = entry.get("value", "").casefold()
+
+            if name == "deletion":
+                if value not in ["keep", "postfix", "flush"]:
+                    logger.warning(f"Invalid deletion value: '{value}'")
+                else:
+                    constants["delete_mode"] = value
+
+            elif name == "idle_time":
+                try:
+                    constants["idle_time"] = float(value)
+                except ValueError:
+                    logger.warning(f"Invalid idle_time value: '{value}'")
+
+            else:
+                logger.warning(f"Unknown command: '{name}'")
+
+        # --- Key binds ---
+        elif entry_type == "bind":
+            formula_str = entry.get("formula", "")
+            keys_str = entry.get("keys", "")
+
+            formula = tuple(formula_str.strip().split())
+            keys_list = [comb.split("+") for comb in keys_str.strip().split()]
+            binds[formula] = keys_list
+
+        # --- Shell commands ---
+        elif entry_type == "shell":
+            formula_str = entry.get("formula", "")
+            command = entry.get("command", "")
+
+            formula = tuple(formula_str.strip().split())
+            # Store shell commands wrapped so the caller can distinguish them
+            binds[formula] = [["__shell__", command]]
+
+        else:
+            logger.warning(f"Unknown entry type: '{entry_type}'")
+
+    ret_repr = "\n".join([repr(bind) for bind in binds.items()])
+    logger.info(f"Loaded binds:\n{ret_repr}")
+    return binds, constants
