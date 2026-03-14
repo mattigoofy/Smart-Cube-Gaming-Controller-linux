@@ -3,6 +3,7 @@
 *.log
 *.bat
 *.venv
+*.egg-info
 _gitignore
 __pycache__
 src/data/datasets/*wiki*.xml

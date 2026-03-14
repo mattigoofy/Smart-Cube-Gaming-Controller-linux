@@ -12,11 +12,9 @@ from python_utils.server import (
     start_server,
 )
 
-HTML_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "HTML-JS")
-BINDS_PATH = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "binds/full_huffman_mapping.txt"
-)
-BINDS_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "binds")
+HTML_DIR = os.path.join("src", "HTML-JS")
+BINDS_ROOT = os.path.join("binds")
+BINDS_PATH = os.path.join(BINDS_ROOT, "full_huffman_mapping.txt")
 PORT = 8766
 URL = f"http://localhost:{PORT}/index.html"
 

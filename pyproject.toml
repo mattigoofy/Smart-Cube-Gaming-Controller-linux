@@ -1,0 +1,18 @@
+[project]
+name = "Smart-cube-gaming-controller-linux"
+version = "1.0"
+description = "Control your linux PC with a bluetooth rubiks cube"
+authors = [
+    { name = "Sam Decorte" },
+    { name = "Mathias Goovaerts" }
+    ]
+
+dependencies = [ 
+    "evdev",
+    "wikitextparser",
+    "pyautogui"
+]
+
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
