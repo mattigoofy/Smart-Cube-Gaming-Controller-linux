@@ -5,4 +5,4 @@
 *.venv
 _gitignore
 __pycache__
-tools/data/*.xml
+src/data/datasets/*wiki*.xml
