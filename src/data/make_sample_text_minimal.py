@@ -15,7 +15,7 @@ def process_file(filepath_in: str, filepath_out: str):
         file.write(file_minimized)
 
 def main():
-    process_file(filepath_in="tools/data/sample_text.txt", filepath_out="tools/data/sample_text_simplified.txt")
+    process_file(filepath_in="src/data/datasets/sample_text.txt", filepath_out="src/data/datasets/sample_text_simplified.txt")
 
 if __name__ == "__main__":
     main()
