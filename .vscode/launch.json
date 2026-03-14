@@ -4,7 +4,8 @@
             "name": "Python Debugger: main",
             "type": "debugpy",
             "request": "launch",
-            "program": "src/SmartCubeGamingController/__main__.py",
+            "module": "SmartCubeGamingController",
+            "cwd": "${workspaceFolder}/src",
             "console": "integratedTerminal"
         }
     ]
