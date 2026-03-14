@@ -7,7 +7,7 @@ from .directinput import execute_combo
 from .server import binds_reload_event, clear_binds_buffer, move_queue, set_binds_buffer
 
 
-def _find_match(history: list, binds: dict, greedy: bool = False):
+def _find_match(history: list, binds: dict, greedy: bool = False, exact: bool = False):
     """
     Tries to find a key combination in the current move history.
 
@@ -25,16 +25,28 @@ def _find_match(history: list, binds: dict, greedy: bool = False):
                 best, best_len = formula, n
         return best
 
+    def exact_search(history: list, binds: dict):
+        for formula in binds:
+            if tuple(history) == formula:
+                return formula
+
+        return None
+
     if greedy:
         return greedy_search(history, binds)
+    if exact:
+        return exact_search(history, binds)
     else:
         for formula in binds:
+            print(formula)
             # Check for partially completed formulas
             for length in range(1, len(formula)):
                 prefix = formula[:length]
+                print(prefix)
+                print(tuple(history[-length:]))
                 if len(history) >= length and tuple(history[-length:]) == prefix:
                     return None  # Still potentially mid-sequence, wait for more moves
-
+            print()
         # No formula can grow further, find the longest possible sequence now
         return greedy_search(history, binds)
 
@@ -65,13 +77,13 @@ def run_binds_mode(stop_event: threading.Event, binds_path):
         move_history.append(move)
         set_binds_buffer(move_history)
 
-        match = _find_match(move_history, binds)
+        match = _find_match(move_history, binds, exact=True)
         if match:
             print(match)
             execute_combo(binds[match])
-            if constants["delete_mode"] == "flush":
+            if constants["deletion"] == "flush":
                 move_history.clear()
-            elif constants["delete_mode"] == "postfix":
+            elif constants["deletion"] == "postfix":
                 del move_history[-len(match) :]
             set_binds_buffer(move_history)
 
