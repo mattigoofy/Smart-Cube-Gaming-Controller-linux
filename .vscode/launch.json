@@ -1,7 +1,14 @@
 {
     "configurations": [
         {
-            "name": "Python Debugger: main",
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python Debugger: Main",
             "type": "debugpy",
             "request": "launch",
             "module": "SmartCubeGamingController",
