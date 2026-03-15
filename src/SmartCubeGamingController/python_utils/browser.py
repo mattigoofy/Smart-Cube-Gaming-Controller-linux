@@ -29,19 +29,15 @@ def launch_chromium(url: str) -> subprocess.Popen[bytes]:
     # Flatpak needs to be launched differently
     if "flatpak" in chromium_bin:
         if "google" in chromium_bin:
-            cmd = [
-                "flatpak", "run", "com.google.Chrome",
-                "--enable-features=WebBluetooth",
-                "--user-data-dir=/tmp/chrome-debug",
-                url,
-            ]
+            app_name = "com.google.Chrome"
         else:
-            cmd = [
-                "flatpak", "run", "org.chromium.Chromium",
-                "--enable-features=WebBluetooth",
-                "--user-data-dir=/tmp/chrome-debug",
-                url,
-            ]
+            app_name = "org.chromium.Chromium"
+        cmd = [
+            "flatpak", "run", app_name,
+            "--enable-features=WebBluetooth",
+            "--user-data-dir=/tmp/chrome-debug",
+            url,
+        ]
     else:
         cmd = [
             chromium_bin,
