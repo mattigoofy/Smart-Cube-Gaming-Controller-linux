@@ -24,6 +24,7 @@ class ServerSettings:
     html_dir: str = os.path.join("src", "HTML-JS")
     binds_root: str = os.path.join("binds")
     binds_path: str = os.path.join(binds_root, "full_huffman_mapping.txt")
+    host: str = "localhost"
     port: int = 8766
     url: str = f"http://localhost:{port}/index.html"
 
@@ -84,8 +85,13 @@ class Server:
         
     @property
     def binds_root(self):
-        # with self._binds_lock:
-        return self._binds_root
+        with self._binds_lock:
+            return self._binds_root
+    
+    @binds_root.setter
+    def binds_root(self, new_root: str):
+        with self._binds_lock:
+            self._binds_root = new_root
 
     @property
     # NOTE limit parameter is not reachable if you're using this as a property, hence the separate function `binds_buffer_with_limit`
@@ -103,11 +109,20 @@ class Server:
             self._binds_buffer.clear()
             self._binds_buffer.extend(moves)
 
-    def start(self) -> None:
+    def start(self):
         """
         Start the server, using the settings defined in `self._settings`
         """
-        raise NotImplementedError
+        self.binds_root = self._settings.binds_root
+        self.binds_path = self._settings.binds_path
+        
+        def handler_factory(*args, **kwargs):
+            return CubeHandler(*args, directory=self._settings.html_dir, **kwargs)
+
+        server = http.server.HTTPServer((self._settings.host, self._settings.port), handler_factory)
+        thread = threading.Thread(target=server.serve_forever, daemon=True)
+        thread.start()
+        return server
     
 
 class CubeHandler(http.server.SimpleHTTPRequestHandler):
