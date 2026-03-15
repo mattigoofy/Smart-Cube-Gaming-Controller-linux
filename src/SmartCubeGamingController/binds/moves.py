@@ -1,6 +1,7 @@
 import enum
 
 from typing import TYPE_CHECKING
+
 if TYPE_CHECKING:
     # Use these imports only when type checking. This resolves a circular import issue when trying to run.
     from SmartCubeGamingController.binds.binds import Bindings
@@ -10,6 +11,7 @@ class MoveType(enum.Enum):
     """
     An abstraction of a move on the Rubik's cube
     """
+
     U = "U"
     U_PRIME = "U'"
     R = "R"
@@ -24,10 +26,11 @@ class MoveType(enum.Enum):
     D_PRIME = "D'"
 
 
-class MoveList():
+class MoveList:
     """
     A list of moves, for example ["U", "F'", "B"]
     """
+
     def __init__(self) -> None:
         self._move_list: list[MoveType] = []
 
@@ -38,18 +41,18 @@ class MoveList():
     def from_list(self, list: list[MoveType]):
         self._move_list = list
         return self
-    
+
     def __iter__(self):
         return iter(self.move_list)
-    
+
     def __len__(self):
         return len(self.move_list)
-    
+
     def __eq__(self, value: object) -> bool:
         if not isinstance(value, MoveList):
-            return False
+            return NotImplemented
         return self.move_list == value.move_list
-    
+
     def __hash__(self) -> int:
         return hash(tuple(self._move_list))
 
@@ -61,7 +64,7 @@ class MoveHistory:
     @property
     def history(self):
         return self._history
-    
+
     def clear(self):
         self.history.clear()
         return self
@@ -70,13 +73,17 @@ class MoveHistory:
         self.history.append(move)
         return self
 
-
     class ClearHistoryType(enum.Enum):
         All = enum.auto()
         OnlyMatched = enum.auto()
 
-    # FIXME `clear` probably shouldn't be (another) responsibility of this function. Instead, the calling function should handle this.
-    def find_match(self, bindings: Bindings, greedy: bool = False, clear: ClearHistoryType = ClearHistoryType.All) -> MoveList | None:
+    # FIXME `clear` probably shouldn't be (another) responsibility of this function. Instead, the calling function should handle this.
+    def find_match(
+        self,
+        bindings: Bindings,
+        greedy: bool = False,
+        clear: ClearHistoryType = ClearHistoryType.All,
+    ) -> MoveList | None:
         """
         Tries to find a move combination in the current move history.
 
@@ -88,6 +95,7 @@ class MoveHistory:
         Returns:
             The matched MoveList, or None if nothing matched.
         """
+
         def _greedy_search(bindings: Bindings):
             best: MoveList | None = None
             best_end = -1
@@ -96,19 +104,19 @@ class MoveHistory:
                 moves = list(move_list)
                 length = len(moves)
                 if length > len(self.history):
-                    # Skip MoveLists that are larger than the current history
+                    # Skip MoveLists that are larger than the current history
                     continue
-                # Scan all positions where this binding could end
-                for end in range(length-1, len(self.history)):
-                    start = end - (length-1)
-                    if list(self.history[start : end+1]) == moves:
+                # Scan all positions where this binding could end
+                for end in range(length - 1, len(self.history)):
+                    start = end - (length - 1)
+                    if list(self.history[start : end + 1]) == moves:
                         # Found a complete match ending at `end`
                         length_best = len(best) if best else 0
                         if end > best_end or (end == best_end and length > length_best):
                             best_end = end
                             best = move_list
             return best
-        
+
         def _non_greedy_search(bindings: Bindings):
             best: MoveList | None = None
             best_overlap = 0
@@ -123,7 +131,7 @@ class MoveHistory:
                 for k in range(1, max_possible + 1):
                     if list(self.history[-k:]) == moves[:k]:
                         overlap = k
- 
+
                 if overlap > best_overlap:
                     best_overlap = overlap
                     best = move_list
