@@ -1,19 +1,14 @@
-from dataclasses import dataclass
 import http.server
 import json
 import os
 import pathlib
 import queue
 import threading
+from dataclasses import dataclass
 from urllib.parse import parse_qs, urlparse
 
-
-@dataclass
-# TODO This file may not be the place for this class. Move it to where the console mode handler is (or will be)
-class CursorState:
-    row: int
-    column: int
-    shift_lock: bool
+from binds.moves import MoveType
+from python_utils.console import CursorState
 
 
 @dataclass
@@ -21,9 +16,10 @@ class ServerSettings:
     """
     A class holding all settings pertaining to the server settings.
     """
+
     html_dir: str = os.path.join("src", "HTML-JS")
     binds_root: str = os.path.join("binds")
-    binds_path: str = os.path.join(binds_root, "full_huffman_mapping.txt")
+    binds_path: str = os.path.join(binds_root, "config.yml")
     host: str = "localhost"
     port: int = 8766
     url: str = f"http://localhost:{port}/index.html"
@@ -33,11 +29,11 @@ class Server:
     """
     "Glue" between the backend code and the HTML server code. Handles all translation between the two.
     """
+
     def __init__(self, settings: ServerSettings) -> None:
         self._settings = settings
 
-        # TODO See todo at `CursorState` class definition; the server doesn't need to keep track of the cursor state, move this to where console mode is handled.
-        self._cursor_state: CursorState = CursorState(row=1, column=0, shift_lock=False)
+        self._cursor_state = None
 
         self._move_queue: queue.Queue[str] = queue.Queue()
         self._mode_queue: queue.Queue[str] = queue.Queue()
@@ -57,52 +53,56 @@ class Server:
     def cursor_state(self):
         return self._cursor_state
 
+    @cursor_state.setter
+    def cursor_state(self, cursor: CursorState):
+        self._cursor_state = cursor
+
     @property
     def move_queue(self):
         return self._move_queue
-    
+
     @property
     def mode_queue(self):
         return self._mode_queue
-    
+
     @property
     def binds_reload_event(self):
         return self._binds_reload_event
-    
+
     @property
     def binds_path_changed_event(self):
         return self._binds_path_changed_event
-    
+
     @property
     def binds_path(self):
         with self._binds_lock:
             return self._binds_path
-        
+
     @binds_path.setter
     def binds_path(self, new_path: str):
         with self._binds_lock:
             self._binds_path = new_path
-        
+
     @property
     def binds_root(self):
         with self._binds_lock:
             return self._binds_root
-    
+
     @binds_root.setter
     def binds_root(self, new_root: str):
         with self._binds_lock:
             self._binds_root = new_root
 
     @property
-    # NOTE limit parameter is not reachable if you're using this as a property, hence the separate function `binds_buffer_with_limit`
+    # NOTE limit parameter is not reachable if you're using this as a property, hence the separate function `binds_buffer_with_limit`
     def binds_buffer(self, limit: int = 50):
         with self._binds_buffer_lock:
             return self._binds_buffer[-limit:]
-        
+
     def binds_buffer_with_limit(self, limit: int = 50):
         with self._binds_buffer_lock:
             return self._binds_buffer[-limit:]
-        
+
     @binds_buffer.setter
     def binds_buffer(self, moves: list[str]):
         with self._binds_buffer_lock:
@@ -115,21 +115,26 @@ class Server:
         """
         self.binds_root = self._settings.binds_root
         self.binds_path = self._settings.binds_path
-        
-        def handler_factory(*args, **kwargs):
-            return CubeHandler(*args, directory=self._settings.html_dir, **kwargs)
 
-        server = http.server.HTTPServer((self._settings.host, self._settings.port), handler_factory)
+        def handler_factory(*args, **kwargs):
+            return CubeHandler(
+                *args, directory=self._settings.html_dir, parent=self, **kwargs
+            )
+
+        server = http.server.HTTPServer(
+            (self._settings.host, self._settings.port), handler_factory
+        )
         thread = threading.Thread(target=server.serve_forever, daemon=True)
         thread.start()
         return server
-    
+
 
 class CubeHandler(http.server.SimpleHTTPRequestHandler):
-    def __init__(self, *args, directory: str | None = None, parent: Server, **kwargs) -> None:
-        super().__init__(*args, directory=directory, **kwargs)
-
+    def __init__(
+        self, *args, directory: str | None = None, parent: Server, **kwargs
+    ) -> None:
         self._parent = parent
+        super().__init__(*args, directory=directory, **kwargs)
 
     def _all_binds_filepaths(self) -> list[str]:
         if not self._parent.binds_root:
@@ -142,10 +147,10 @@ class CubeHandler(http.server.SimpleHTTPRequestHandler):
         ]
         files.sort()
         return files
-    
+
     def _is_supported_binds_file(self, path: pathlib.Path) -> bool:
         return path.is_file() and path.suffix.lower() in {".txt", ".json"}
-    
+
     def _path_to_relative(self, path: str) -> str:
         if not self._parent.binds_root:
             return path
@@ -153,7 +158,7 @@ class CubeHandler(http.server.SimpleHTTPRequestHandler):
             return os.path.relpath(path, self._parent.binds_root)
         except ValueError:
             return path
-        
+
     def _resolve_binds_selection(self, selection: str) -> str:
         selection = (selection or "").strip()
         if not selection:
@@ -178,6 +183,7 @@ class CubeHandler(http.server.SimpleHTTPRequestHandler):
 
         if parsed.path == "/move":
             turn = params.get("turn", [None])[0]
+            turn = MoveType.from_str(turn)
             if turn:
                 self._parent.move_queue.put(turn)
             self._send_plain(200, "OK")
@@ -220,7 +226,7 @@ class CubeHandler(http.server.SimpleHTTPRequestHandler):
             self._send_json(200, {"moves": self._parent.binds_buffer_with_limit(limit)})
 
         elif parsed.path == "/cursor":
-            self._send_json(200, self._parent.cursor_state)
+            self._send_json(200, self._parent.cursor_state.to_dict())
 
         else:
             super().do_GET()
@@ -267,5 +273,5 @@ class CubeHandler(http.server.SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(data)
 
-    def log_message(self, format, *args): # pyright: ignore[reportMissingParameterType]
+    def log_message(self, format, *args):  # pyright: ignore[reportMissingParameterType]
         pass  # suppress per-request logging

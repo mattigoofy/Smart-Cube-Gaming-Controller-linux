@@ -132,6 +132,10 @@ class CommandList:
             return NotImplemented
         return self.commands == other.commands
 
+    def execute(self):
+        for cmd in self.commands:
+            cmd.execute()
+
 
 class Bindings:
     def __init__(self) -> None:

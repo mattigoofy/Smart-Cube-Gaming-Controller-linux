@@ -1,5 +1,4 @@
 import enum
-
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -24,6 +23,13 @@ class MoveType(enum.Enum):
     B_PRIME = "B'"
     D = "D"
     D_PRIME = "D'"
+
+    @staticmethod
+    def from_str(value: str):
+        try:
+            return MoveType(value)
+        except ValueError:
+            return None
 
 
 class MoveList:
@@ -58,8 +64,10 @@ class MoveList:
 
 
 class MoveHistory:
-    def __init__(self) -> None:
+    def __init__(self, idle_time: float, current_time: float) -> None:
         self._history: list[MoveType] = []
+        self.last_time = current_time
+        self.idle_time = idle_time
 
     @property
     def history(self):
@@ -72,6 +80,14 @@ class MoveHistory:
     def append(self, move: MoveType):
         self.history.append(move)
         return self
+
+    def set_time(self, time):
+        if time - self.last_time > self.idle_time:
+            self.clear()
+        self.last_time = time
+
+    def to_str(self):
+        return [move.value for move in self.history]
 
     class ClearHistoryType(enum.Enum):
         All = enum.auto()
@@ -96,7 +112,7 @@ class MoveHistory:
             The matched MoveList, or None if nothing matched.
         """
 
-        def _greedy_search(bindings: Bindings):
+        def _greedy_search(bindings: "Bindings"):
             best: MoveList | None = None
             best_end = -1
 
@@ -117,7 +133,7 @@ class MoveHistory:
                             best = move_list
             return best
 
-        def _non_greedy_search(bindings: Bindings):
+        def _non_greedy_search(bindings: "Bindings"):
             best: MoveList | None = None
             best_overlap = 0
 
