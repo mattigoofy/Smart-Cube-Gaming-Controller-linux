@@ -2,7 +2,7 @@ import pytest
 
 from SmartCubeGamingController.binds.binds import (
     Bindings,
-    KeyCommandList,
+    CommandList,
     SingleCharacterCommand,
 )
 from SmartCubeGamingController.binds.moves import MoveHistory, MoveList, MoveType
@@ -29,25 +29,25 @@ def bindings():
     # In history, small string
     bind1 = (
         MoveList().from_list([MoveType.R_PRIME]),
-        KeyCommandList([SingleCharacterCommand("A")]),
+        CommandList([SingleCharacterCommand("A")]),
     )
 
     # In history, longer string
     bind2 = (
         MoveList().from_list([MoveType.U_PRIME, MoveType.L_PRIME, MoveType.R_PRIME]),
-        KeyCommandList([SingleCharacterCommand("B")]),
+        CommandList([SingleCharacterCommand("B")]),
     )
 
     # Not in history
     bind3 = (
         MoveList().from_list([MoveType.B_PRIME]),
-        KeyCommandList([SingleCharacterCommand("C")]),
+        CommandList([SingleCharacterCommand("C")]),
     )
 
     # In history, long string, more recent, incomplete
     bind4 = (
         MoveList().from_list([MoveType.L_PRIME, MoveType.R_PRIME, MoveType.U, MoveType.R]),
-        KeyCommandList([SingleCharacterCommand("D")]),
+        CommandList([SingleCharacterCommand("D")]),
     )
 
     binds.update(bind1[0], bind1[1])
@@ -64,25 +64,25 @@ def bindings2():
     # In history, small string
     bind1 = (
         MoveList().from_list([MoveType.R_PRIME]),
-        KeyCommandList([SingleCharacterCommand("A")]),
+        CommandList([SingleCharacterCommand("A")]),
     )
 
     # In history, longer string
     bind2 = (
         MoveList().from_list([MoveType.U_PRIME, MoveType.L_PRIME, MoveType.R_PRIME]),
-        KeyCommandList([SingleCharacterCommand("B")]),
+        CommandList([SingleCharacterCommand("B")]),
     )
 
     # In history, longer string, more recent
     bind3 = (
         MoveList().from_list([MoveType.L_PRIME, MoveType.R_PRIME, MoveType.U]),
-        KeyCommandList([SingleCharacterCommand("B")]),
+        CommandList([SingleCharacterCommand("B")]),
     )
 
     # Not in history
     bind4 = (
         MoveList().from_list([MoveType.B_PRIME]),
-        KeyCommandList([SingleCharacterCommand("C")]),
+        CommandList([SingleCharacterCommand("C")]),
     )
 
     binds.update(bind1[0], bind1[1])
@@ -99,13 +99,13 @@ def bindings3():
     # In history, small string
     bind1 = (
         MoveList().from_list([MoveType.R_PRIME, MoveType.U]),
-        KeyCommandList([SingleCharacterCommand("A")]),
+        CommandList([SingleCharacterCommand("A")]),
     )
 
     # Not fully in history
     bind2 = (
         MoveList().from_list([MoveType.U, MoveType.L_PRIME]),
-        KeyCommandList([SingleCharacterCommand("B")]),
+        CommandList([SingleCharacterCommand("B")]),
     )
 
     binds.update(bind1[0], bind1[1])
