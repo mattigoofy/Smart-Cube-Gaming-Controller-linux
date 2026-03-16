@@ -10,7 +10,7 @@ from SmartCubeGamingController.binds.binds import (
     Command,
     KeyCombinationCommand,
     CommandList,
-    SingleCharacterCommand,
+    KeyCommand,
     SleepCommand,
     _parse_command_list,  # pyright: ignore[reportPrivateUsage]
     _parse_command_token,  # pyright: ignore[reportPrivateUsage]
@@ -40,8 +40,8 @@ def kcl(*commands: Command) -> CommandList:
     return CommandList(list(commands))
 
 
-def sc(c: str) -> SingleCharacterCommand:
-    return SingleCharacterCommand(c)
+def sc(c: str) -> KeyCommand:
+    return KeyCommand(c)
 
 
 def kc(*keys: str) -> KeyCombinationCommand:
@@ -61,7 +61,7 @@ class TestParseCommandToken:
         assert _parse_command_token("enter") == sc("enter")
 
     def test_dash_is_single_character(self):
-        # '-' is a valid SingleCharacterCommand, not a separator
+        # '-' is a valid KeyCommand, not a separator
         assert _parse_command_token("-") == sc("-")
 
     def test_key_combination_two(self):

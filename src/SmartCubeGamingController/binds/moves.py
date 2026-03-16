@@ -31,8 +31,10 @@ class MoveList:
     A list of moves, for example ["U", "F'", "B"]
     """
 
-    def __init__(self) -> None:
+    def __init__(self, moves: list[MoveType] | None = None) -> None:
         self._move_list: list[MoveType] = []
+        if moves:
+            self.from_list(moves)
 
     @property
     def move_list(self):
@@ -40,6 +42,10 @@ class MoveList:
 
     def from_list(self, list: list[MoveType]):
         self._move_list = list
+        return self
+    
+    def append(self, move: MoveType):
+        self.move_list.append(move)
         return self
 
     def __iter__(self):

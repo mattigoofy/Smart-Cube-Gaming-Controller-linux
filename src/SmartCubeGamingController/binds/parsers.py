@@ -1,11 +1,9 @@
-from typing import List
-
 import SmartCubeGamingController.binds.moves as SmartCubeMoves
 from src.SmartCubeGamingController.binds.binds import (
     BindingsConfiguration,
     Command,
     KeyCommand,
-    KeyCommandList,
+    CommandList,
     TextCommand,
 )
 
@@ -63,7 +61,7 @@ class ParserYML(Parser):
                     commands.append(TextCommand(list(command.values())[0]))
 
         config.bindings.update(
-            SmartCubeMoves.MoveList().from_list(moves), KeyCommandList(commands)
+            SmartCubeMoves.MoveList().from_list(moves), CommandList(commands)
         )
 
         return config
