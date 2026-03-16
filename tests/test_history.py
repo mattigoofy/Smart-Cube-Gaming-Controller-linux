@@ -92,6 +92,27 @@ def bindings2():
 
     return binds
 
+@pytest.fixture
+def bindings3():
+    binds = Bindings()
+
+    # In history, small string
+    bind1 = (
+        MoveList().from_list([MoveType.R_PRIME, MoveType.U]),
+        KeyCommandList([SingleCharacterCommand("A")]),
+    )
+
+    # Not fully in history
+    bind2 = (
+        MoveList().from_list([MoveType.U, MoveType.L_PRIME]),
+        KeyCommandList([SingleCharacterCommand("B")]),
+    )
+
+    binds.update(bind1[0], bind1[1])
+    binds.update(bind2[0], bind2[1])
+
+    return binds
+
 
 class TestMoveHistory:
     def test_history_greedy(self, history: MoveHistory, bindings: Bindings):
@@ -112,3 +133,10 @@ class TestMoveHistory:
         # Should return longest possible match given the history, even if it's incomplete
         # Should return the most recent match if length is the tie-breaker
         assert match == MoveList().from_list([MoveType.L_PRIME, MoveType.R_PRIME, MoveType.U])
+
+    def test_history_non_greedy3(self, history: MoveHistory, bindings3: Bindings):
+        match = history.find_match(bindings3, greedy=False)
+        
+        # Both options are the _same length_, one is already in buffer, the other is not fully in the buffer.
+        # Should pick the one that _is_ in the buffer, over the one that's not fully in the buffer.
+        assert match == MoveList().from_list([MoveType.R_PRIME, MoveType.U])
