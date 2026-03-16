@@ -119,7 +119,7 @@ class ShellCommand(Command):
         subprocess.Popen(self.shell_command, shell=True)
 
 
-class KeyCommandList:
+class CommandList:
     """
     A list of commands to be executed. A command can be a single character, a key combination, or a sleep command.
     """
@@ -128,20 +128,20 @@ class KeyCommandList:
         self.commands = commands
 
     def __eq__(self, other: object) -> bool:
-        if not isinstance(other, KeyCommandList):
+        if not isinstance(other, CommandList):
             return NotImplemented
         return self.commands == other.commands
 
 
 class Bindings:
     def __init__(self) -> None:
-        self._bindings: dict[SmartCubeMoves.MoveList, KeyCommandList] = {}
+        self._bindings: dict[SmartCubeMoves.MoveList, CommandList] = {}
 
     @property
     def bindings(self):
         return self._bindings
 
-    def update(self, moves: SmartCubeMoves.MoveList, commands: KeyCommandList):
+    def update(self, moves: SmartCubeMoves.MoveList, commands: CommandList):
         self._bindings.update({moves: commands})
 
 
@@ -180,11 +180,11 @@ def _parse_command_token(token: str) -> Command:
     return KeyCommand(token)
 
 
-def _parse_command_list(raw: str) -> KeyCommandList:
+def _parse_command_list(raw: str) -> CommandList:
     """
     Parse the right-hand side of a binding line into a KeyCommandList.
     """
-    return KeyCommandList([_parse_command_token(token) for token in raw.split()])
+    return CommandList([_parse_command_token(token) for token in raw.split()])
 
 
 class BindingsConfiguration:

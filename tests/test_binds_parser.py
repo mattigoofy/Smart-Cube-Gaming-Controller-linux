@@ -9,7 +9,7 @@ from SmartCubeGamingController.binds.binds import (
     BindingsConfiguration,
     Command,
     KeyCombinationCommand,
-    KeyCommandList,
+    CommandList,
     SingleCharacterCommand,
     SleepCommand,
     _parse_command_list,  # pyright: ignore[reportPrivateUsage]
@@ -36,8 +36,8 @@ def ml(*moves: MoveType) -> MoveList:
     return MoveList().from_list(list(moves))
 
 
-def kcl(*commands: Command) -> KeyCommandList:
-    return KeyCommandList(list(commands))
+def kcl(*commands: Command) -> CommandList:
+    return CommandList(list(commands))
 
 
 def sc(c: str) -> SingleCharacterCommand:
