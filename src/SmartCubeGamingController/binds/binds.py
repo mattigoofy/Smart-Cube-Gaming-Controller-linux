@@ -26,6 +26,9 @@ class Command(abc.ABC):
 
 
 class TextCommand(Command):
+    """
+    Types arbitrary unicode text by pasting it with ctrl+v.
+    """
     def __init__(self, text: str) -> None:
         self.text = text
 
@@ -33,8 +36,15 @@ class TextCommand(Command):
         if not isinstance(obj, TextCommand):
             return NotImplemented
         return self.text == obj.text
+    
+    def _is_on_keyboard(self) -> bool:
+        """
+        True if this key is a valid key on a keyboard (for example, "a", "win", "left arrow", or "ctrl"), False otherwise (for example, "A", or "😭")
+        """
+        raise NotImplementedError
 
     def execute(self) -> None:
+        # TODO Check if self.text exists as a single character on keyboard. If so, execute as KeyCommand instead.
         pyperclip.copy(self.text)
         # ctrl+v
         ctrl = KeyCommand("ctrl")
@@ -46,20 +56,17 @@ class TextCommand(Command):
 
 
 class KeyCommand(Command):
+    """
+    A command that presses a key on keyboard. This needs to be an actual press-able key on your keyboard, so _characters_ like "A" won't work. Please use a TextCommand or KeyCombinationCommand instead for those cases.
+    """
     def __init__(self, key: str) -> None:
         self.key = key
         self.ui = UInput()
 
-    def is_on_keyboard(self) -> bool:
-        """
-        True if this key is a valid key on a keyboard (for example, "a", "win", "left arrow", or "ctrl"), False otherwise (for example, "A", or "😭")
-        """
-        raise NotImplementedError
-
     def __eq__(self, value: object) -> bool:
         if not isinstance(value, KeyCommand):
             return NotImplemented
-        return self.character == value.character
+        return self.key == value.key
 
     def execute(self) -> None:
         self.press()
@@ -75,6 +82,9 @@ class KeyCommand(Command):
 
 
 class KeyCombinationCommand(Command):
+    """
+    A command that executes a key combination by pressing multiple keys at once.
+    """
     def __init__(self, combination: list[KeyCommand]) -> None:
         self.combination = combination
 
@@ -94,6 +104,9 @@ class KeyCombinationCommand(Command):
 
 
 class SleepCommand(Command):
+    """
+    A command that sleeps for a given amount of time.
+    """
     def __init__(self, sleep_time: float) -> None:
         self.sleep_time = sleep_time
 
@@ -107,6 +120,9 @@ class SleepCommand(Command):
 
 
 class ShellCommand(Command):
+    """
+    A command that executes a shell instruction.
+    """
     def __init__(self, shell_command: str) -> None:
         self.shell_command = shell_command
 
@@ -191,6 +207,7 @@ def _parse_command_list(raw: str) -> CommandList:
     return CommandList([_parse_command_token(token) for token in raw.split()])
 
 
+# TODO Add ability to export (as yaml, as json, as txt)
 class BindingsConfiguration:
     """
     All possible configurations, neatly tucked away inside one class.
@@ -246,7 +263,7 @@ class BindingsConfiguration:
             SHELL = "shell"
 
             @staticmethod
-            def from_str(label):
+            def from_str(label: str):
                 if label.lower() in ("command", "config", "commands"):
                     return TypeJSON.COMMAND
                 if label.lower() in ("bind", "binding"):
