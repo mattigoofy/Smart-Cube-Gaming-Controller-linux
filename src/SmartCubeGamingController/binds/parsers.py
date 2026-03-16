@@ -115,7 +115,6 @@ class ParserYML(Parser):
 
         config.bindings.update(
             SmartCubeMoves.MoveList().from_list(moves), CommandList(commands)
-            SmartCubeMoves.MoveList().from_list(moves), CommandList(commands)
         )
 
         return config
