@@ -80,7 +80,7 @@ class MoveHistory:
     # FIXME `clear` probably shouldn't be (another) responsibility of this function. Instead, the calling function should handle this.
     def find_match(
         self,
-        bindings: Bindings,
+        bindings: "Bindings",
         greedy: bool = False,
         clear: ClearHistoryType = ClearHistoryType.All,
     ) -> MoveList | None:

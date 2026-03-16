@@ -1,5 +1,14 @@
 import abc  # Abstract Base Class
+import enum
+import json
 import re
+import subprocess
+import time
+
+import pyperclip
+from evdev import UInput
+from evdev import ecodes as e
+
 import SmartCubeGamingController.binds.moves as SmartCubeMoves
 
 
@@ -16,9 +25,30 @@ class Command(abc.ABC):
         raise NotImplementedError(f"Execute not implemented for {type(self)}")
 
 
-class SingleCharacterCommand(Command):
-    def __init__(self, character: str) -> None:
-        self.character = character
+class TextCommand(Command):
+    def __init__(self, text: str) -> None:
+        self.text = text
+
+    def __eq__(self, obj: object) -> bool:
+        if not isinstance(obj, TextCommand):
+            return NotImplemented
+        return self.text == obj.text
+
+    def execute(self) -> None:
+        pyperclip.copy(self.text)
+        # ctrl+v
+        ctrl = KeyCommand("ctrl")
+        v = KeyCommand("v")
+        ctrl.press()
+        v.press()
+        ctrl.release()
+        v.release()
+
+
+class KeyCommand(Command):
+    def __init__(self, key: str) -> None:
+        self.key = key
+        self.ui = UInput()
 
     def is_on_keyboard(self) -> bool:
         """
@@ -27,29 +57,66 @@ class SingleCharacterCommand(Command):
         raise NotImplementedError
 
     def __eq__(self, value: object) -> bool:
-        if not isinstance(value, SingleCharacterCommand):
+        if not isinstance(value, KeyCommand):
             return NotImplemented
         return self.character == value.character
 
+    def execute(self) -> None:
+        self.press()
+        self.release()
+
+    def press(self) -> None:
+        self.ui.write(e.EV_KEY, self.key, 1)
+        self.ui.syn()
+
+    def release(self) -> None:
+        self.ui.write(e.EV_KEY, self.key, 0)
+        self.ui.syn()
+
 
 class KeyCombinationCommand(Command):
-    def __init__(self, combination: list[SingleCharacterCommand]) -> None:
+    def __init__(self, combination: list[KeyCommand]) -> None:
         self.combination = combination
 
-    def __eq__(self, value: object) -> bool:
-        if not isinstance(value, KeyCombinationCommand):
+    def __eq__(self, obj: object) -> bool:
+        if not isinstance(obj, KeyCombinationCommand):
             return NotImplemented
-        return self.combination == value.combination
+        return self.combination == obj.combination
+
+    def execute(self) -> None:
+        # first press all keys
+        for key in self.combination:
+            key.press()
+
+        # the releases all keys
+        for key in self.combination:
+            key.release()
 
 
 class SleepCommand(Command):
     def __init__(self, sleep_time: float) -> None:
         self.sleep_time = sleep_time
 
-    def __eq__(self, value: object) -> bool:
-        if not isinstance(value, SleepCommand):
+    def __eq__(self, obj: object) -> bool:
+        if not isinstance(obj, SleepCommand):
             return NotImplemented
-        return self.sleep_time == value.sleep_time
+        return self.sleep_time == obj.sleep_time
+
+    def execute(self) -> None:
+        time.sleep(self.sleep_time)
+
+
+class ShellCommand(Command):
+    def __init__(self, shell_command: str) -> None:
+        self.shell_command = shell_command
+
+    def __eq__(self, obj: object) -> bool:
+        if not isinstance(obj, ShellCommand):
+            return NotImplemented
+        return self.shell_command == obj.shell_command
+
+    def execute(self) -> None:
+        subprocess.Popen(self.shell_command, shell=True)
 
 
 class KeyCommandList:
@@ -109,8 +176,8 @@ def _parse_command_token(token: str) -> Command:
         return SleepCommand(float(bare_float))
     if "+" in token:
         parts = token.split("+")
-        return KeyCombinationCommand([SingleCharacterCommand(char) for char in parts])
-    return SingleCharacterCommand(token)
+        return KeyCombinationCommand([KeyCommand(char) for char in parts])
+    return KeyCommand(token)
 
 
 def _parse_command_list(raw: str) -> KeyCommandList:
@@ -141,13 +208,85 @@ class BindingsConfiguration:
         if ".txt" in filepath:
             self._from_txt(filepath)
         else:
-            raise NotImplementedError(f"Unsupported file format.")
+            raise NotImplementedError("Unsupported file format.")
         return self
 
     def _from_json(self, filepath: str) -> None:
-        raise NotImplementedError
+        # Example file
+
+        # [
+        #     {
+        #         "type": "Command",
+        #         "name": "DELETION",
+        #         "value": "FLUSH"
+        #     },
+        #     {
+        #         "type": "bind",
+        #         "formula": "R U R' U'",
+        #         "keys": "ctrl+z"
+        #     },
+        #     {
+        #         "type": "shell",
+        #         "formula": "F F",
+        #         "command": "ls ~"
+        #     }
+        # ]
+
+        class TypeJSON(enum.Enum):
+            """
+            An abstraction of a types in the json file
+            """
+
+            COMMAND = "command"
+            BIND = "bind"
+            SHELL = "shell"
+
+            @staticmethod
+            def from_str(label):
+                if label.lower() in ("command", "config", "commands"):
+                    return TypeJSON.COMMAND
+                if label.lower() in ("bind", "binding"):
+                    return TypeJSON.BIND
+                if label.lower() in ("shell"):
+                    return TypeJSON.SHELL
+
+        # class CommandJSON:
+        #     def __init__(self) -> None:
+        #         self.type
+
+        def process_command_instruction(entry: str):
+            self.deletion_type = entry["name"].upper()
+            self.idle_time = float(entry["value"])
+
+        def process_binding_instruction(entry: str):
+            moves = entry["formula"].upper().strip()
+            keys = entry["keys"].upper().strip()
+            self.bindings.update(
+                _parse_move_list(moves),
+                _parse_command_list(keys),
+            )
+
+        def process_shell_instruction(entry: str):
+            raise NotImplementedError
+
+        with open(filepath) as file:
+            for entry in json.load(file):
+                type = entry["type"].lower()
+
+                label = TypeJSON.from_str(type)
+
+                if label == TypeJSON.COMMAND:
+                    process_command_instruction(entry)
+                elif label == TypeJSON.BIND:
+                    process_binding_instruction(entry)
+                elif label == TypeJSON.SHELL:
+                    process_shell_instruction(entry)
+                else:
+                    raise Exception("Invalid JSON type")
 
     def _from_txt(self, filepath: str) -> None:
+        # TODO shell commands
+
         # Example file:
 
         # ! DELETION FLUSH

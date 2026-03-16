@@ -1,0 +1,15 @@
+deletion_type: flush
+idle_time: 10.0s
+bindings:
+  - moves: U R U' R'
+    commands: 
+      - text: abc def
+      - keys: enter
+      - shell: ls ~
+      - combo: shift a
+      - sleep: 5s
+  - moves: B B' B B' 
+    commands:
+      - singlekeys: abc def
+      - shell: ls ~
+      - combo: shift a
