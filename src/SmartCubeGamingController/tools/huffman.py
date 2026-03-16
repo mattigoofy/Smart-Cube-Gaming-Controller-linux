@@ -191,8 +191,9 @@ def main():
     tree = HuffmanTree(degree=12)
     # tree.set_frequency_analysis('tools/data/character_usage_frequencies_5000_articles.json')
     # tree.set_frequency_analysis("tools/data/character_usage_frequencies_full")
-    tree.set_frequency_analysis("tools/data/character_usage_frequencies_full_backspace")
+    # tree.set_frequency_analysis("tools/data/character_usage_frequencies_full_backspace")
     # tree.set_frequency_analysis('tools/data/character_usage_frequencies_tiny')
+    tree.set_frequency_analysis("src/data/character_usage_analysis/temp")
     tree.generate()
     table = HuffmanTable()
     table.set_binary_digit_mapping(
@@ -212,11 +213,12 @@ def main():
         }
     )
     table.from_tree(tree)
-    table.to_bindfile(
-        "binds/full_huffman_mapping.txt",
-        sort_type=HuffmanTable.SortType.ShortestFirst,
-    )
+    # table.to_bindfile(
+    #     "binds/full_huffman_mapping.txt",
+    #     sort_type=HuffmanTable.SortType.ShortestFirst,
+    # )
     # table.to_bindfile('tools/data/mappings/mapping_tiny.txt', sort_type=HuffmanTable.SortType.ShortestFirst)
+    table.to_bindfile("src/data/mappings/temp.txt", sort_type=HuffmanTable.SortType.ShortestFirst)
 
 
 if __name__ == "__main__":
