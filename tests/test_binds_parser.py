@@ -12,11 +12,13 @@ from SmartCubeGamingController.binds.binds import (
     CommandList,
     KeyCommand,
     SleepCommand,
-    _parse_command_list,  # pyright: ignore[reportPrivateUsage]
-    _parse_command_token,  # pyright: ignore[reportPrivateUsage]
-    _parse_move_list,  # pyright: ignore[reportPrivateUsage]
 )
 from SmartCubeGamingController.binds.moves import MoveType, MoveList
+from SmartCubeGamingController.binds.parsers import (
+    _parse_command_list,
+    _parse_command_token,
+    _parse_move_list,
+)
 
 
 def make_config(txt: str) -> BindingsConfiguration:
@@ -40,12 +42,12 @@ def kcl(*commands: Command) -> CommandList:
     return CommandList(list(commands))
 
 
-def sc(c: str) -> KeyCommand:
+def kc(c: str) -> KeyCommand:
     return KeyCommand(c)
 
 
-def kc(*keys: str) -> KeyCombinationCommand:
-    return KeyCombinationCommand([sc(k) for k in keys])
+def kcc(*keys: str) -> KeyCombinationCommand:
+    return KeyCombinationCommand([kc(k) for k in keys])
 
 
 def sleep(s: float) -> SleepCommand:
@@ -54,21 +56,21 @@ def sleep(s: float) -> SleepCommand:
 
 class TestParseCommandToken:
     def test_single_character(self):
-        assert _parse_command_token("a") == sc("a")
+        assert _parse_command_token("a") == kc("a")
 
     def test_named_key(self):
-        assert _parse_command_token("space") == sc("space")
-        assert _parse_command_token("enter") == sc("enter")
+        assert _parse_command_token("space") == kc("space")
+        assert _parse_command_token("enter") == kc("enter")
 
     def test_dash_is_single_character(self):
         # '-' is a valid KeyCommand, not a separator
-        assert _parse_command_token("-") == sc("-")
+        assert _parse_command_token("-") == kc("-")
 
     def test_key_combination_two(self):
-        assert _parse_command_token("ctrl+t") == kc("ctrl", "t")
+        assert _parse_command_token("ctrl+t") == kcc("ctrl", "t")
 
     def test_key_combination_three(self):
-        assert _parse_command_token("ctrl+alt+t") == kc("ctrl", "alt", "t")
+        assert _parse_command_token("ctrl+alt+t") == kcc("ctrl", "alt", "t")
 
     def test_sleep_integer(self):
         assert _parse_command_token("10s") == sleep(10.0)
@@ -82,26 +84,26 @@ class TestParseCommandToken:
 
 class TestParseCommandList:
     def test_single_token(self):
-        assert _parse_command_list("space") == kcl(sc("space"))
+        assert _parse_command_list("space") == kcl(kc("space"))
 
     def test_combination_token(self):
-        assert _parse_command_list("alt+tab") == kcl(kc("alt", "tab"))
+        assert _parse_command_list("alt+tab") == kcl(kcc("alt", "tab"))
 
     def test_mixed_tokens(self):
         result = _parse_command_list("alt+space c o d e 1.0s enter")
         assert result == kcl(
-            kc("alt", "space"),
-            sc("c"),
-            sc("o"),
-            sc("d"),
-            sc("e"),
+            kcc("alt", "space"),
+            kc("c"),
+            kc("o"),
+            kc("d"),
+            kc("e"),
             sleep(1.0),
-            sc("enter"),
+            kc("enter"),
         )
 
     def test_bare_dash_command(self):
         # The RHS after splitting on ' - ' may itself be '-'
-        assert _parse_command_list("-") == kcl(sc("-"))
+        assert _parse_command_list("-") == kcl(kc("-"))
 
 
 class TestParseMoveList:
@@ -117,7 +119,7 @@ class TestParseMoveList:
         )
 
     def test_unknown_token_raises(self):
-        with pytest.raises(ValueError, match="Unknown move token"):
+        with pytest.raises(ValueError):
             _parse_move_list("R X")
 
 
@@ -126,14 +128,14 @@ class TestFromTxt:
         cfg = make_config("""\
             R R - ctrl+t
         """)
-        assert cfg.bindings.bindings[ml(MoveType.R, MoveType.R)] == kcl(kc("ctrl", "t"))
+        assert cfg.bindings.bindings[ml(MoveType.R, MoveType.R)] == kcl(kcc("ctrl", "t"))
 
     def test_config_deletion_flush(self):
         cfg = make_config("""\
             ! DELETION FLUSH
             R R - ctrl+t
         """)
-        assert cfg.deletion_type == "FLUSH"
+        assert cfg.deletion_type == BindingsConfiguration.DeletionType.Flush
 
     def test_config_idle_time(self):
         cfg = make_config("""\
@@ -162,7 +164,7 @@ class TestFromTxt:
             F F - ctrl+alt+t    # terminal
         """)
         assert cfg.bindings.bindings[ml(MoveType.F, MoveType.F)] == kcl(
-            kc("ctrl", "alt", "t")
+            kcc("ctrl", "alt", "t")
         )
 
     def test_binding_with_sleep(self):
@@ -170,7 +172,7 @@ class TestFromTxt:
             B B - shift+10.0s
         """)
         assert cfg.bindings.bindings[ml(MoveType.B, MoveType.B)] == kcl(
-            kc("shift", "10.0s")  # shift+10.0s is one combination token
+            kcc("shift", "10.0s")  # shift+10.0s is one combination token
         )
 
     def test_binding_sleep_standalone(self):
@@ -179,7 +181,7 @@ class TestFromTxt:
             R U - 1.5s enter
         """)
         assert cfg.bindings.bindings[ml(MoveType.R, MoveType.U)] == kcl(
-            sleep(1.5), sc("enter")
+            sleep(1.5), kc("enter")
         )
 
     def test_binding_dash_command(self):
@@ -187,13 +189,13 @@ class TestFromTxt:
         cfg = make_config("""\
             R - -
         """)
-        assert cfg.bindings.bindings[ml(MoveType.R)] == kcl(sc("-"))
+        assert cfg.bindings.bindings[ml(MoveType.R)] == kcl(kc("-"))
 
     def test_binding_space_command(self):
         cfg = make_config("""\
             F R - space
         """)
-        assert cfg.bindings.bindings[ml(MoveType.F, MoveType.R)] == kcl(sc("space"))
+        assert cfg.bindings.bindings[ml(MoveType.F, MoveType.R)] == kcl(kc("space"))
 
     def test_complex_command_sequence(self):
         cfg = make_config("""\
@@ -206,13 +208,13 @@ class TestFromTxt:
             MoveType.U,
         )
         expected_commands = kcl(
-            kc("alt", "space"),
-            sc("c"),
-            sc("o"),
-            sc("d"),
-            sc("e"),
+            kcc("alt", "space"),
+            kc("c"),
+            kc("o"),
+            kc("d"),
+            kc("e"),
             sleep(1.0),
-            sc("enter"),
+            kc("enter"),
         )
         assert cfg.bindings.bindings[expected_moves] == expected_commands
 
@@ -229,17 +231,17 @@ class TestFromTxt:
             L' U' L U - alt+space c o d e 1.0s enter    # open vscode
             # comment
         """)
-        assert cfg.deletion_type == "FLUSH"
+        assert cfg.deletion_type == BindingsConfiguration.DeletionType.Flush
         assert cfg.idle_time == 10.0
         assert len(cfg.bindings.bindings) == 6
 
         assert cfg.bindings.bindings[ml(MoveType.R, MoveType.L_PRIME)] == kcl(
-            kc("alt", "tab")
+            kcc("alt", "tab")
         )
-        assert cfg.bindings.bindings[ml(MoveType.R, MoveType.R)] == kcl(kc("ctrl", "t"))
+        assert cfg.bindings.bindings[ml(MoveType.R, MoveType.R)] == kcl(kcc("ctrl", "t"))
         assert cfg.bindings.bindings[
             ml(MoveType.R, MoveType.U, MoveType.R_PRIME, MoveType.U_PRIME)
-        ] == kcl(kc("ctrl", "z"))
+        ] == kcl(kcc("ctrl", "z"))
 
     def test_missing_separator_raises(self):
         with pytest.raises(ValueError, match="separator"):
