@@ -46,15 +46,20 @@ class CommandKeys(enum.Enum):
 
 class Parser:
     def parse(self, file_path: str) -> "BindingsConfiguration":
-        if FileExtensions.from_str(file_path) == FileExtensions.TXT:
+        extension = FileExtensions.from_str(file_path)
+        parser = None
+        
+        if extension == FileExtensions.TXT:
             parser = ParserTXT()
-            return parser.parse(file_path)
-        if FileExtensions.from_str(file_path) == FileExtensions.JSON:
+        if extension == FileExtensions.JSON:
             parser = ParserJSON()
-            return parser.parse(file_path)
-        if FileExtensions.from_str(file_path) == FileExtensions.YAML:
+        if extension == FileExtensions.YAML:
             parser = ParserYML()
-            return parser.parse(file_path)
+            
+        if not parser:
+            raise ValueError("No valid file extension found.")
+        
+        return parser.parse(file_path)
 
 
 class ParserTXT(Parser):

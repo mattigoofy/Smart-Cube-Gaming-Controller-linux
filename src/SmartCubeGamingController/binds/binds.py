@@ -215,10 +215,10 @@ class BindingsConfiguration:
 
     def __init__(self) -> None:
         self.bindings: Bindings = Bindings()
-        self.deletion_type: str | None = None
-        self.idle_time: float | None = None
+        self.deletion_type: BindingsConfiguration.DeletionType = BindingsConfiguration.DeletionType.Flush
+        self.idle_time: float = 10.0
 
-    class DeletionType:
+    class DeletionType(enum.Enum):
         Flush = "FLUSH"
         Postfix = "POSTFIX"
         Keep = "KEEP"

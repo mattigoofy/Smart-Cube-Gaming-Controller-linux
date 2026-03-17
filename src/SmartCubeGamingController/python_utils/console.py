@@ -1,8 +1,7 @@
 import enum
 
-from binds.moves import MoveType
-
-from .directinput import CHAR_MAP, press_key, release_key
+from SmartCubeGamingController.binds.moves import MoveType
+from SmartCubeGamingController.python_utils.directinput import CHAR_MAP, press_key, release_key
 
 
 class Directions(enum.Enum):
@@ -18,12 +17,12 @@ class CursorState:
     column: int
     shift_lock: bool
 
-    def __init__(self, row, column, shift_lock):
+    def __init__(self, row: int, column: int, shift_lock: bool):
         self.row = row
         self.column = column
         self.shift_lock = shift_lock
 
-    def to_dict(self) -> None:
+    def to_dict(self):
         return {
             "row": self.row,
             "col": self.column,
@@ -93,7 +92,7 @@ class Console:
     def __init__(self):
         self.keyboard = Keyboard()
 
-    def handle_move(self, move):
+    def handle_move(self, move: MoveType):
         if move == MoveType.R:
             self.keyboard.move_cursor(Directions.UP)
 

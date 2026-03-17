@@ -1,69 +1,67 @@
-import os
 import queue
-import threading
 import time
 
-from SmartCubeGamingController.binds.moves import MoveHistory, MoveList
+from SmartCubeGamingController.binds.moves import MoveHistory, MoveList, MoveType
 from SmartCubeGamingController.binds.parsers import Parser
-from SmartCubeGamingController.server.browser import launch_chromium
 from SmartCubeGamingController.python_utils.console import Console
 from SmartCubeGamingController.server.server import Server, ServerSettings
 
-HTML_DIR = os.path.join("src", "HTML-JS")
-BINDS_ROOT = os.path.join("binds")
-BINDS_PATH = os.path.join(BINDS_ROOT, "config.yml")
-PORT = 8766
-URL = f"http://localhost:{PORT}/index.html"
 
+class App:
+    def __init__(self) -> None:
+        settings: ServerSettings = ServerSettings()
+        self._server: Server = Server(settings)
 
-try:
-    mode = "BIND"
+        self._parser: Parser = Parser()
+        self._bindings_config = self._parser.parse(self._server.settings.binds_path)
+        self._move_history = MoveHistory(self._bindings_config.idle_time, time.time())
 
-    server = Server(ServerSettings())
-    server.start()
+        self._console = Console()
+        self._server.cursor_state = self._console.keyboard.cursor
 
-    bind_parser = Parser()
-    binds_config = bind_parser.parse(server.binds_path)
-    move_history = MoveHistory(binds_config.idle_time, time.time())
+        self._current_mode: str = "BIND"
 
-    console = Console()
-    server.cursor_state = console.keyboard.cursor
+    def run(self):
+        with self._server:
+            self._server.start()
+            self._server.launch_chromium()
 
-    move = None
+            while True:
+                self._run_once()
 
-    browser = launch_chromium(URL)
+    def _run_once(self):
+        move: str | None = None
 
-    while True:
         try:
-            mode = server.mode_queue.get(timeout=0.1)
+            self._current_mode = self._server.mode_queue.get(timeout=0.1)
         except queue.Empty:
             pass
 
         try:
-            move = server.move_queue.get(timeout=0.1)
+            move = self._server.move_queue.get(timeout=0.1)
         except queue.Empty:
-            continue
+            return
 
-        if mode == "BIND":
-            move_history.append(move)
-            match: MoveList = move_history.find_match(binds_config.bindings)
-            server.binds_buffer = move_history.to_str()
+        if self._current_mode == "BIND":
+            self._move_history.append(MoveType(move))
+            match: MoveList | None = self._move_history.find_match(self._bindings_config.bindings)
+            self._server.binds_buffer = self._move_history.to_str()
 
             if match:
                 print(match)
-                commands = binds_config.bindings.bindings.get(match)
+                commands = self._bindings_config.bindings.bindings.get(match)
+                if not commands:
+                    raise ValueError(f"MoveList not found in bindings: {match}")
                 commands.execute()
-                move_history.clear()
+                self._move_history.clear()
 
-            move_history.set_time(time.time())
+            self._move_history.set_time(time.time())
 
-        elif mode == "CONSOLE":
-            console.handle_move(move)
-            server.cursor_state = console.keyboard.cursor
-
-        else:
-            mode = "BIND"
+        elif self._current_mode == "CONSOLE":
+            self._console.handle_move(MoveType(move))
+            self._server.cursor_state = self._console.keyboard.cursor
 
 
-finally:
-    browser.terminate()
+if __name__ == "__main__":
+    app = App()
+    app.run()

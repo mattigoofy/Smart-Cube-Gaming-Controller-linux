@@ -3,8 +3,10 @@ import json
 import os
 import pathlib
 import queue
+import subprocess
 import threading
 from dataclasses import dataclass
+import time
 from urllib.parse import parse_qs, urlparse
 
 from SmartCubeGamingController.binds.moves import MoveType
@@ -33,6 +35,8 @@ class Server:
     def __init__(self, settings: ServerSettings) -> None:
         self._settings = settings
 
+        self._browser_process: subprocess.Popen[bytes] | None = None
+
         self._cursor_state = None
 
         self._move_queue: queue.Queue[str] = queue.Queue()
@@ -49,6 +53,10 @@ class Server:
         self._binds_buffer_lock = threading.Lock()
         self._binds_buffer: list[str] = []
 
+    @property
+    def settings(self):
+        return self._settings
+    
     @property
     def cursor_state(self):
         return self._cursor_state
@@ -113,20 +121,76 @@ class Server:
         """
         Start the server, using the settings defined in `self._settings`
         """
-        self.binds_root = self._settings.binds_root
-        self.binds_path = self._settings.binds_path
+        self.binds_root = self.settings.binds_root
+        self.binds_path = self.settings.binds_path
 
         def handler_factory(*args, **kwargs):
             return CubeHandler(
-                *args, directory=self._settings.html_dir, parent=self, **kwargs
+                *args, directory=self.settings.html_dir, parent=self, **kwargs
             )
 
         server = http.server.HTTPServer(
-            (self._settings.host, self._settings.port), handler_factory
+            (self.settings.host, self.settings.port), handler_factory
         )
         thread = threading.Thread(target=server.serve_forever, daemon=True)
         thread.start()
+
         return server
+    
+    def launch_chromium(self) -> subprocess.Popen[bytes]:
+        chromium_paths = [
+            "/snap/bin/chromium",                                   # Snap
+            "/var/lib/flatpak/exports/bin/org.chromium.Chromium",   # Flatpak (system)
+            os.path.expanduser("~/.local/share/flatpak/exports/bin/org.chromium.Chromium"),  # Flatpak (user)
+            "/var/lib/flatpak/exports/bin/com.google.Chrome",       # Flatpak Google Chrome (system)
+            os.path.expanduser("~/.local/share/flatpak/exports/bin/com.google.Chrome"),  # Flatpak Google Chrome (user)
+            "/run/current-system/sw/bin/chromium",                  # NixOS system
+            os.path.expanduser("~/.nix-profile/bin/chromium"), # Nix user profile
+            "/nix/var/nix/profiles/default/bin/chromium",           # Nix default profile
+            "chromium",                                             # PATH fallback
+            "chromium-browser",                                     # PATH fallback (Debian/Ubuntu)
+            "google-chrome",                                        # Chrome fallback
+        ]
+
+        chromium_bin = next(
+            (p for p in chromium_paths if os.path.isfile(p) or (not os.path.sep in p)),
+            None,
+        )
+
+        if chromium_bin is None:
+            raise FileNotFoundError("Could not find a Chromium or Chrome executable.")
+
+        # Flatpak needs to be launched differently
+        if "flatpak" in chromium_bin:
+            if "google" in chromium_bin:
+                app_name = "com.google.Chrome"
+            else:
+                app_name = "org.chromium.Chromium"
+            cmd = [
+                "flatpak", "run", app_name,
+                "--enable-features=WebBluetooth",
+                "--user-data-dir=/tmp/chrome-debug",
+                self.settings.url,
+            ]
+        else:
+            cmd = [
+                chromium_bin,
+                "--enable-features=WebBluetooth",
+                "--user-data-dir=/tmp/chrome-debug",
+                self.settings.url,
+            ]
+
+        process = subprocess.Popen(cmd)
+        time.sleep(2)
+        return process
+    
+    # For `with` statements
+    def __enter__(self):
+        return self
+    
+    def __exit__(self, exc_type, exc_value, traceback):
+        if self._browser_process:
+            self._browser_process.terminate()
 
 
 class CubeHandler(http.server.SimpleHTTPRequestHandler):
