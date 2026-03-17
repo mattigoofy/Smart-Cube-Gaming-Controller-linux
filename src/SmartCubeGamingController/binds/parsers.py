@@ -1,7 +1,6 @@
 import enum
-from typing import List
 
-from binds.binds import (
+from SmartCubeGamingController.binds.binds import (
     BindingsConfiguration,
     Command,
     CommandList,
@@ -21,7 +20,7 @@ class FileExtensions(enum.Enum):
     YAML = "yml"
 
     @staticmethod
-    def from_str(filepath):
+    def from_str(filepath: str):
         if filepath[-3:].lower() in ("txt"):
             return FileExtensions.TXT
         if filepath[-4:].lower() in ("json"):
@@ -38,7 +37,7 @@ class CommandKeys(enum.Enum):
     SLEEP = "sleep"
 
     @staticmethod
-    def from_str(value):
+    def from_str(value: str):
         try:
             return CommandKeys(value)
         except ValueError:

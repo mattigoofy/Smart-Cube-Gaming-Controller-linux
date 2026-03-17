@@ -3,14 +3,11 @@ import queue
 import threading
 import time
 
-from binds.binds import BindingsConfiguration
-from binds.moves import MoveHistory, MoveList
-from binds.parsers import Parser
-from python_utils.binds_mode import run_binds_mode
-from python_utils.browser import launch_chromium
-from python_utils.console import Console
-from python_utils.console_mode import run_console_mode
-from server.server import Server, ServerSettings
+from SmartCubeGamingController.binds.moves import MoveHistory, MoveList
+from SmartCubeGamingController.binds.parsers import Parser
+from SmartCubeGamingController.server.browser import launch_chromium
+from SmartCubeGamingController.python_utils.console import Console
+from SmartCubeGamingController.server.server import Server, ServerSettings
 
 HTML_DIR = os.path.join("src", "HTML-JS")
 BINDS_ROOT = os.path.join("binds")
@@ -70,55 +67,3 @@ try:
 
 finally:
     browser.terminate()
-
-# # stop_event = threading.Event()
-# active_thread = None
-
-# try:
-#     # start on binds
-#     active_thread = threading.Thread(
-#         target=run_binds_mode,
-#         args=(
-#             stop_event,
-#             get_binds_path(),
-#         ),
-#         daemon=True,
-#     )
-#     active_thread.start()
-#     while True:
-#         while not binds_path_changed_event.is_set() and mode_queue.empty():
-#             if stop_event.wait(0.05):
-#                 break
-
-#         mode = None
-#         if binds_path_changed_event.is_set():
-#             binds_path_changed_event.clear()
-#             mode = "BINDS"
-#         elif not mode_queue.empty():
-#             mode = mode_queue.get()  # frontend mode switch
-
-#         if mode is None:
-#             continue
-
-#         if active_thread and active_thread.is_alive():
-#             stop_event.set()
-#             active_thread.join(timeout=2)
-#             stop_event.clear()
-
-#         if mode == "BINDS":
-#             active_thread = threading.Thread(
-#                 target=run_binds_mode,
-#                 args=(
-#                     stop_event,
-#                     get_binds_path(),
-#                 ),
-#                 daemon=True,
-#             )
-#         elif mode == "CONSOLE":
-#             clear_binds_buffer()
-#             active_thread = threading.Thread(
-#                 target=run_console_mode, args=(stop_event,), daemon=True
-#             )
-#         active_thread.start()
-# finally:
-#     browser.terminate()

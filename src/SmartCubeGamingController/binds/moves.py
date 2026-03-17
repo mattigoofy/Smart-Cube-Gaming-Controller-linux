@@ -87,7 +87,7 @@ class MoveHistory:
         self.history.append(move)
         return self
 
-    def set_time(self, time):
+    def set_time(self, time: float):
         if time - self.last_time > self.idle_time:
             self.clear()
         self.last_time = time

@@ -7,8 +7,8 @@ import threading
 from dataclasses import dataclass
 from urllib.parse import parse_qs, urlparse
 
-from binds.moves import MoveType
-from python_utils.console import CursorState
+from SmartCubeGamingController.binds.moves import MoveType
+from SmartCubeGamingController.python_utils.console import CursorState
 
 
 @dataclass
@@ -17,8 +17,8 @@ class ServerSettings:
     A class holding all settings pertaining to the server settings.
     """
 
-    html_dir: str = os.path.join("src", "HTML-JS")
-    binds_root: str = os.path.join("binds")
+    html_dir: str = os.path.join("src/", "HTML-JS/")
+    binds_root: str = os.path.join("binds/")
     binds_path: str = os.path.join(binds_root, "config.yml")
     host: str = "localhost"
     port: int = 8766

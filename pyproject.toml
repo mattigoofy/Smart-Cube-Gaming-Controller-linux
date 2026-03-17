@@ -5,13 +5,15 @@ description = "Control your linux PC with a bluetooth rubiks cube"
 authors = [
     { name = "Sam Decorte" },
     { name = "Mathias Goovaerts" }
-    ]
+]
 
-dependencies = [ 
+dependencies = [
+    "black",    # Python formatter
     "evdev",
     "wikitextparser",
     "pyautogui",
-    "pytest"
+    "pytest",
+    "pyyaml"
 ]
 
 [build-system]
