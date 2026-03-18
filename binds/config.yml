@@ -4,12 +4,13 @@ bindings:
   - moves: U R U' R'
     commands: 
       - text: abc def
+      - sleep: 2s
       - keys: enter
       - shell: ls ~
       - combo: shift a
       - sleep: 5s
   - moves: B B' B B' 
     commands:
-      - singlekeys: abc def
+      - text: abc def
       - shell: ls ~
       - combo: shift a

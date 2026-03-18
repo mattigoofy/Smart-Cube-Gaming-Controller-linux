@@ -43,8 +43,13 @@ class App:
             return
 
         if self._current_mode == "BIND":
+            self._move_history.set_time(time.time())
+
+            print(move)
             self._move_history.append(MoveType(move))
-            match: MoveList | None = self._move_history.find_match(self._bindings_config.bindings)
+            match: MoveList | None = self._move_history.find_match(
+                self._bindings_config.bindings, greedy=True
+            )
             self._server.binds_buffer = self._move_history.to_str()
 
             if match:
@@ -54,8 +59,6 @@ class App:
                     raise ValueError(f"MoveList not found in bindings: {match}")
                 commands.execute()
                 self._move_history.clear()
-
-            self._move_history.set_time(time.time())
 
         elif self._current_mode == "CONSOLE":
             self._console.handle_move(MoveType(move))

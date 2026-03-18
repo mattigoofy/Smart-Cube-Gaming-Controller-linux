@@ -5,13 +5,12 @@ import string
 from itertools import product
 
 import pytest
-
-from src.SmartCubeGamingController.python_utils.bind_reader import (
+from SmartCubeGamingController.python_utils.bind_reader import (
     upload_binds,
     upload_binds_json,
     upload_binds_txt,
 )
-from src.SmartCubeGamingController.python_utils.binds_mode import _find_match
+from SmartCubeGamingController.python_utils.binds_mode import _find_match
 
 random.seed(42)
 

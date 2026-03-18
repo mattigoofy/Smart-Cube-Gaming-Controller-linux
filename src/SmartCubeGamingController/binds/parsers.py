@@ -10,8 +10,7 @@ from SmartCubeGamingController.binds.binds import (
     SleepCommand,
     TextCommand,
 )
-
-import SmartCubeGamingController.binds.moves as SmartCubeMoves
+from SmartCubeGamingController.binds.moves import MoveList, MoveType
 
 
 class FileExtensions(enum.Enum):
@@ -48,17 +47,17 @@ class Parser:
     def parse(self, file_path: str) -> "BindingsConfiguration":
         extension = FileExtensions.from_str(file_path)
         parser = None
-        
+
         if extension == FileExtensions.TXT:
             parser = ParserTXT()
         if extension == FileExtensions.JSON:
             parser = ParserJSON()
         if extension == FileExtensions.YAML:
             parser = ParserYML()
-            
+
         if not parser:
             raise ValueError("No valid file extension found.")
-        
+
         return parser.parse(file_path)
 
 
@@ -80,7 +79,7 @@ class ParserYML(Parser):
         idle_time: 10.0s
         bindings:
         - moves: U R U' R'
-            commands:
+            command_list:
             - text: abc def
             - keys: enter
             - shell: ls ~
@@ -89,36 +88,42 @@ class ParserYML(Parser):
         """
         import yaml
 
-        from SmartCubeGamingController.binds.moves import MoveType
-
         with open(file_path) as file:
             yml_dict = yaml.safe_load(file)
 
         config = BindingsConfiguration()
         config.deletion_type = yml_dict["deletion_type"]
+        config.deletion_type = BindingsConfiguration.DeletionType.from_str(
+            yml_dict["deletion_type"]
+        )
         config.idle_time = float(yml_dict["idle_time"][:-1])  # remove 's'
-        moves: list[MoveType] = []
-        for item in yml_dict["bindings"]:
-            moves.append(item["moves"])
 
-        commands: list[Command] = []
         for item in yml_dict["bindings"]:
+            moves_list: list[MoveType] = []
+            moves = item["moves"].split()
+            for move in moves:
+                moves_list.append(MoveType.from_str(move))
+
+            command_list: list[Command] = []
             for command in item["commands"]:
                 command_key = list(command.keys())[0]
                 command_value = list(command.values())[0]
-                if CommandKeys.from_str(command_key) == CommandKeys.TEXT:
-                    commands.append(TextCommand(command_value))
-                if CommandKeys.from_str(command_key) == CommandKeys.KEYS:
-                    commands.append(KeyCommand(command_value))
-                if CommandKeys.from_str(command_key) == CommandKeys.SHELL:
-                    commands.append(ShellCommand(command_value))
-                if CommandKeys.from_str(command_key) == CommandKeys.COMBO:
-                    commands.append(KeyCombinationCommand(command_value))
-                if CommandKeys.from_str(command_key) == CommandKeys.SLEEP:
-                    commands.append(SleepCommand(command_value))
+                key = CommandKeys.from_str(command_key)
 
-        config.bindings.update(
-            SmartCubeMoves.MoveList().from_list(moves), CommandList(commands)
-        )
+                if key == CommandKeys.TEXT:
+                    command_list.append(TextCommand(command_value))
+                if key == CommandKeys.KEYS:
+                    command_list.append(KeyCommand(command_value))
+                if key == CommandKeys.SHELL:
+                    command_list.append(ShellCommand(command_value))
+                if key == CommandKeys.COMBO:
+                    combo_list = []
+                    for combo_key in command_value.split():
+                        combo_list.append(KeyCommand(combo_key))
+                    command_list.append(KeyCombinationCommand(combo_list))
+                if key == CommandKeys.SLEEP:
+                    command_list.append(SleepCommand(float(command_value[:-1])))
+
+            config.bindings.update(MoveList(moves_list), CommandList(command_list))
 
         return config

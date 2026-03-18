@@ -49,7 +49,7 @@ class MoveList:
     def from_list(self, list: list[MoveType]):
         self._move_list = list
         return self
-    
+
     def append(self, move: MoveType):
         self.move_list.append(move)
         return self
@@ -89,6 +89,7 @@ class MoveHistory:
 
     def set_time(self, time: float):
         if time - self.last_time > self.idle_time:
+            print("Hisotry cleared")
             self.clear()
         self.last_time = time
 
@@ -142,10 +143,13 @@ class MoveHistory:
         def _non_greedy_search(bindings: "Bindings"):
             best: MoveList | None = None
             best_overlap = 0
+            print(best)
 
             for move_list in bindings.bindings.keys():
                 moves = list(move_list)
                 length = len(moves)
+                print(length)
+                print(move_list)
 
                 # Find the longest suffix of history that is a prefix of moves
                 max_possible = min(length, len(self.history))

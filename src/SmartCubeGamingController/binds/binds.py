@@ -10,6 +10,7 @@ from evdev import UInput
 from evdev import ecodes as e
 
 import SmartCubeGamingController.binds.moves as SmartCubeMoves
+from SmartCubeGamingController.python_utils.directinput import CHAR_MAP
 
 
 class Command(abc.ABC):
@@ -29,6 +30,7 @@ class TextCommand(Command):
     """
     Types arbitrary unicode text by pasting it with ctrl+v.
     """
+
     def __init__(self, text: str) -> None:
         self.text = text
 
@@ -36,7 +38,7 @@ class TextCommand(Command):
         if not isinstance(obj, TextCommand):
             return NotImplemented
         return self.text == obj.text
-    
+
     def _is_on_keyboard(self) -> bool:
         """
         True if this key is a valid key on a keyboard (for example, "a", "win", "left arrow", or "ctrl"), False otherwise (for example, "A", or "😭")
@@ -59,6 +61,7 @@ class KeyCommand(Command):
     """
     A command that presses a key on keyboard. This needs to be an actual press-able key on your keyboard, so _characters_ like "A" won't work. Please use a TextCommand or KeyCombinationCommand instead for those cases.
     """
+
     def __init__(self, key: str) -> None:
         self.key = key
         self.ui = UInput()
@@ -73,11 +76,11 @@ class KeyCommand(Command):
         self.release()
 
     def press(self) -> None:
-        self.ui.write(e.EV_KEY, self.key, 1)
+        self.ui.write(e.EV_KEY, CHAR_MAP[self.key], 1)
         self.ui.syn()
 
     def release(self) -> None:
-        self.ui.write(e.EV_KEY, self.key, 0)
+        self.ui.write(e.EV_KEY, CHAR_MAP[self.key], 0)
         self.ui.syn()
 
 
@@ -85,6 +88,7 @@ class KeyCombinationCommand(Command):
     """
     A command that executes a key combination by pressing multiple keys at once.
     """
+
     def __init__(self, combination: list[KeyCommand]) -> None:
         self.combination = combination
 
@@ -107,6 +111,7 @@ class SleepCommand(Command):
     """
     A command that sleeps for a given amount of time.
     """
+
     def __init__(self, sleep_time: float) -> None:
         self.sleep_time = sleep_time
 
@@ -123,6 +128,7 @@ class ShellCommand(Command):
     """
     A command that executes a shell instruction.
     """
+
     def __init__(self, shell_command: str) -> None:
         self.shell_command = shell_command
 
@@ -160,6 +166,11 @@ class Bindings:
     @property
     def bindings(self):
         return self._bindings
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Bindings):
+            return NotImplemented
+        return self._bindings == other._bindings
 
     def update(self, moves: SmartCubeMoves.MoveList, commands: CommandList):
         self._bindings.update({moves: commands})
@@ -215,13 +226,31 @@ class BindingsConfiguration:
 
     def __init__(self) -> None:
         self.bindings: Bindings = Bindings()
-        self.deletion_type: BindingsConfiguration.DeletionType = BindingsConfiguration.DeletionType.Flush
+        self.deletion_type: BindingsConfiguration.DeletionType = (
+            BindingsConfiguration.DeletionType.Flush
+        )
         self.idle_time: float = 10.0
 
     class DeletionType(enum.Enum):
         Flush = "FLUSH"
         Postfix = "POSTFIX"
         Keep = "KEEP"
+
+        @staticmethod
+        def from_str(value: str):
+            try:
+                return BindingsConfiguration.DeletionType(value.upper())
+            except ValueError:
+                return None
+
+    def __eq__(self, obj: object) -> bool:
+        if not isinstance(obj, BindingsConfiguration):
+            return NotImplemented
+        return (
+            self.bindings == obj.bindings
+            and self.deletion_type == obj.deletion_type
+            and self.idle_time == obj.idle_time
+        )
 
     def from_file(self, filepath: str):
         if ".json" in filepath:

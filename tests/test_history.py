@@ -16,7 +16,7 @@ def history():
         MoveType.R_PRIME,
         MoveType.U,
     ]
-    history = MoveHistory()
+    history = MoveHistory(0, 0)
     for move in moves:
         history.append(move)
     return history
@@ -44,9 +44,11 @@ def bindings():
         CommandList([KeyCommand("C")]),
     )
 
-    # In history, long string, more recent, incomplete
+    # In history, long string, more recent, incomplete
     bind4 = (
-        MoveList().from_list([MoveType.L_PRIME, MoveType.R_PRIME, MoveType.U, MoveType.R]),
+        MoveList().from_list(
+            [MoveType.L_PRIME, MoveType.R_PRIME, MoveType.U, MoveType.R]
+        ),
         CommandList([KeyCommand("D")]),
     )
 
@@ -56,6 +58,7 @@ def bindings():
     binds.update(bind4[0], bind4[1])
 
     return binds
+
 
 @pytest.fixture
 def bindings2():
@@ -92,6 +95,7 @@ def bindings2():
 
     return binds
 
+
 @pytest.fixture
 def bindings3():
     binds = Bindings()
@@ -118,25 +122,31 @@ class TestMoveHistory:
     def test_history_greedy(self, history: MoveHistory, bindings: Bindings):
         match = history.find_match(bindings, greedy=True)
 
-        # Should return longest, most recent complete match
-        assert match == MoveList().from_list([MoveType.U_PRIME, MoveType.L_PRIME, MoveType.R_PRIME])
+        # Should return longest, most recent complete match
+        assert match == MoveList().from_list(
+            [MoveType.U_PRIME, MoveType.L_PRIME, MoveType.R_PRIME]
+        )
 
     def test_history_non_greedy(self, history: MoveHistory, bindings: Bindings):
         match = history.find_match(bindings, greedy=False)
-        
-        # Should return longest possible match given the history, even if it's incomplete
-        assert match == MoveList().from_list([MoveType.L_PRIME, MoveType.R_PRIME, MoveType.U, MoveType.R])
+
+        # Should return longest possible match given the history, even if it's incomplete
+        assert match == MoveList().from_list(
+            [MoveType.L_PRIME, MoveType.R_PRIME, MoveType.U, MoveType.R]
+        )
 
     def test_history_non_greedy2(self, history: MoveHistory, bindings2: Bindings):
         match = history.find_match(bindings2, greedy=False)
-        
-        # Should return longest possible match given the history, even if it's incomplete
+
+        # Should return longest possible match given the history, even if it's incomplete
         # Should return the most recent match if length is the tie-breaker
-        assert match == MoveList().from_list([MoveType.L_PRIME, MoveType.R_PRIME, MoveType.U])
+        assert match == MoveList().from_list(
+            [MoveType.L_PRIME, MoveType.R_PRIME, MoveType.U]
+        )
 
     def test_history_non_greedy3(self, history: MoveHistory, bindings3: Bindings):
         match = history.find_match(bindings3, greedy=False)
-        
-        # Both options are the _same length_, one is already in buffer, the other is not fully in the buffer.
+
+        # Both options are the _same length_, one is already in buffer, the other is not fully in the buffer.
         # Should pick the one that _is_ in the buffer, over the one that's not fully in the buffer.
         assert match == MoveList().from_list([MoveType.R_PRIME, MoveType.U])
