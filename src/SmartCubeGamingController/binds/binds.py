@@ -1,7 +1,5 @@
 import abc  # Abstract Base Class
 import enum
-import json
-import re
 import subprocess
 import time
 
@@ -10,6 +8,7 @@ from evdev import UInput
 from evdev import ecodes as e
 
 import SmartCubeGamingController.binds.moves as SmartCubeMoves
+import SmartCubeGamingController.binds.parsers
 from SmartCubeGamingController.python_utils.directinput import CHAR_MAP
 
 
@@ -174,48 +173,11 @@ class Bindings:
 
     def update(self, moves: SmartCubeMoves.MoveList, commands: CommandList):
         self._bindings.update({moves: commands})
-
-
-def _parse_move_list(raw: str) -> SmartCubeMoves.MoveList:
-    """
-    Parse a whitespace-separated sequence of move tokens into a MoveList.
-    Raises ValueError for unknown tokens.
-    """
-    from SmartCubeGamingController.binds.moves import MoveType
-
-    token_to_move = {move.value: move for move in MoveType}
-    moves: list[MoveType] = []
-    for token in raw.split():
-        if token not in token_to_move:
-            raise ValueError(f"Unknown move token: {token!r}")
-        moves.append(token_to_move[token])
-    return SmartCubeMoves.MoveList().from_list(moves)
-
-
-def _parse_command_token(token: str) -> Command:
-    """
-    Parse a single whitespace-delimited command token.
-
-    - '1.0s', '10s'     SleepCommand
-    - 'ctrl+alt+t'      KeyCombinationCommand
-    - 'space', '-'      SingleCharacterCommand
-    """
-    sleep_regex = re.compile(r"^\d+(\.\d+)?s$")
-    if sleep_regex.match(token):
-        # Strip "s" from end
-        bare_float = token[:-1]
-        return SleepCommand(float(bare_float))
-    if "+" in token:
-        parts = token.split("+")
-        return KeyCombinationCommand([KeyCommand(char) for char in parts])
-    return KeyCommand(token)
-
-
-def _parse_command_list(raw: str) -> CommandList:
-    """
-    Parse the right-hand side of a binding line into a KeyCommandList.
-    """
-    return CommandList([_parse_command_token(token) for token in raw.split()])
+        return self
+    
+    def extend(self, bindings: "Bindings"):
+        for move_list, command_list in bindings.bindings.items():
+            self.update(move_list, command_list)
 
 
 # TODO Add ability to export (as yaml, as json, as txt)
@@ -232,9 +194,9 @@ class BindingsConfiguration:
         self.idle_time: float = 10.0
 
     class DeletionType(enum.Enum):
-        Flush = "FLUSH"
-        Postfix = "POSTFIX"
-        Keep = "KEEP"
+        Flush = "flush"
+        Postfix = "postfix"
+        Keep = "keep"
 
         @staticmethod
         def from_str(value: str):
@@ -253,150 +215,5 @@ class BindingsConfiguration:
         )
 
     def from_file(self, filepath: str):
-        if ".json" in filepath:
-            self._from_json(filepath)
-        if ".txt" in filepath:
-            self._from_txt(filepath)
-        else:
-            raise NotImplementedError("Unsupported file format.")
+        self = SmartCubeGamingController.binds.parsers.Parser().parse(filepath)
         return self
-
-    def _from_json(self, filepath: str) -> None:
-        # Example file
-
-        # [
-        #     {
-        #         "type": "Command",
-        #         "name": "DELETION",
-        #         "value": "FLUSH"
-        #     },
-        #     {
-        #         "type": "bind",
-        #         "formula": "R U R' U'",
-        #         "keys": "ctrl+z"
-        #     },
-        #     {
-        #         "type": "shell",
-        #         "formula": "F F",
-        #         "command": "ls ~"
-        #     }
-        # ]
-
-        class TypeJSON(enum.Enum):
-            """
-            An abstraction of a types in the json file
-            """
-
-            COMMAND = "command"
-            BIND = "bind"
-            SHELL = "shell"
-
-            @staticmethod
-            def from_str(label: str):
-                if label.lower() in ("command", "config", "commands"):
-                    return TypeJSON.COMMAND
-                if label.lower() in ("bind", "binding"):
-                    return TypeJSON.BIND
-                if label.lower() in ("shell"):
-                    return TypeJSON.SHELL
-
-        # class CommandJSON:
-        #     def __init__(self) -> None:
-        #         self.type
-
-        def process_command_instruction(entry: str):
-            self.deletion_type = entry["name"].upper()
-            self.idle_time = float(entry["value"])
-
-        def process_binding_instruction(entry: str):
-            moves = entry["formula"].upper().strip()
-            keys = entry["keys"].upper().strip()
-            self.bindings.update(
-                _parse_move_list(moves),
-                _parse_command_list(keys),
-            )
-
-        def process_shell_instruction(entry: str):
-            raise NotImplementedError
-
-        with open(filepath) as file:
-            for entry in json.load(file):
-                type = entry["type"].lower()
-
-                label = TypeJSON.from_str(type)
-
-                if label == TypeJSON.COMMAND:
-                    process_command_instruction(entry)
-                elif label == TypeJSON.BIND:
-                    process_binding_instruction(entry)
-                elif label == TypeJSON.SHELL:
-                    process_shell_instruction(entry)
-                else:
-                    raise Exception("Invalid JSON type")
-
-    def _from_txt(self, filepath: str) -> None:
-        # TODO shell commands
-
-        # Example file:
-
-        # ! DELETION FLUSH
-        # ! IDLE_TIME 10
-        # R L' - alt+tab
-        # R R - ctrl+t
-        # R U R' U' - ctrl+z
-        # B B - shift+10.0s
-        # F R - space
-        # F F - ctrl+alt+t                            # terminal
-        # L' U' L U - alt+space c o d e 1.0s enter    # open vscode
-        # # comments
-
-        def process_config_instruction(line: str):
-            # Remove leading "!"
-            body = line[1:].strip()
-            parts = body.split()
-
-            if not parts:
-                return
-
-            # Directive type should be the first token
-            directive = parts[0].upper()
-
-            if directive == "DELETION" and len(parts) >= 2:
-                self.deletion_type = parts[1].upper()
-            elif directive == "IDLE_TIME" and len(parts) >= 2:
-                try:
-                    self.idle_time = float(parts[1])
-                except ValueError:
-                    raise ValueError(f"Invalid IDLE_TIME value: {parts[1]!r}")
-            else:
-                raise ValueError(f"Unknown config directive: {body!r}")
-
-        def process_binding_instruction(line: str):
-            separator = " - "
-            idx = line.find(separator)
-            if idx == -1:
-                raise ValueError(
-                    f"Binding line missing '{separator}' separator: {line!r}"
-                )
-            moves_raw = line[:idx].strip()
-            commands_raw = line[idx + len(separator) :].strip()
-            self.bindings.update(
-                _parse_move_list(moves_raw),
-                _parse_command_list(commands_raw),
-            )
-
-        with open(filepath) as file:
-            for raw_line in file.readlines():
-                line = raw_line.strip()
-
-                # Handle comments
-                if not line or line.startswith("#"):
-                    continue
-                comment_idx = line.find(" #")
-                if comment_idx != -1:
-                    line = line[:comment_idx].strip()
-
-                if line.startswith("!"):
-                    process_config_instruction(line)
-                else:
-                    process_binding_instruction(line)

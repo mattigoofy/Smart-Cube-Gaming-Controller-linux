@@ -13,6 +13,15 @@
             "request": "launch",
             "program": "src/SmartCubeGamingController/main.py",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "Python Debugger: Debug Tests",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "purpose": ["debug-test"],
+            "console": "integratedTerminal",
+            "justMyCode": true
         }
     ]
 }
