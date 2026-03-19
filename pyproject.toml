@@ -9,10 +9,11 @@ authors = [
 
 dependencies = [
     "black",    # Python formatter
+    "pytest-env",
+    "pytest",
     "evdev",
     "wikitextparser",
     "pyautogui",
-    "pytest",
     "pyyaml"
 ]
 

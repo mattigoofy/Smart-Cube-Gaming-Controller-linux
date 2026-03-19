@@ -8,7 +8,7 @@ from evdev import UInput
 from evdev import ecodes as e
 
 import SmartCubeGamingController.binds.moves as SmartCubeMoves
-import SmartCubeGamingController.binds.parsers
+import SmartCubeGamingController.binds.parsers as SmartCubeParsers
 from SmartCubeGamingController.python_utils.directinput import CHAR_MAP
 
 
@@ -215,5 +215,5 @@ class BindingsConfiguration:
         )
 
     def from_file(self, filepath: str):
-        self = SmartCubeGamingController.binds.parsers.Parser().parse(filepath)
+        self = SmartCubeParsers.Parser().parse(filepath)
         return self

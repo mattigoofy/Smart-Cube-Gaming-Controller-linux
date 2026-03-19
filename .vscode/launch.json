@@ -18,7 +18,7 @@
             "name": "Python Debugger: Debug Tests",
             "type": "debugpy",
             "request": "launch",
-            "program": "${file}",
+            "cwd": "${workspaceFolder}",
             "purpose": ["debug-test"],
             "console": "integratedTerminal",
             "justMyCode": true

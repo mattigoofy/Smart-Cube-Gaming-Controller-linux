@@ -2,22 +2,8 @@ import textwrap
 
 import pytest
 
-from SmartCubeGamingController.binds.binds import (
-    BindingsConfiguration,
-    CommandList,
-    KeyCombinationCommand,
-    KeyCommand,
-    ShellCommand,
-    SleepCommand,
-    TextCommand,
-)
-from SmartCubeGamingController.binds.moves import MoveList, MoveType
-from SmartCubeGamingController.binds.parsers import (
-    Parser,
-    ParserJSON,
-    ParserTXT,
-    ParserYML,
-)
+import SmartCubeGamingController.binds.binds as SmartCubeBinds
+import SmartCubeGamingController.binds.parsers as SmartCubeParsers
 
 
 def command_to_debug_tuple(cmd):
@@ -55,9 +41,22 @@ def command_list_to_debug_list(command_list):
 
 @pytest.fixture
 def bind_config_solution():
-    bc = BindingsConfiguration()
+    from SmartCubeGamingController.binds.binds import (
+        TextCommand,
+        KeyCommand,
+        KeyCombinationCommand,
+        ShellCommand,
+        SleepCommand,
+        CommandList,
+    )
+    from SmartCubeGamingController.binds.moves import (
+        MoveList,
+        MoveType,
+    )
+
+    bc = SmartCubeBinds.BindingsConfiguration()
     bc.idle_time = 10.0
-    bc.deletion_type = BindingsConfiguration.DeletionType.Flush
+    bc.deletion_type = SmartCubeBinds.BindingsConfiguration.DeletionType.Flush
 
     bc.bindings.update(
         MoveList([MoveType.U, MoveType.R, MoveType.U_PRIME, MoveType.R_PRIME]),
@@ -86,10 +85,13 @@ def bind_config_solution():
 
 
 class TestParser:
-    def test_parser_yml(self, bind_config_solution: "BindingsConfiguration"):
+    def test_parser_yml(
+        self, bind_config_solution: SmartCubeBinds.BindingsConfiguration
+    ):
         import os
         import tempfile
-        YML  = """\
+
+        YML = """\
         deletion_type: flush
         idle_time: 10.0s
         bindings:
@@ -111,7 +113,7 @@ class TestParser:
             f.write(textwrap.dedent(YML))
             name = f.name
 
-        parser = ParserYML()
+        parser = SmartCubeParsers.YamlParser()
         bind_config = parser.parse(name)
 
         assert bind_config.deletion_type == bind_config_solution.deletion_type
@@ -130,8 +132,6 @@ class TestParser:
             assert (
                 bind_config.bindings.bindings[moves]
                 == bind_config_solution.bindings.bindings[moves]
-            ), (
-                f"moves: {list(moves)}\nbindings: {command_list_to_debug_list(bind_config.bindings.bindings[moves])}"
-            )
+            ), f"moves: {list(moves)}\nbindings: {command_list_to_debug_list(bind_config.bindings.bindings[moves])}"
         assert bind_config.bindings == bind_config_solution.bindings
         assert bind_config == bind_config_solution

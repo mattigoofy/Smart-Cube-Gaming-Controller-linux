@@ -34,7 +34,9 @@ def _parse_command_token(token: str) -> "SmartCubeBinds.Command":
         return SmartCubeBinds.SleepCommand(float(bare_float))
     if "+" in token:
         parts = token.split("+")
-        return SmartCubeBinds.KeyCombinationCommand([SmartCubeBinds.KeyCommand(char) for char in parts])
+        return SmartCubeBinds.KeyCombinationCommand(
+            [SmartCubeBinds.KeyCommand(char) for char in parts]
+        )
     return SmartCubeBinds.KeyCommand(token)
 
 
@@ -42,7 +44,10 @@ def _parse_command_list(raw: str) -> "SmartCubeBinds.CommandList":
     """
     Parse the right-hand side of a binding line into a KeyCommandList.
     """
-    return SmartCubeBinds.CommandList([_parse_command_token(token) for token in raw.split()])
+    return SmartCubeBinds.CommandList(
+        [_parse_command_token(token) for token in raw.split()]
+    )
+
 
 import SmartCubeGamingController.binds.moves as SmartCubeMoves
 
@@ -60,23 +65,8 @@ class FileExtensions(enum.Enum):
             return FileExtensions.JSON
         if filepath[-3:].lower() in ("yml") or filepath[-4:].lower() in ("yaml"):
             return FileExtensions.YAML
-        
+
         raise NotImplemented
-
-
-class CommandKeys(enum.Enum):
-    TEXT = "text"
-    KEYS = "keys"
-    SHELL = "shell"
-    COMBO = "combo"
-    SLEEP = "sleep"
-
-    @staticmethod
-    def from_str(value: str):
-        try:
-            return CommandKeys(value)
-        except ValueError:
-            return None
 
 
 class Parser:
@@ -90,7 +80,7 @@ class Parser:
             parser = JsonParser()
         if extension == FileExtensions.YAML:
             parser = YamlParser()
-            
+
         if not parser:
             raise ValueError("No valid file extension found.")
 
@@ -147,12 +137,10 @@ class TxtParser(Parser):
 
         return result
 
-
     @dataclass
     class DirectiveConfig:
         deletion_type: "SmartCubeBinds.BindingsConfiguration.DeletionType | None" = None
         idle_time: float | None = None
-
 
     def _process_config_instruction(self, line: str) -> DirectiveConfig | None:
         deletion_type: "SmartCubeBinds.BindingsConfiguration.DeletionType | None" = None
@@ -169,7 +157,9 @@ class TxtParser(Parser):
         directive = parts[0].lower()
 
         if directive == "deletion" and len(parts) >= 2:
-            deletion_type = SmartCubeBinds.BindingsConfiguration.DeletionType(parts[1].lower())
+            deletion_type = SmartCubeBinds.BindingsConfiguration.DeletionType(
+                parts[1].lower()
+            )
         elif directive == "idle_time" and len(parts) >= 2:
             try:
                 idle_time = float(parts[1])
@@ -177,16 +167,14 @@ class TxtParser(Parser):
                 raise ValueError(f"Invalid IDLE_TIME value: {parts[1]!r}")
         else:
             raise ValueError(f"Unknown config directive: {body!r}")
-        
+
         return self.DirectiveConfig(deletion_type, idle_time)
 
     def _process_binding_instruction(self, line: str) -> "SmartCubeBinds.Bindings":
         separator = " - "
         idx = line.find(separator)
         if idx == -1:
-            raise ValueError(
-                f"Binding line missing '{separator}' separator: {line!r}"
-            )
+            raise ValueError(f"Binding line missing '{separator}' separator: {line!r}")
         moves_raw = line[:idx].strip()
         commands_raw = line[idx + len(separator) :].strip()
 
@@ -199,7 +187,7 @@ class TxtParser(Parser):
 class JsonParser(Parser):
     def parse(self, file_path: str) -> "SmartCubeBinds.BindingsConfiguration":
         raise NotImplementedError
-    
+
     #     # Example file
 
     #     # [
@@ -270,6 +258,20 @@ class JsonParser(Parser):
 
 
 class YamlParser(Parser):
+    class CommandKeys(enum.Enum):
+        TEXT = "text"
+        KEYS = "keys"
+        SHELL = "shell"
+        COMBO = "combo"
+        SLEEP = "sleep"
+
+        @staticmethod
+        def from_str(value: str):
+            try:
+                return YamlParser.CommandKeys(value)
+            except ValueError:
+                return None
+
     def parse(self, file_path: str) -> "SmartCubeBinds.BindingsConfiguration":
         """Example file
 
@@ -290,40 +292,50 @@ class YamlParser(Parser):
             yml_dict = yaml.safe_load(file)
 
         config = SmartCubeBinds.BindingsConfiguration()
-        config.deletion_type = yml_dict["deletion_type"]
-        config.deletion_type = BindingsConfiguration.DeletionType.from_str(
+
+        # TODO defaults, instead of assuming these directives are always defined
+        config.deletion_type = SmartCubeBinds.BindingsConfiguration.DeletionType(
             yml_dict["deletion_type"]
         )
         config.idle_time = float(yml_dict["idle_time"][:-1])  # remove 's'
 
         for item in yml_dict["bindings"]:
-            moves_list: list[MoveType] = []
+            moves_list: list[SmartCubeMoves.MoveType] = []
+            command_list: list[SmartCubeBinds.Command] = []
+
             moves = item["moves"].split()
             for move in moves:
-                moves_list.append(MoveType.from_str(move))
+                moves_list.append(SmartCubeMoves.MoveType(move))
 
-            command_list: list[SmartCubeBinds.Command] = []
             for command in item["commands"]:
                 command_key = list(command.keys())[0]
                 command_value = list(command.values())[0]
-                key = CommandKeys.from_str(command_key)
+                key = YamlParser.CommandKeys(command_key)
 
-                if key == CommandKeys.TEXT:
-                    command_list.append(SmartCubeBinds.TextCommand(command_value))
-                if key == CommandKeys.KEYS:
-                    command_list.append(SmartCubeBinds.KeyCommand(command_value))
-                if key == CommandKeys.SHELL:
-                    command_list.append(SmartCubeBinds.ShellCommand(command_value))
-                if key == CommandKeys.COMBO:
-                    combo_list = []
-                    for combo_key in command_value.split():
-                        combo_list.append(KeyCommand(combo_key))
-                    command_list.append(SmartCubeBinds.KeyCombinationCommand(combo_list))
-                if key == CommandKeys.SLEEP:
-                    command_list.append(SmartCubeBinds.SleepCommand(float(command_value[:-1])))
+                command_list.append(self._command_key_to_command(key, command_value))
 
-        config.bindings.update(
-            SmartCubeMoves.MoveList().from_list(moves), SmartCubeBinds.CommandList(commands)
-        )
+            config.bindings.update(
+                SmartCubeMoves.MoveList().from_list(moves_list),
+                SmartCubeBinds.CommandList(command_list),
+            )
 
         return config
+
+    def _command_key_to_command(
+        self, command_key: CommandKeys, value: str
+    ) -> "SmartCubeBinds.Command":
+        match command_key:
+            case YamlParser.CommandKeys.TEXT:
+                return SmartCubeBinds.TextCommand(value)
+            case YamlParser.CommandKeys.KEYS:
+                return SmartCubeBinds.KeyCommand(value)
+            case YamlParser.CommandKeys.SHELL:
+                return SmartCubeBinds.ShellCommand(value)
+            case YamlParser.CommandKeys.COMBO:
+                combo_list: list[SmartCubeBinds.KeyCommand] = []
+                for combo_key in value.split():
+                    combo_list.append(SmartCubeBinds.KeyCommand(combo_key))
+                return SmartCubeBinds.KeyCombinationCommand(combo_list)
+            case YamlParser.CommandKeys.SLEEP:
+                return SmartCubeBinds.SleepCommand(float(value[:-1]))
+        raise NotImplementedError
