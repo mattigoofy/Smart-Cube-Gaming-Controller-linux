@@ -18,11 +18,12 @@ class Command(abc.ABC):
     """
 
     # NOTE functions applicable to all Commands can be defined here, and will be inherited.
+    @abc.abstractmethod
     def execute(self) -> None:
         """
         Execute this command. This could be typing a key combination, or waiting a certain amount of time. This method needs to be overwritten in inheriting classes.
         """
-        raise NotImplementedError(f"Execute not implemented for {type(self)}")
+        ...
 
 
 class TextCommand(Command):
@@ -152,6 +153,9 @@ class CommandList:
         if not isinstance(other, CommandList):
             return NotImplemented
         return self.commands == other.commands
+    
+    def __iter__(self):
+        return iter(self.commands)
 
     def execute(self):
         for cmd in self.commands:
@@ -215,5 +219,8 @@ class BindingsConfiguration:
         )
 
     def from_file(self, filepath: str):
-        self = SmartCubeParsers.Parser().parse(filepath)
+        self = SmartCubeParsers.Parser.parse_file(filepath)
         return self
+    
+    def export(self, filepath: str):
+        SmartCubeParsers.Parser.export_file(self, filepath)

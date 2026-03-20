@@ -12,6 +12,7 @@ from SmartCubeGamingController.binds.binds import (
     CommandList,
     KeyCommand,
     SleepCommand,
+    TextCommand,
 )
 from SmartCubeGamingController.binds.moves import MoveType, MoveList
 from SmartCubeGamingController.binds.parsers import (
@@ -34,6 +35,20 @@ def make_config(txt: str) -> BindingsConfiguration:
         os.unlink(name)
 
 
+def export_config(config: BindingsConfiguration) -> str:
+    """Export to temp file, then return contents to the file."""
+    import tempfile, os
+
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".yaml", delete=False) as f:
+        name = f.name
+    try:
+        config.export(name)
+        with open(name, mode="r") as f:
+            return f.read()
+    finally:
+        os.unlink(name)
+
+
 def ml(*moves: MoveType) -> MoveList:
     return MoveList().from_list(list(moves))
 
@@ -44,6 +59,10 @@ def kcl(*commands: Command) -> CommandList:
 
 def kc(c: str) -> KeyCommand:
     return KeyCommand(c)
+
+
+def tc(t: str) -> TextCommand:
+    return TextCommand(t)
 
 
 def kcc(*keys: str) -> KeyCombinationCommand:
@@ -254,3 +273,32 @@ class TestFromTxt:
     def test_bad_idle_time_raises(self):
         with pytest.raises(ValueError, match="IDLE_TIME"):
             make_config("! IDLE_TIME notanumber\n")
+
+
+class TestExportYaml:
+    def test_full_example(self):
+        import textwrap
+        import yaml
+
+        config = BindingsConfiguration()
+        config.idle_time = 5.2
+        config.deletion_type = BindingsConfiguration.DeletionType.Keep
+        config.bindings.update(
+            ml(MoveType.B, MoveType.F_PRIME),
+            kcl(kc("a"), tc("P"))
+        )
+        result = export_config(config)
+        expected = """\
+deletion_type: keep
+idle_time: 5.2s
+bindings:
+- moves: B F'
+  commands:
+  - keys: a
+  - text: P
+"""
+
+        # assert result == expected
+        loaded_result = yaml.safe_load(result)
+        loaded_expected = yaml.safe_load(expected)
+        assert loaded_result == loaded_expected

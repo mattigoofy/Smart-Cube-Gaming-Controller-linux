@@ -15,13 +15,13 @@
             "console": "integratedTerminal"
         },
         {
-            "name": "Python Debugger: Debug Tests",
+            "name": "Test: Debug Tests in Current File",
             "type": "debugpy",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "purpose": ["debug-test"],
             "console": "integratedTerminal",
-            "justMyCode": true
+            "justMyCode": false
         }
     ]
 }

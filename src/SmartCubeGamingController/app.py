@@ -12,8 +12,7 @@ class App:
         settings: ServerSettings = ServerSettings()
         self._server: Server = Server(settings)
 
-        self._parser: Parser = Parser()
-        self._bindings_config = self._parser.parse(self._server.settings.binds_path)
+        self._bindings_config = Parser.parse_file(self._server.settings.binds_path)
         self._move_history = MoveHistory(self._bindings_config.idle_time, time.time())
 
         self._console = Console()

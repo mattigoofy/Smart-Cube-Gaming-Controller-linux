@@ -1,3 +1,4 @@
+import abc
 from dataclasses import dataclass
 import enum
 import re
@@ -52,7 +53,7 @@ def _parse_command_list(raw: str) -> "SmartCubeBinds.CommandList":
 import SmartCubeGamingController.binds.moves as SmartCubeMoves
 
 
-class FileExtensions(enum.Enum):
+class FileExtension(enum.Enum):
     TXT = "txt"
     JSON = "json"
     YAML = "yml"
@@ -60,35 +61,45 @@ class FileExtensions(enum.Enum):
     @staticmethod
     def from_str(filepath: str):
         if filepath[-3:].lower() in ("txt"):
-            return FileExtensions.TXT
+            return FileExtension.TXT
         if filepath[-4:].lower() in ("json"):
-            return FileExtensions.JSON
+            return FileExtension.JSON
         if filepath[-3:].lower() in ("yml") or filepath[-4:].lower() in ("yaml"):
-            return FileExtensions.YAML
+            return FileExtension.YAML
 
-        raise NotImplemented
+        raise NotImplementedError
 
 
-class Parser:
-    def parse(self, file_path: str) -> "SmartCubeBinds.BindingsConfiguration":
-        extension = FileExtensions.from_str(file_path)
-        parser = None
+class Parser(abc.ABC):
+    @abc.abstractmethod
+    def parse(self, filepath: str) -> "SmartCubeBinds.BindingsConfiguration":
+        ...
 
-        if extension == FileExtensions.TXT:
-            parser = TxtParser()
-        if extension == FileExtensions.JSON:
-            parser = JsonParser()
-        if extension == FileExtensions.YAML:
-            parser = YamlParser()
+    @abc.abstractmethod
+    def export(self, config: "SmartCubeBinds.BindingsConfiguration", filepath: str) -> None:
+        ...
 
-        if not parser:
-            raise ValueError("No valid file extension found.")
+    @classmethod
+    def for_file(cls, filepath: str) -> "Parser":
+        match FileExtension.from_str(filepath):
+            case FileExtension.TXT:
+                return TxtParser()
+            case FileExtension.JSON:
+                return JsonParser()
+            case FileExtension.YAML:
+                return YamlParser()
+            
+    @classmethod
+    def parse_file(cls, filepath: str) -> "SmartCubeBinds.BindingsConfiguration":
+        return cls.for_file(filepath).parse(filepath)
 
-        return parser.parse(file_path)
+    @classmethod
+    def export_file(cls, config: "SmartCubeBinds.BindingsConfiguration", filepath: str) -> None:
+        cls.for_file(filepath).export(config, filepath)
 
 
 class TxtParser(Parser):
-    def parse(self, file_path: str) -> "SmartCubeBinds.BindingsConfiguration":
+    def parse(self, filepath: str) -> "SmartCubeBinds.BindingsConfiguration":
         # TODO shell commands
 
         # Example file:
@@ -106,7 +117,7 @@ class TxtParser(Parser):
 
         result = SmartCubeBinds.BindingsConfiguration()
 
-        with open(file_path) as file:
+        with open(filepath) as file:
             for raw_line in file.readlines():
                 line = raw_line.strip()
 
@@ -185,7 +196,7 @@ class TxtParser(Parser):
 
 
 class JsonParser(Parser):
-    def parse(self, file_path: str) -> "SmartCubeBinds.BindingsConfiguration":
+    def parse(self, filepath: str) -> "SmartCubeBinds.BindingsConfiguration":
         raise NotImplementedError
 
     #     # Example file
@@ -272,7 +283,7 @@ class YamlParser(Parser):
             except ValueError:
                 return None
 
-    def parse(self, file_path: str) -> "SmartCubeBinds.BindingsConfiguration":
+    def parse(self, filepath: str) -> "SmartCubeBinds.BindingsConfiguration":
         """Example file
 
         deletion_type: flush
@@ -288,7 +299,7 @@ class YamlParser(Parser):
         """
         import yaml
 
-        with open(file_path) as file:
+        with open(filepath) as file:
             yml_dict = yaml.safe_load(file)
 
         config = SmartCubeBinds.BindingsConfiguration()
@@ -320,6 +331,28 @@ class YamlParser(Parser):
             )
 
         return config
+    
+    def export(self, config: "SmartCubeBinds.BindingsConfiguration", filepath: str) -> None:
+        import yaml
+
+        yml_dict = {
+            "deletion_type": config.deletion_type.value,
+            "idle_time": f"{config.idle_time}s",
+            "bindings": []
+        }
+
+        for move_list, command_list in config.bindings.bindings.items():
+            commands: list[dict] = []
+            for command in command_list:
+                commands.append(self._command_to_dict(command))
+
+            yml_dict["bindings"].append({
+                "moves": " ".join(move.value for move in move_list),
+                "commands": commands
+            })
+
+        with open(filepath, mode="w") as f:
+            yaml.safe_dump(yml_dict, f, default_flow_style=False)
 
     def _command_key_to_command(
         self, command_key: CommandKeys, value: str
@@ -339,3 +372,19 @@ class YamlParser(Parser):
             case YamlParser.CommandKeys.SLEEP:
                 return SmartCubeBinds.SleepCommand(float(value[:-1]))
         raise NotImplementedError
+    
+    def _command_to_dict(self, command: "SmartCubeBinds.Command") -> dict:
+        match command:
+            case SmartCubeBinds.TextCommand():
+                return {YamlParser.CommandKeys.TEXT.value: command.text}
+            case SmartCubeBinds.KeyCommand():
+                return {YamlParser.CommandKeys.KEYS.value: command.key}
+            case SmartCubeBinds.ShellCommand():
+                return {YamlParser.CommandKeys.SHELL.value: command.shell_command}
+            case SmartCubeBinds.KeyCombinationCommand():
+                keys = " ".join(k.key for k in command.combination)
+                return {YamlParser.CommandKeys.COMBO.value: keys}
+            case SmartCubeBinds.SleepCommand():
+                return {YamlParser.CommandKeys.SLEEP.value: f"{command.duration}s"}
+            case _:
+                raise NotImplementedError
