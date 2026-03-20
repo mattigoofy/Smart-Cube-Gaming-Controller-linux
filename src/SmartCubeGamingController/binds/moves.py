@@ -89,7 +89,7 @@ class MoveHistory:
 
     def set_time(self, time: float):
         if time - self.last_time > self.idle_time:
-            print("Hisotry cleared")
+            print("History cleared due to idleness")
             self.clear()
         self.last_time = time
 
