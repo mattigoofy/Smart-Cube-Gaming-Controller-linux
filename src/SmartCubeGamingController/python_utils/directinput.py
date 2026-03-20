@@ -4,6 +4,7 @@ Requires: pip install evdev
 Requires access to /dev/uinput (run as root or add a udev rule).
 """
 
+# TODO refactor and move this file
 import platform
 import subprocess
 import time
