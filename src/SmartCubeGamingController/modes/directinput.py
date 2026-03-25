@@ -54,7 +54,7 @@ class KeyboardMap:
                 "0": ecodes.KEY_0,
                 ",": ecodes.KEY_COMMA,
                 ";": ecodes.KEY_SEMICOLON,
-                ":": ecodes.KEY_SEMICOLON,
+                ":": ecodes.KEY_SLASH,  # NOTE there does not seem to be a key code for ":" (https://pickpj.github.io/keycodes.html)
                 "=": ecodes.KEY_EQUAL,
             }
         )
