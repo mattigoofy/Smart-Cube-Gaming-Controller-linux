@@ -4,86 +4,109 @@ Requires: pip install evdev
 Requires access to /dev/uinput (run as root or add a udev rule).
 """
 
-# TODO refactor and move this file
-import platform
-import subprocess
-import time
-
-import pyautogui
-import pyperclip
 from evdev import UInput
-from evdev import ecodes as e
-
-# Build a CHAR_MAP mapping similar to the previous Windows layout.
-CHAR_MAP = {}
-for c in "abcdefghijklmnopqrstuvwxyz":
-    CHAR_MAP[c] = getattr(e, "KEY_" + c.upper())
-
-# digits
-CHAR_MAP.update(
-    {
-        "1": e.KEY_1,
-        "2": e.KEY_2,
-        "3": e.KEY_3,
-        "4": e.KEY_4,
-        "5": e.KEY_5,
-        "6": e.KEY_6,
-        "7": e.KEY_7,
-        "8": e.KEY_8,
-        "9": e.KEY_9,
-        "0": e.KEY_0,
-        ",": e.KEY_COMMA,
-        ";": e.KEY_SEMICOLON,
-        ":": e.KEY_SEMICOLON,
-        "=": e.KEY_EQUAL,
-    }
-)
-
-# common keys
-CHAR_MAP["space"] = e.KEY_SPACE
-CHAR_MAP["enter"] = e.KEY_ENTER
-CHAR_MAP["return"] = e.KEY_ENTER
-CHAR_MAP["tab"] = e.KEY_TAB
-CHAR_MAP["backspace"] = e.KEY_BACKSPACE
-
-# arrow keys
-CHAR_MAP["left arrow"] = e.KEY_LEFT
-CHAR_MAP["right arrow"] = e.KEY_RIGHT
-CHAR_MAP["up arrow"] = e.KEY_UP
-CHAR_MAP["down arrow"] = e.KEY_DOWN
-
-# modifiers and a few extras
-CHAR_MAP["shift"] = e.KEY_LEFTSHIFT
-CHAR_MAP["ctrl"] = e.KEY_LEFTCTRL
-CHAR_MAP["alt"] = e.KEY_LEFTALT
+from evdev import ecodes
 
 
-UNPRINTABLE_KEYS = [
-    "space",
-    "enter",
-    "return",
-    "tab",
-    "backspace",
-    "left arrow",
-    "right arrow",
-    "up arrow",
-    "down arrow",
-    "shift",
-    "ctrl",
-    "alt",
-]
-
-# Create a UInput device. On some systems providing capabilities is required,
-# but the default should work for most cases.
-ui = UInput()
+# UNPRINTABLE_KEYS = [
+#     "space",
+#     "enter",
+#     "return",
+#     "tab",
+#     "backspace",
+#     "left arrow",
+#     "right arrow",
+#     "up arrow",
+#     "down arrow",
+#     "shift",
+#     "ctrl",
+#     "alt",
+# ]
 
 
-def press_key(key):
-    ui.write(e.EV_KEY, key, 1)
-    ui.syn()
+class KeyboardMap:
+    def __init__(self) -> None:
+        self._character_map: dict[str, int] = self.default_map()
+
+        # Create a UInput device. On some systems providing capabilities is required,
+        # but the default should work for most cases.
+        self._input = UInput()
+
+    def default_map(self) -> dict[str, int]:
+        map: dict[str, int] = dict()
+
+        # Map in the form of { "a": <key as int> }
+        for c in "abcdefghijklmnopqrstuvwxyz":
+            map[c] = getattr(ecodes, "KEY_" + c.upper())
+
+        # Digits
+        map.update(
+            {
+                "1": ecodes.KEY_1,
+                "2": ecodes.KEY_2,
+                "3": ecodes.KEY_3,
+                "4": ecodes.KEY_4,
+                "5": ecodes.KEY_5,
+                "6": ecodes.KEY_6,
+                "7": ecodes.KEY_7,
+                "8": ecodes.KEY_8,
+                "9": ecodes.KEY_9,
+                "0": ecodes.KEY_0,
+                ",": ecodes.KEY_COMMA,
+                ";": ecodes.KEY_SEMICOLON,
+                ":": ecodes.KEY_SEMICOLON,
+                "=": ecodes.KEY_EQUAL,
+            }
+        )
+
+        # Common keys
+        map["space"] = ecodes.KEY_SPACE
+        map["enter"] = ecodes.KEY_ENTER
+        map["return"] = ecodes.KEY_ENTER
+        map["tab"] = ecodes.KEY_TAB
+        map["backspace"] = ecodes.KEY_BACKSPACE
+
+        # Arrow keys
+        map["left arrow"] = ecodes.KEY_LEFT
+        map["right arrow"] = ecodes.KEY_RIGHT
+        map["up arrow"] = ecodes.KEY_UP
+        map["down arrow"] = ecodes.KEY_DOWN
+
+        # Modifiers and a few extras
+        map["shift"] = ecodes.KEY_LEFTSHIFT
+        map["ctrl"] = ecodes.KEY_LEFTCTRL
+        map["alt"] = ecodes.KEY_LEFTALT
+
+        return map
+    
+    def press_key(self, key: str):
+        """
+        Press a key.
+
+        Args:
+            key (str): Key to press, in string form. Example: "left arrow", "a", "ctrl" and so on.
+        """
+        # https://python-evdev.readthedocs.io/en/latest/apidoc.html#evdev.eventio.EventIO.write
+        # The evdev module doesn't play well with pylance, so no autocomplete here
+        key_code = self.get(key)
+        self._input.write(ecodes.EV_KEY, key_code, 1)
+        self._input.syn()
 
 
-def release_key(key):
-    ui.write(e.EV_KEY, key, 0)
-    ui.syn()
-   
+    def release_key(self, key: str):
+        """
+        Release a key.
+
+        Args:
+            key (str): Key to press, in string form. Example: "left arrow", "a", "ctrl" and so on.
+        """
+        key_code = self.get(key)
+        self._input.write(ecodes.EV_KEY, key_code, 0)
+        self._input.syn()
+
+    def get(self, key: str) -> int:
+        mapped = self._character_map.get(key)
+        if not mapped:
+            raise ValueError(f"Key not found: {key}")
+        return mapped
+    

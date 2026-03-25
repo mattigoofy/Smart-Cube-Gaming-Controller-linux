@@ -1,7 +1,7 @@
 import enum
 
 from SmartCubeGamingController.modes.binds.moves import MoveType
-from SmartCubeGamingController.modes.directinput import CHAR_MAP, press_key, release_key
+from SmartCubeGamingController.modes.directinput import KeyboardMap
 
 
 class Directions(enum.Enum):
@@ -47,7 +47,12 @@ class Keyboard:
     cursor = CursorState(1, 0, False)
 
     def __init__(self):
-        self.KEYBOARD = self.AZERTY
+        self._keyboard = self.AZERTY
+        self._keyboard_map = KeyboardMap()
+
+    @property
+    def map(self):
+        return self._keyboard_map
 
     def move_cursor(self, direction: Directions):
         if direction == Directions.UP:
@@ -59,39 +64,31 @@ class Keyboard:
         if direction == Directions.LEFT:
             self.cursor.column -= 1
 
-        self.cursor.row %= len(self.KEYBOARD)
-        self.cursor.column %= len(self.KEYBOARD[self.cursor.row])
+        self.cursor.row %= len(self._keyboard)
+        self.cursor.column %= len(self._keyboard[self.cursor.row])
 
     def current_key(self):
-        return CHAR_MAP[self.KEYBOARD[self.cursor.row][self.cursor.column]]
+        return self._keyboard[self.cursor.row][self.cursor.column]
 
-    def press_key(self, key):
+    def press_key(self, key: str):
         if self.cursor.shift_lock:
-            press_key(CHAR_MAP["shift"])
-            press_key(key)
-            release_key(CHAR_MAP["shift"])
-            release_key(key)
+            self.map.press_key("shift")
+            self.map.press_key(key)
+            self.map.release_key("shift")
+            self.map.release_key(key)
         else:
-            press_key(key)
-            release_key(key)
+            self.map.press_key(key)
+            self.map.release_key(key)
 
     def press_cursor(self):
         key = self.current_key()
-        if self.cursor.shift_lock:
-            press_key(CHAR_MAP["shift"])
-            press_key(key)
-            release_key(CHAR_MAP["shift"])
-            release_key(key)
-        else:
-            press_key(key)
-            release_key(key)
+        self.press_key(key)
 
 
 class Console:
     def __init__(self):
         self.keyboard = Keyboard()
 
-    # TODO use `match` instead of a chain of ifs; makes this more explicit, and the linter can see what enum values are / aren't used.
     def handle_move(self, move: MoveType):
         if move == MoveType.R:
             self.keyboard.move_cursor(Directions.UP)
@@ -109,28 +106,22 @@ class Console:
             self.keyboard.press_cursor()
 
         if move == MoveType.L_PRIME:
-            key = CHAR_MAP["backspace"]
-            self.keyboard.press_key(key)
+            self.keyboard.press_key("backspace")
 
         if move == MoveType.D:
-            key = CHAR_MAP["space"]
-            self.keyboard.press_key(key)
+            self.keyboard.press_key("space")
 
         if move == MoveType.D_PRIME:
             self.keyboard.cursor.shift_lock = not self.keyboard.cursor.shift_lock
 
         if move == MoveType.F:
-            key = CHAR_MAP["right arrow"]
-            self.keyboard.press_key(key)
+            self.keyboard.press_key("right arrow")
 
         if move == MoveType.F_PRIME:
-            key = CHAR_MAP["left arrow"]
-            self.keyboard.press_key(key)
+            self.keyboard.press_key("left arrow")
 
         if move == MoveType.B:
-            key = CHAR_MAP["up arrow"]
-            self.keyboard.press_key(key)
+            self.keyboard.press_key("up arrow")
 
         if move == MoveType.B_PRIME:
-            key = CHAR_MAP["down arrow"]
-            self.keyboard.press_key(key)
+            self.keyboard.press_key("down arrow")

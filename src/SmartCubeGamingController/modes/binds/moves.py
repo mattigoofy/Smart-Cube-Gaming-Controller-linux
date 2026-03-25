@@ -1,6 +1,7 @@
 import enum
 
 import SmartCubeGamingController.modes.binds.binds as SmartCubeBinds
+import time
 
 
 class MoveType(enum.Enum):
@@ -67,9 +68,9 @@ class MoveList:
 
 
 class MoveHistory:
-    def __init__(self, idle_time: float, current_time: float) -> None:
+    def __init__(self, idle_time: float) -> None:
         self._history: list[MoveType] = []
-        self.last_time = current_time
+        self._last_time = time.time()
         self.idle_time = idle_time
 
     @property
@@ -84,12 +85,12 @@ class MoveHistory:
         self.history.append(move)
         return self
 
-    # TODO rename this function `update` instead, and update time internally instead of taking an argument
-    def set_time(self, time: float):
-        if time - self.last_time > self.idle_time:
+    def update(self):
+        time_now = time.time()
+        if time_now - self._last_time > self.idle_time:
             print("History cleared due to idleness")
             self.clear()
-        self.last_time = time
+        self._last_time = time_now
 
     def to_str(self):
         return [move.value for move in self.history]

@@ -9,7 +9,7 @@ from evdev import ecodes as e
 
 import SmartCubeGamingController.modes.binds.moves as SmartCubeMoves
 import SmartCubeGamingController.modes.binds.parsers as SmartCubeParsers
-from SmartCubeGamingController.modes.directinput import CHAR_MAP
+from SmartCubeGamingController.modes.directinput import KeyboardMap
 
 
 class Command(abc.ABC):
@@ -75,14 +75,13 @@ class KeyCommand(Command):
         self.press()
         self.release()
 
-    # TODO Use press and release from directinput.py instead
     def press(self) -> None:
-        self.ui.write(e.EV_KEY, CHAR_MAP[self.key], 1)
-        self.ui.syn()
+        map = KeyboardMap()
+        map.press_key(self.key)
 
     def release(self) -> None:
-        self.ui.write(e.EV_KEY, CHAR_MAP[self.key], 0)
-        self.ui.syn()
+        map = KeyboardMap()
+        map.press_key(self.key)
 
 
 class KeyCombinationCommand(Command):

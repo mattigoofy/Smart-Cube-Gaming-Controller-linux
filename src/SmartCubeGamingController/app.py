@@ -13,7 +13,7 @@ class App:
         self._server: Server = Server(settings)
 
         self._bindings_config = Parser.parse_file(self._server.settings.binds_path)
-        self._move_history = MoveHistory(self._bindings_config.idle_time, time.time())
+        self._move_history = MoveHistory(self._bindings_config.idle_time)
 
         self._console = Console()
         self._server.cursor_state = self._console.keyboard.cursor
@@ -43,7 +43,7 @@ class App:
 
         # TODO Separate functions for each mode, maybe even make a quick Mode enum? --> fail on unrecognized mode
         if self._current_mode == "BIND":
-            self._move_history.set_time(time.time())
+            self._move_history.update()
 
             print(move)
             self._move_history.append(MoveType(move))
