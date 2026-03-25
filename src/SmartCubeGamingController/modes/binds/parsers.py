@@ -3,8 +3,8 @@ from dataclasses import dataclass
 import enum
 import re
 
-import SmartCubeGamingController.binds.moves as SmartCubeMoves
-import SmartCubeGamingController.binds.binds as SmartCubeBinds
+import SmartCubeGamingController.modes.binds.moves as SmartCubeMoves
+import SmartCubeGamingController.modes.binds.binds as SmartCubeBinds
 
 
 def _parse_move_list(raw: str) -> "SmartCubeMoves.MoveList":
@@ -12,7 +12,7 @@ def _parse_move_list(raw: str) -> "SmartCubeMoves.MoveList":
     Parse a whitespace-separated sequence of move tokens into a MoveList, for example "U R' B D".
     Raises ValueError for unknown tokens.
     """
-    from SmartCubeGamingController.binds.moves import MoveType
+    from SmartCubeGamingController.modes.binds.moves import MoveType
 
     moves: list[MoveType] = []
     for token in raw.split():
@@ -48,9 +48,6 @@ def _parse_command_list(raw: str) -> "SmartCubeBinds.CommandList":
     return SmartCubeBinds.CommandList(
         [_parse_command_token(token) for token in raw.split()]
     )
-
-
-import SmartCubeGamingController.binds.moves as SmartCubeMoves
 
 
 class FileExtension(enum.Enum):

@@ -7,9 +7,9 @@ import pyperclip
 from evdev import UInput
 from evdev import ecodes as e
 
-import SmartCubeGamingController.binds.moves as SmartCubeMoves
-import SmartCubeGamingController.binds.parsers as SmartCubeParsers
-from SmartCubeGamingController.python_utils.directinput import CHAR_MAP
+import SmartCubeGamingController.modes.binds.moves as SmartCubeMoves
+import SmartCubeGamingController.modes.binds.parsers as SmartCubeParsers
+from SmartCubeGamingController.modes.directinput import CHAR_MAP
 
 
 class Command(abc.ABC):
@@ -75,6 +75,7 @@ class KeyCommand(Command):
         self.press()
         self.release()
 
+    # TODO Use press and release from directinput.py instead
     def press(self) -> None:
         self.ui.write(e.EV_KEY, CHAR_MAP[self.key], 1)
         self.ui.syn()

@@ -8,8 +8,8 @@ import json
 import math
 from types import SimpleNamespace
 
-import SmartCubeGamingController.binds.moves as SmartCubeMoves
-import SmartCubeGamingController.binds.binds as SmartCubeBinds
+import SmartCubeGamingController.modes.binds.moves as SmartCubeMoves
+import SmartCubeGamingController.modes.binds.binds as SmartCubeBinds
 
 _GHOST_NODE_PREFIX: str = "GHOST_NODE_"
 

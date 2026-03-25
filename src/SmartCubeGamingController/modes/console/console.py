@@ -1,7 +1,7 @@
 import enum
 
-from SmartCubeGamingController.binds.moves import MoveType
-from SmartCubeGamingController.python_utils.directinput import CHAR_MAP, press_key, release_key
+from SmartCubeGamingController.modes.binds.moves import MoveType
+from SmartCubeGamingController.modes.directinput import CHAR_MAP, press_key, release_key
 
 
 class Directions(enum.Enum):
@@ -11,7 +11,6 @@ class Directions(enum.Enum):
     LEFT = enum.auto()
 
 
-# TODO This file may not be the place for this class. Move it to where the console mode handler is (or will be)
 class CursorState:
     row: int
     column: int

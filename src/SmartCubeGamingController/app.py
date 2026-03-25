@@ -1,10 +1,10 @@
 import queue
 import time
 
-from SmartCubeGamingController.binds.moves import MoveHistory, MoveList, MoveType
-from SmartCubeGamingController.binds.parsers import Parser
-from SmartCubeGamingController.python_utils.console import Console
-from SmartCubeGamingController.server.server import Server, ServerSettings
+from SmartCubeGamingController.modes.binds.moves import MoveHistory, MoveList, MoveType
+from SmartCubeGamingController.modes.binds.parsers import Parser
+from SmartCubeGamingController.modes.console.console import Console
+from SmartCubeGamingController.server import Server, ServerSettings
 
 
 class App:

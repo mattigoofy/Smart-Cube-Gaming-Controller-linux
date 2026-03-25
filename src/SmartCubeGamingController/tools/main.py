@@ -1,7 +1,7 @@
 from SmartCubeGamingController.tools.huffman import HuffmanTable, HuffmanTree
 from SmartCubeGamingController.tools.unicode_frequency_analysis import WikipediaDumpCharacterCounter
 
-import SmartCubeGamingController.binds.moves as SmartCubeMoves
+import SmartCubeGamingController.modes.binds.moves as SmartCubeMoves
 
 
 def main():

@@ -1,9 +1,6 @@
 import enum
-from typing import TYPE_CHECKING
 
-if TYPE_CHECKING:
-    # Use these imports only when type checking. This resolves a circular import issue when trying to run.
-    from SmartCubeGamingController.binds.binds import Bindings
+from SmartCubeGamingController.modes.binds.binds import Bindings
 
 
 class MoveType(enum.Enum):

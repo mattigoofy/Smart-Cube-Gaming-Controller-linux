@@ -9,8 +9,8 @@ from dataclasses import dataclass
 import time
 from urllib.parse import parse_qs, urlparse
 
-from SmartCubeGamingController.binds.moves import MoveType
-from SmartCubeGamingController.python_utils.console import CursorState
+from SmartCubeGamingController.modes.binds.moves import MoveType
+from SmartCubeGamingController.modes.console.console import CursorState
 
 
 @dataclass
