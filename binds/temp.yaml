@@ -1,0 +1,4983 @@
+deletion_type: flush
+idle_time: 10.0s
+bindings:
+- moves: R
+  commands:
+  - keys: r
+- moves: L
+  commands:
+  - keys: o
+- moves: L'
+  commands:
+  - keys: shift
+- moves: U
+  commands:
+  - keys: n
+- moves: U'
+  commands:
+  - keys: t
+- moves: B
+  commands:
+  - keys: i
+- moves: B'
+  commands:
+  - keys: a
+- moves: D
+  commands:
+  - keys: e
+- moves: F
+  commands:
+  - text: ' '
+- moves: R' R
+  commands:
+  - keys: '3'
+- moves: R' R'
+  commands:
+  - keys: '6'
+- moves: R' L
+  commands:
+  - keys: '5'
+- moves: R' L'
+  commands:
+  - keys: '4'
+- moves: R' U
+  commands:
+  - keys: '7'
+- moves: R' U'
+  commands:
+  - keys: '8'
+- moves: R' B
+  commands:
+  - text: (
+- moves: R' B'
+  commands:
+  - text: )
+- moves: R' D
+  commands:
+  - keys: '2'
+- moves: R' D'
+  commands:
+  - text: –
+- moves: R' F
+  commands:
+  - keys: '0'
+- moves: R' F'
+  commands:
+  - keys: k
+- moves: D' R
+  commands:
+  - keys: v
+- moves: D' R'
+  commands:
+  - keys: '9'
+- moves: D' L
+  commands:
+  - keys: w
+- moves: D' L'
+  commands:
+  - text: .
+- moves: D' U
+  commands:
+  - keys: y
+- moves: D' U'
+  commands:
+  - keys: ','
+- moves: D' B
+  commands:
+  - keys: '1'
+- moves: D' B'
+  commands:
+  - keys: enter
+- moves: D' D
+  commands:
+  - keys: b
+- moves: D' D'
+  commands:
+  - keys: f
+- moves: D' F
+  commands:
+  - keys: g
+- moves: F' R
+  commands:
+  - keys: ctrl
+- moves: F' R'
+  commands:
+  - text: fn
+- moves: F' L
+  commands:
+  - text: win
+- moves: F' L'
+  commands:
+  - keys: alt
+- moves: F' U
+  commands:
+  - keys: p
+- moves: F' U'
+  commands:
+  - keys: u
+- moves: F' B
+  commands:
+  - keys: m
+- moves: F' B'
+  commands:
+  - keys: c
+- moves: F' D
+  commands:
+  - keys: d
+- moves: F' D'
+  commands:
+  - keys: h
+- moves: F' F
+  commands:
+  - keys: l
+- moves: F' F'
+  commands:
+  - keys: s
+- moves: D' F' R'
+  commands:
+  - text: "\t"
+- moves: D' F' L
+  commands:
+  - keys: q
+- moves: D' F' U
+  commands:
+  - keys: ':'
+- moves: D' F' U'
+  commands:
+  - text: ''''
+- moves: D' F' B
+  commands:
+  - text: '"'
+- moves: D' F' B'
+  commands:
+  - keys: z
+- moves: D' F' D
+  commands:
+  - keys: x
+- moves: D' F' D'
+  commands:
+  - text: '-'
+- moves: D' F' F'
+  commands:
+  - keys: j
+- moves: D' F' R R
+  commands:
+  - text: '}'
+- moves: D' F' R L
+  commands:
+  - text: +
+- moves: D' F' R L'
+  commands:
+  - text: ó
+- moves: D' F' R U'
+  commands:
+  - text: í
+- moves: D' F' R B
+  commands:
+  - text: _
+- moves: D' F' R D
+  commands:
+  - text: '?'
+- moves: D' F' R D'
+  commands:
+  - text: ’
+- moves: D' F' R F
+  commands:
+  - keys: '='
+- moves: D' F' R F'
+  commands:
+  - text: ö
+- moves: D' F' L' R'
+  commands:
+  - text: á
+- moves: D' F' L' L
+  commands:
+  - text: '!'
+- moves: D' F' L' L'
+  commands:
+  - text: ü
+- moves: D' F' L' U'
+  commands:
+  - text: '*'
+- moves: D' F' L' B
+  commands:
+  - text: '&'
+- moves: D' F' L' D'
+  commands:
+  - text: '|'
+- moves: D' F' L' F
+  commands:
+  - text: '%'
+- moves: D' F' L' F'
+  commands:
+  - text: —
+- moves: D' F' F R'
+  commands:
+  - text: '#'
+- moves: D' F' F L
+  commands:
+  - text: ']'
+- moves: D' F' F L'
+  commands:
+  - text: '['
+- moves: D' F' F U'
+  commands:
+  - text:  
+- moves: D' F' F B
+  commands:
+  - text: é
+- moves: D' F' F D
+  commands:
+  - text: •
+- moves: D' F' F D'
+  commands:
+  - keys: ;
+- moves: D' F' F F'
+  commands:
+  - text: /
+- moves: D' F' R R' R
+  commands:
+  - text: ē
+- moves: D' F' R R' R'
+  commands:
+  - text: ɪ
+- moves: D' F' R R' L
+  commands:
+  - text: ÷
+- moves: D' F' R R' L'
+  commands:
+  - text: ͡
+- moves: D' F' R R' U
+  commands:
+  - text: ق
+- moves: D' F' R R' U'
+  commands:
+  - text: ʃ
+- moves: D' F' R R' B
+  commands:
+  - text: ح
+- moves: D' F' R R' B'
+  commands:
+  - text: →
+- moves: D' F' R R' D
+  commands:
+  - text: ع
+- moves: D' F' R R' D'
+  commands:
+  - text: ý
+- moves: D' F' R R' F
+  commands:
+  - text: ş
+- moves: D' F' R R' F'
+  commands:
+  - text: ę
+- moves: D' F' R U R
+  commands:
+  - text: å
+- moves: D' F' R U U
+  commands:
+  - text: ɨ
+- moves: D' F' R U U'
+  commands:
+  - text: ž
+- moves: D' F' R U B
+  commands:
+  - text: '~'
+- moves: D' F' R U B'
+  commands:
+  - text: ı
+- moves: D' F' R U D'
+  commands:
+  - text: ř
+- moves: D' F' R U F
+  commands:
+  - text: ن
+- moves: D' F' R U F'
+  commands:
+  - text: б
+- moves: D' F' R B' R
+  commands:
+  - text: в
+- moves: D' F' R B' R'
+  commands:
+  - text: æ
+- moves: D' F' R B' L'
+  commands:
+  - text: 𝄆
+- moves: D' F' R B' U
+  commands:
+  - text: 𝄇
+- moves: D' F' R B' U'
+  commands:
+  - text: ː
+- moves: D' F' R B' B'
+  commands:
+  - text: ï
+- moves: D' F' R B' D
+  commands:
+  - text: â
+- moves: D' F' R B' D'
+  commands:
+  - text: ɾ
+- moves: D' F' R B' F
+  commands:
+  - text: ы
+- moves: D' F' R B' F'
+  commands:
+  - text: د
+- moves: D' F' L' R R
+  commands:
+  - text: ^
+- moves: D' F' L' R L
+  commands:
+  - text: ɐ
+- moves: D' F' L' R L'
+  commands:
+  - text: ب
+- moves: D' F' L' R U
+  commands:
+  - text: ʿ
+- moves: D' F' L' R B
+  commands:
+  - text: р
+- moves: D' F' L' R B'
+  commands:
+  - text: е
+- moves: D' F' L' R D
+  commands:
+  - text: ß
+- moves: D' F' L' R D'
+  commands:
+  - text: ū
+- moves: D' F' L' R F
+  commands:
+  - text: ɑ
+- moves: D' F' L' U R
+  commands:
+  - text: ̃
+- moves: D' F' L' U R'
+  commands:
+  - text: ô
+- moves: D' F' L' U L
+  commands:
+  - text: к
+- moves: D' F' L' U L'
+  commands:
+  - text: ‿
+- moves: D' F' L' U U
+  commands:
+  - text: н
+- moves: D' F' L' U U'
+  commands:
+  - text: ś
+- moves: D' F' L' U B'
+  commands:
+  - text: ć
+- moves: D' F' L' U D
+  commands:
+  - text: ø
+- moves: D' F' L' U D'
+  commands:
+  - text: ‡
+- moves: D' F' L' U F'
+  commands:
+  - text: à
+- moves: D' F' L' B' R
+  commands:
+  - text: л
+- moves: D' F' L' B' L
+  commands:
+  - text: т
+- moves: D' F' L' B' L'
+  commands:
+  - text: ّ
+- moves: D' F' L' B' U'
+  commands:
+  - text: و
+- moves: D' F' L' B' B
+  commands:
+  - text: и
+- moves: D' F' L' B' D
+  commands:
+  - text: ë
+- moves: D' F' L' B' D'
+  commands:
+  - text: ٱ
+- moves: D' F' L' B' F'
+  commands:
+  - text: ِ
+- moves: D' F' L' D R
+  commands:
+  - text: ‘
+- moves: D' F' L' D R'
+  commands:
+  - text: −
+- moves: D' F' L' D B
+  commands:
+  - text: ي
+- moves: D' F' L' D B'
+  commands:
+  - text: ر
+- moves: D' F' L' D D'
+  commands:
+  - text: '@'
+- moves: D' F' L' D F
+  commands:
+  - text: š
+- moves: D' F' L' D F'
+  commands:
+  - text: с
+- moves: D' F' F R R
+  commands:
+  - text: č
+- moves: D' F' F R R'
+  commands:
+  - text: ْ
+- moves: D' F' F R L
+  commands:
+  - text: о
+- moves: D' F' F R L'
+  commands:
+  - text: ú
+- moves: D' F' F R U'
+  commands:
+  - text: ã
+- moves: D' F' F R B
+  commands:
+  - text: ɔ
+- moves: D' F' F R B'
+  commands:
+  - text: \
+- moves: D' F' F R D
+  commands:
+  - text: َ
+- moves: D' F' F R D'
+  commands:
+  - text: م
+- moves: D' F' F R F
+  commands:
+  - text: ī
+- moves: D' F' F R F'
+  commands:
+  - text: ō
+- moves: D' F' F U R
+  commands:
+  - text: ُ
+- moves: D' F' F U L
+  commands:
+  - text: ×
+- moves: D' F' F U L'
+  commands:
+  - text: <
+- moves: D' F' F U U
+  commands:
+  - text: ʁ
+- moves: D' F' F U U'
+  commands:
+  - text: ñ
+- moves: D' F' F U B
+  commands:
+  - text: ł
+- moves: D' F' F U D
+  commands:
+  - text: ²
+- moves: D' F' F U D'
+  commands:
+  - text: ə
+- moves: D' F' F U F
+  commands:
+  - text: а
+- moves: D' F' F B' R
+  commands:
+  - text: ɛ
+- moves: D' F' F B' B
+  commands:
+  - text: '>'
+- moves: D' F' F B' D
+  commands:
+  - text: ˈ
+- moves: D' F' F B' D'
+  commands:
+  - text: ä
+- moves: D' F' F B' F
+  commands:
+  - text: ç
+- moves: D' F' F B' F'
+  commands:
+  - text: è
+- moves: D' F' F F R
+  commands:
+  - text: ا
+- moves: D' F' F F L
+  commands:
+  - text: ā
+- moves: D' F' F F L'
+  commands:
+  - text: ل
+- moves: D' F' F F U'
+  commands:
+  - text: ”
+- moves: D' F' F F B
+  commands:
+  - text: “
+- moves: D' F' F F D
+  commands:
+  - text: °
+- moves: D' F' F F D'
+  commands:
+  - text: '{'
+- moves: D' F' F F F'
+  commands:
+  - text: $
+- moves: D' F' R U R' R
+  commands:
+  - text: ト
+- moves: D' F' R U R' R'
+  commands:
+  - text: －
+- moves: D' F' R U R' L
+  commands:
+  - text: 月
+- moves: D' F' R U R' L'
+  commands:
+  - text: ư
+- moves: D' F' R U R' U
+  commands:
+  - text: ồ
+- moves: D' F' R U R' U'
+  commands:
+  - text: 라
+- moves: D' F' R U R' B
+  commands:
+  - text: 남
+- moves: D' F' R U R' B'
+  commands:
+  - text: 宗
+- moves: D' F' R U R' D
+  commands:
+  - text: 주
+- moves: D' F' R U R' D'
+  commands:
+  - text: ミ
+- moves: D' F' R U R' F
+  commands:
+  - text: ィ
+- moves: D' F' R U R' F'
+  commands:
+  - text: ש
+- moves: D' F' R U L R
+  commands:
+  - text: ⊼
+- moves: D' F' R U L R'
+  commands:
+  - text: ĥ
+- moves: D' F' R U L L
+  commands:
+  - text: 之
+- moves: D' F' R U L L'
+  commands:
+  - text: श
+- moves: D' F' R U L U
+  commands:
+  - text: ह
+- moves: D' F' R U L U'
+  commands:
+  - text: ˢ
+- moves: D' F' R U L B
+  commands:
+  - text: त
+- moves: D' F' R U L B'
+  commands:
+  - text: ψ
+- moves: D' F' R U L D
+  commands:
+  - text: च
+- moves: D' F' R U L D'
+  commands:
+  - text: מ
+- moves: D' F' R U L F
+  commands:
+  - text: נ
+- moves: D' F' R U L F'
+  commands:
+  - text:  
+- moves: D' F' R U L' R
+  commands:
+  - text: ד
+- moves: D' F' R U L' R'
+  commands:
+  - text: ℕ
+- moves: D' F' R U L' L
+  commands:
+  - text: ∈
+- moves: D' F' R U L' L'
+  commands:
+  - text: 献
+- moves: D' F' R U L' U
+  commands:
+  - text: ء
+- moves: D' F' R U L' U'
+  commands:
+  - text: 贡
+- moves: D' F' R U L' B
+  commands:
+  - text: 翔
+- moves: D' F' R U L' B'
+  commands:
+  - text: 성
+- moves: D' F' R U L' D
+  commands:
+  - text: 鼎
+- moves: D' F' R U L' D'
+  commands:
+  - text: ア
+- moves: D' F' R U L' F
+  commands:
+  - text: є
+- moves: D' F' R U L' F'
+  commands:
+  - text: ˤ
+- moves: D' F' R U D R
+  commands:
+  - text: ׁ
+- moves: D' F' R U D R'
+  commands:
+  - text: 字
+- moves: D' F' R U D L
+  commands:
+  - text: ъ
+- moves: D' F' R U D L'
+  commands:
+  - text: ¥
+- moves: D' F' R U D U
+  commands:
+  - text: ǔ
+- moves: D' F' R U D U'
+  commands:
+  - text: ᓗ
+- moves: D' F' R U D B
+  commands:
+  - text: ᑕ
+- moves: D' F' R U D B'
+  commands:
+  - text: ᑲ
+- moves: D' F' R U D D
+  commands:
+  - text: ĩ
+- moves: D' F' R U D D'
+  commands:
+  - text: ス
+- moves: D' F' R U D F
+  commands:
+  - text: ύ
+- moves: D' F' R U D F'
+  commands:
+  - text: ŭ
+- moves: D' F' R B' L R
+  commands:
+  - text: க
+- moves: D' F' R B' L R'
+  commands:
+  - text: ё
+- moves: D' F' R B' L L
+  commands:
+  - text: 陈
+- moves: D' F' R B' L L'
+  commands:
+  - text: ґ
+- moves: D' F' R B' L U
+  commands:
+  - text: ئ
+- moves: D' F' R B' L U'
+  commands:
+  - text: ή
+- moves: D' F' R B' L B
+  commands:
+  - text: 木
+- moves: D' F' R B' L B'
+  commands:
+  - text: 儿
+- moves: D' F' R B' L D
+  commands:
+  - text: 語
+- moves: D' F' R B' L D'
+  commands:
+  - text: 경
+- moves: D' F' R B' L F
+  commands:
+  - text: 대
+- moves: D' F' R B' L F'
+  commands:
+  - text: 국
+- moves: D' F' R B' B R
+  commands:
+  - text: ″
+- moves: D' F' R B' B R'
+  commands:
+  - text: 南
+- moves: D' F' R B' B L
+  commands:
+  - text: ㅇ
+- moves: D' F' R B' B L'
+  commands:
+  - text: ♭
+- moves: D' F' R B' B U
+  commands:
+  - text: פ
+- moves: D' F' R B' B U'
+  commands:
+  - text: イ
+- moves: D' F' R B' B B
+  commands:
+  - text: ल
+- moves: D' F' R B' B B'
+  commands:
+  - text: ű
+- moves: D' F' R B' B D
+  commands:
+  - text: ɦ
+- moves: D' F' R B' B D'
+  commands:
+  - text: ṃ
+- moves: D' F' R B' B F
+  commands:
+  - text: א
+- moves: D' F' R B' B F'
+  commands:
+  - text: ק
+- moves: D' F' L' R R' R
+  commands:
+  - text: ר
+- moves: D' F' L' R R' R'
+  commands:
+  - text: ŏ
+- moves: D' F' L' R R' L
+  commands:
+  - text: 漫
+- moves: D' F' L' R R' L'
+  commands:
+  - text: ↓
+- moves: D' F' L' R R' U
+  commands:
+  - text: 本
+- moves: D' F' L' R R' U'
+  commands:
+  - text: 国
+- moves: D' F' L' R R' B
+  commands:
+  - text: 글
+- moves: D' F' L' R R' B'
+  commands:
+  - text: ᑎ
+- moves: D' F' L' R R' D
+  commands:
+  - text: ũ
+- moves: D' F' L' R R' D'
+  commands:
+  - text: ב
+- moves: D' F' L' R R' F
+  commands:
+  - text: द
+- moves: D' F' L' R R' F'
+  commands:
+  - text: ்
+- moves: D' F' L' R U' R
+  commands:
+  - text: э
+- moves: D' F' L' R U' R'
+  commands:
+  - text: إ
+- moves: D' F' L' R U' L
+  commands:
+  - text: ṟ
+- moves: D' F' L' R U' L'
+  commands:
+  - text: ロ
+- moves: D' F' L' R U' U
+  commands:
+  - text: ю
+- moves: D' F' L' R U' U'
+  commands:
+  - text: آ
+- moves: D' F' L' R U' B
+  commands:
+  - text: 域
+- moves: D' F' L' R U' B'
+  commands:
+  - text: 天
+- moves: D' F' L' R U' D
+  commands:
+  - text: 廣
+- moves: D' F' L' R U' D'
+  commands:
+  - text: º
+- moves: D' F' L' R U' F
+  commands:
+  - text: 　
+- moves: D' F' L' R U' F'
+  commands:
+  - text: 画
+- moves: D' F' L' R F' R
+  commands:
+  - text: 你
+- moves: D' F' L' R F' R'
+  commands:
+  - text: ≡
+- moves: D' F' L' R F' L
+  commands:
+  - text: ἀ
+- moves: D' F' L' R F' L'
+  commands:
+  - text: ξ
+- moves: D' F' L' R F' U
+  commands:
+  - text: 經
+- moves: D' F' L' R F' U'
+  commands:
+  - text: ン
+- moves: D' F' L' R F' B
+  commands:
+  - text: ĭ
+- moves: D' F' L' R F' B'
+  commands:
+  - text: ک
+- moves: D' F' L' R F' D
+  commands:
+  - text: ि
+- moves: D' F' L' R F' D'
+  commands:
+  - text: 帝
+- moves: D' F' L' R F' F
+  commands:
+  - text: ♂
+- moves: D' F' L' R F' F'
+  commands:
+  - text: ǒ
+- moves: D' F' L' U B R
+  commands:
+  - text: ☿
+- moves: D' F' L' U B R'
+  commands:
+  - text: ♃
+- moves: D' F' L' U B L
+  commands:
+  - text: ♄
+- moves: D' F' L' U B L'
+  commands:
+  - text: ἡ
+- moves: D' F' L' U B U
+  commands:
+  - text: ṉ
+- moves: D' F' L' U B U'
+  commands:
+  - text: ؤ
+- moves: D' F' L' U B B
+  commands:
+  - text: 噌
+- moves: D' F' L' U B B'
+  commands:
+  - text: ẽ
+- moves: D' F' L' U B D
+  commands:
+  - text: і
+- moves: D' F' L' U B D'
+  commands:
+  - text: ζ
+- moves: D' F' L' U B F
+  commands:
+  - text: ᑦ
+- moves: D' F' L' U B F'
+  commands:
+  - text: ा
+- moves: D' F' L' U F R
+  commands:
+  - text: ÿ
+- moves: D' F' L' U F R'
+  commands:
+  - text: ň
+- moves: D' F' L' U F L
+  commands:
+  - text: 역
+- moves: D' F' L' U F L'
+  commands:
+  - text: ̩
+- moves: D' F' L' U F U
+  commands:
+  - text: щ
+- moves: D' F' L' U F U'
+  commands:
+  - text: 北
+- moves: D' F' L' U F B
+  commands:
+  - text: ʻ
+- moves: D' F' L' U F B'
+  commands:
+  - text: ĕ
+- moves: D' F' L' U F D
+  commands:
+  - text: न
+- moves: D' F' L' U F D'
+  commands:
+  - text: ³
+- moves: D' F' L' U F F
+  commands:
+  - text: 평
+- moves: D' F' L' U F F'
+  commands:
+  - text: ф
+- moves: D' F' L' B' R' R
+  commands:
+  - text: ί
+- moves: D' F' L' B' R' R'
+  commands:
+  - text: ᐊ
+- moves: D' F' L' B' R' L
+  commands:
+  - text: ́
+- moves: D' F' L' B' R' L'
+  commands:
+  - text: ذ
+- moves: D' F' L' B' R' U
+  commands:
+  - text: ♀
+- moves: D' F' L' B' R' U'
+  commands:
+  - text: ʝ
+- moves: D' F' L' B' R' B
+  commands:
+  - text: ض
+- moves: D' F' L' B' R' B'
+  commands:
+  - text: ל
+- moves: D' F' L' B' R' D
+  commands:
+  - text: ɹ
+- moves: D' F' L' B' R' D'
+  commands:
+  - text:  
+- moves: D' F' L' B' R' F
+  commands:
+  - text: 광
+- moves: D' F' L' B' R' F'
+  commands:
+  - text: υ
+- moves: D' F' L' B' U R
+  commands:
+  - text: ת
+- moves: D' F' L' B' U R'
+  commands:
+  - text: ό
+- moves: D' F' L' B' U L
+  commands:
+  - text: §
+- moves: D' F' L' B' U L'
+  commands:
+  - text: 大
+- moves: D' F' L' B' U U
+  commands:
+  - text: 德
+- moves: D' F' L' B' U U'
+  commands:
+  - text: ֹ
+- moves: D' F' L' B' U B
+  commands:
+  - text: ˌ
+- moves: D' F' L' B' U B'
+  commands:
+  - text: 國
+- moves: D' F' L' B' U D
+  commands:
+  - text: أ
+- moves: D' F' L' B' U D'
+  commands:
+  - text: म
+- moves: D' F' L' B' U F
+  commands:
+  - text: ţ
+- moves: D' F' L' B' U F'
+  commands:
+  - text: ẓ
+- moves: D' F' L' B' B' R
+  commands:
+  - text: 味
+- moves: D' F' L' B' B' R'
+  commands:
+  - text: ј
+- moves: D' F' L' B' B' L
+  commands:
+  - text: 양
+- moves: D' F' L' B' B' L'
+  commands:
+  - text: ظ
+- moves: D' F' L' B' B' U
+  commands:
+  - text: ط
+- moves: D' F' L' B' B' U'
+  commands:
+  - text: 울
+- moves: D' F' L' B' B' B
+  commands:
+  - text: 서
+- moves: D' F' L' B' B' B'
+  commands:
+  - text: «
+- moves: D' F' L' B' B' D
+  commands:
+  - text: »
+- moves: D' F' L' B' B' D'
+  commands:
+  - text: έ
+- moves: D' F' L' B' B' F
+  commands:
+  - text: ة
+- moves: D' F' L' B' B' F'
+  commands:
+  - text: ¢
+- moves: D' F' L' B' F R
+  commands:
+  - text: ث
+- moves: D' F' L' B' F R'
+  commands:
+  - text: ‑
+- moves: D' F' L' B' F L'
+  commands:
+  - text: र
+- moves: D' F' L' B' F U
+  commands:
+  - text: ů
+- moves: D' F' L' B' F U'
+  commands:
+  - text: 도
+- moves: D' F' L' B' F B
+  commands:
+  - text: ַ
+- moves: D' F' L' B' F B'
+  commands:
+  - text: ‒
+- moves: D' F' L' D U' U
+  commands:
+  - text: ù
+- moves: D' F' L' D U' B
+  commands:
+  - text: β
+- moves: D' F' L' D D F'
+  commands:
+  - text: þ
+- moves: D' F' F R U R
+  commands:
+  - text: ș
+- moves: D' F' F R U R'
+  commands:
+  - text: ´
+- moves: D' F' F R U L
+  commands:
+  - text: ʐ
+- moves: D' F' F R U L'
+  commands:
+  - text: ṅ
+- moves: D' F' F R U U
+  commands:
+  - text: ה
+- moves: D' F' F R U U'
+  commands:
+  - text: ָ
+- moves: D' F' F R U B
+  commands:
+  - text: ʑ
+- moves: D' F' F R U B'
+  commands:
+  - text: χ
+- moves: D' F' F R U D
+  commands:
+  - text: û
+- moves: D' F' F R U D'
+  commands:
+  - text: ц
+- moves: D' F' F R U F
+  commands:
+  - text: 子
+- moves: D' F' F R U F'
+  commands:
+  - text: ー
+- moves: D' F' F U R' R
+  commands:
+  - text: 시
+- moves: D' F' F U R' R'
+  commands:
+  - text: ♦
+- moves: D' F' F U R' L
+  commands:
+  - text: ᓇ
+- moves: D' F' F U R' L'
+  commands:
+  - text: ְ
+- moves: D' F' F U R' U
+  commands:
+  - text: ¡
+- moves: D' F' F U R' U'
+  commands:
+  - text: …
+- moves: D' F' F U R' B
+  commands:
+  - text: ز
+- moves: D' F' F U R' B'
+  commands:
+  - text: ė
+- moves: D' F' F U R' D
+  commands:
+  - text: ₂
+- moves: D' F' F U R' D'
+  commands:
+  - text: ǐ
+- moves: D' F' F U R' F
+  commands:
+  - text: ִ
+- moves: D' F' F U R' F'
+  commands:
+  - text: ʔ
+- moves: D' F' F U B' R
+  commands:
+  - text: θ
+- moves: D' F' F U B' R'
+  commands:
+  - text: 한
+- moves: D' F' F U B' L
+  commands:
+  - text: ɬ
+- moves: D' F' F U B' L'
+  commands:
+  - text: ч
+- moves: D' F' F U B' U
+  commands:
+  - text: µ
+- moves: D' F' F U B' U'
+  commands:
+  - text: ʼ
+- moves: D' F' F U B' B
+  commands:
+  - text: ɫ
+- moves: D' F' F U B' B'
+  commands:
+  - text: ά
+- moves: D' F' F U B' D
+  commands:
+  - text: ж
+- moves: D' F' F U B' D'
+  commands:
+  - text: қ
+- moves: D' F' F U B' F
+  commands:
+  - text: đ
+- moves: D' F' F U B' F'
+  commands:
+  - text: ṛ
+- moves: D' F' F U F' R
+  commands:
+  - text: х
+- moves: D' F' F U F' R'
+  commands:
+  - text: ʾ
+- moves: D' F' F U F' L
+  commands:
+  - text: ż
+- moves: D' F' F U F' L'
+  commands:
+  - text: ¹
+- moves: D' F' F U F' U
+  commands:
+  - text: ्
+- moves: D' F' F U F' U'
+  commands:
+  - text: ʏ
+- moves: D' F' F U F' B
+  commands:
+  - text: ش
+- moves: D' F' F U F' B'
+  commands:
+  - text: ی
+- moves: D' F' F U F' D
+  commands:
+  - text: ʊ
+- moves: D' F' F U F' D'
+  commands:
+  - text: ź
+- moves: D' F' F U F' F
+  commands:
+  - text: 道
+- moves: D' F' F U F' F'
+  commands:
+  - text: 陳
+- moves: D' F' F B' R' R
+  commands:
+  - text: ּ
+- moves: D' F' F B' R' R'
+  commands:
+  - text: י
+- moves: D' F' F B' R' L
+  commands:
+  - text: ő
+- moves: D' F' F B' R' L'
+  commands:
+  - text: ω
+- moves: D' F' F B' R' U
+  commands:
+  - text: γ
+- moves: D' F' F B' R' U'
+  commands:
+  - text: ì
+- moves: D' F' F B' R' B
+  commands:
+  - text: й
+- moves: D' F' F B' R' B'
+  commands:
+  - text: ɕ
+- moves: D' F' F B' R' D
+  commands:
+  - text: ɣ
+- moves: D' F' F B' R' D'
+  commands:
+  - text: ḍ
+- moves: D' F' F B' R' F
+  commands:
+  - text: κ
+- moves: D' F' F B' R' F'
+  commands:
+  - text: η
+- moves: D' F' F B' L R
+  commands:
+  - text: €
+- moves: D' F' F B' L R'
+  commands:
+  - text: π
+- moves: D' F' F B' L L
+  commands:
+  - text: ɲ
+- moves: D' F' F B' L L'
+  commands:
+  - text: ­
+- moves: D' F' F B' L U'
+  commands:
+  - text: i̇
+- moves: D' F' F B' L B
+  commands:
+  - text: ص
+- moves: D' F' F B' L B'
+  commands:
+  - text: خ
+- moves: D' F' F B' L D
+  commands:
+  - text: ǎ
+- moves: D' F' F B' L D'
+  commands:
+  - text: ̯
+- moves: D' F' F B' L F
+  commands:
+  - text: 市
+- moves: D' F' F B' L F'
+  commands:
+  - text: ʲ
+- moves: D' F' F B' L' R
+  commands:
+  - text: غ
+- moves: D' F' F B' L' B
+  commands:
+  - text: ш
+- moves: D' F' F B' U D'
+  commands:
+  - text: ו
+- moves: D' F' F B' U' R
+  commands:
+  - text: œ
+- moves: D' F' F B' U' R'
+  commands:
+  - text: λ
+- moves: D' F' F B' U' L
+  commands:
+  - text: φ
+- moves: D' F' F B' U' L'
+  commands:
+  - text: ğ
+- moves: D' F' F B' U' U
+  commands:
+  - text: ǀ
+- moves: D' F' F B' U' U'
+  commands:
+  - text: δ
+- moves: D' F' F B' U' B
+  commands:
+  - text: σ
+- moves: D' F' F B' U' B'
+  commands:
+  - text: ‖
+- moves: D' F' F B' U' D
+  commands:
+  - text: ɡ
+- moves: D' F' F B' U' D'
+  commands:
+  - text: ą
+- moves: D' F' F B' U' F
+  commands:
+  - text: ŋ
+- moves: D' F' F B' U' F'
+  commands:
+  - text: з
+- moves: D' F' F B' B' R
+  commands:
+  - text: ε
+- moves: D' F' F B' B' R'
+  commands:
+  - text: ă
+- moves: D' F' F B' B' L
+  commands:
+  - text: '`'
+- moves: D' F' F B' B' L'
+  commands:
+  - text: ى
+- moves: D' F' F B' B' U
+  commands:
+  - text: ـ
+- moves: D' F' F B' B' U'
+  commands:
+  - text: ≈
+- moves: D' F' F B' B' B
+  commands:
+  - text: ν
+- moves: D' F' F B' B' B'
+  commands:
+  - text: ṭ
+- moves: D' F' F B' B' D
+  commands:
+  - text: г
+- moves: D' F' F B' B' D'
+  commands:
+  - text: μ
+- moves: D' F' F B' B' F
+  commands:
+  - text: ς
+- moves: D' F' F B' B' F'
+  commands:
+  - text: ι
+- moves: D' F' F F R' R
+  commands:
+  - text: τ
+- moves: D' F' F F R' R'
+  commands:
+  - text: ṇ
+- moves: D' F' F F R' L
+  commands:
+  - text: ج
+- moves: D' F' F F R' L'
+  commands:
+  - text: ٰ
+- moves: D' F' F F R' U
+  commands:
+  - text: ο
+- moves: D' F' F F R' U'
+  commands:
+  - text: ě
+- moves: D' F' F F R' B
+  commands:
+  - text: ṣ
+- moves: D' F' F F R' D
+  commands:
+  - text: ·
+- moves: D' F' F F U U
+  commands:
+  - text: ь
+- moves: D' F' F F U U'
+  commands:
+  - text: ∞
+- moves: D' F' F F U B
+  commands:
+  - text: ′
+- moves: D' F' F F U B'
+  commands:
+  - text: п
+- moves: D' F' F F U D
+  commands:
+  - text: س
+- moves: D' F' F F U D'
+  commands:
+  - text: ʂ
+- moves: D' F' F F U F
+  commands:
+  - text: ò
+- moves: D' F' F F U F'
+  commands:
+  - text: £
+- moves: D' F' F F B' R
+  commands:
+  - text: î
+- moves: D' F' F F B' R'
+  commands:
+  - text: ρ
+- moves: D' F' F F B' L
+  commands:
+  - text: ḥ
+- moves: D' F' F F B' L'
+  commands:
+  - text: ń
+- moves: D' F' F F B' U
+  commands:
+  - text: †
+- moves: D' F' F F B' U'
+  commands:
+  - text: я
+- moves: D' F' F F B' B
+  commands:
+  - text: ʒ
+- moves: D' F' F F B' B'
+  commands:
+  - text: ê
+- moves: D' F' F F B' D
+  commands:
+  - text: ه
+- moves: D' F' F F B' F
+  commands:
+  - text: ف
+- moves: D' F' F F B' F'
+  commands:
+  - text: ð
+- moves: D' F' F F F R
+  commands:
+  - text: õ
+- moves: D' F' F F F R'
+  commands:
+  - text: ك
+- moves: D' F' F F F B
+  commands:
+  - text: у
+- moves: D' F' F F F B'
+  commands:
+  - text: α
+- moves: D' F' F F F D
+  commands:
+  - text: м
+- moves: D' F' F F F F
+  commands:
+  - text: д
+- moves: D' F' F F F F'
+  commands:
+  - text: ت
+- moves: D' F' L' B' F L L
+  commands:
+  - text: ℓ
+- moves: D' F' L' B' F L L'
+  commands:
+  - text: 鸡
+- moves: D' F' L' B' F L U
+  commands:
+  - text: 江
+- moves: D' F' L' B' F L U'
+  commands:
+  - text: 火
+- moves: D' F' L' B' F L B
+  commands:
+  - text: 倍
+- moves: D' F' L' B' F L B'
+  commands:
+  - text: 吝
+- moves: D' F' L' B' F L D
+  commands:
+  - text: 溜
+- moves: D' F' L' B' F L D'
+  commands:
+  - text: 爷
+- moves: D' F' L' B' F L F
+  commands:
+  - text: 撮
+- moves: D' F' L' B' F L F'
+  commands:
+  - text: ؿ
+- moves: D' F' L' B' F D R
+  commands:
+  - text: 郡
+- moves: D' F' L' B' F D R'
+  commands:
+  - text: 縣
+- moves: D' F' L' B' F D L
+  commands:
+  - text: 屋
+- moves: D' F' L' B' F D L'
+  commands:
+  - text: 根
+- moves: D' F' L' B' F D U
+  commands:
+  - text: 门
+- moves: D' F' L' B' F D U'
+  commands:
+  - text: ̸
+- moves: D' F' L' B' F D B
+  commands:
+  - text: ٤
+- moves: D' F' L' B' F D B'
+  commands:
+  - text: 売
+- moves: D' F' L' B' F D D
+  commands:
+  - text: 受
+- moves: D' F' L' B' F D D'
+  commands:
+  - text: ᴣ
+- moves: D' F' L' B' F D F
+  commands:
+  - text: ١
+- moves: D' F' L' B' F D F'
+  commands:
+  - text: 我
+- moves: D' F' L' B' F D' R
+  commands:
+  - text: ㄲ
+- moves: D' F' L' B' F D' R'
+  commands:
+  - text: 京
+- moves: D' F' L' B' F D' L
+  commands:
+  - text: ₁
+- moves: D' F' L' B' F D' L'
+  commands:
+  - text: 천
+- moves: D' F' L' B' F D' U
+  commands:
+  - text: 仁
+- moves: D' F' L' B' F D' U'
+  commands:
+  - text: 蔚
+- moves: D' F' L' B' F D' B
+  commands:
+  - text: ッ
+- moves: D' F' L' B' F D' B'
+  commands:
+  - text: 세
+- moves: D' F' L' B' F D' D
+  commands:
+  - text: 釜
+- moves: D' F' L' B' F D' D'
+  commands:
+  - text: 구
+- moves: D' F' L' B' F D' F
+  commands:
+  - text: 종
+- moves: D' F' L' B' F D' F'
+  commands:
+  - text: 佳
+- moves: D' F' L' B' F F R
+  commands:
+  - text: 百
+- moves: D' F' L' B' F F R'
+  commands:
+  - text: 民
+- moves: D' F' L' B' F F L
+  commands:
+  - text: 留
+- moves: D' F' L' B' F F L'
+  commands:
+  - text: 渭
+- moves: D' F' L' B' F F U
+  commands:
+  - text: 紙
+- moves: D' F' L' B' F F U'
+  commands:
+  - text: 向
+- moves: D' F' L' B' F F B
+  commands:
+  - text: も
+- moves: D' F' L' B' F F B'
+  commands:
+  - text: 成
+- moves: D' F' L' B' F F D
+  commands:
+  - text: ベ
+- moves: D' F' L' B' F F D'
+  commands:
+  - text: 童
+- moves: D' F' L' B' F F F
+  commands:
+  - text: 芝
+- moves: D' F' L' B' F F F'
+  commands:
+  - text: 居
+- moves: D' F' L' B' F F' R
+  commands:
+  - text: 広
+- moves: D' F' L' B' F F' R'
+  commands:
+  - text: 🇱
+- moves: D' F' L' B' F F' L
+  commands:
+  - text: 宝
+- moves: D' F' L' B' F F' L'
+  commands:
+  - text: 矢
+- moves: D' F' L' B' F F' U
+  commands:
+  - text: 島
+- moves: D' F' L' B' F F' U'
+  commands:
+  - text: 尾
+- moves: D' F' L' B' F F' B
+  commands:
+  - text: 抹
+- moves: D' F' L' B' F F' B'
+  commands:
+  - text: 茶
+- moves: D' F' L' B' F F' D
+  commands:
+  - text: 璧
+- moves: D' F' L' B' F F' D'
+  commands:
+  - text: ブ
+- moves: D' F' L' B' F F' F
+  commands:
+  - text: 事
+- moves: D' F' L' B' F F' F'
+  commands:
+  - text: 的
+- moves: D' F' L' D L R R
+  commands:
+  - text: 幼
+- moves: D' F' L' D L R R'
+  commands:
+  - text: 咸
+- moves: D' F' L' D L R L
+  commands:
+  - text: 阳
+- moves: D' F' L' D L R L'
+  commands:
+  - text: 榆
+- moves: D' F' L' D L R U
+  commands:
+  - text: 林
+- moves: D' F' L' D L R U'
+  commands:
+  - text: 桐
+- moves: D' F' L' D L R B
+  commands:
+  - text: 延
+- moves: D' F' L' D L R B'
+  commands:
+  - text: 每
+- moves: D' F' L' D L R D
+  commands:
+  - text: ᙱ
+- moves: D' F' L' D L R D'
+  commands:
+  - text: 粵
+- moves: D' F' L' D L R F
+  commands:
+  - text: ₃
+- moves: D' F' L' D L R F'
+  commands:
+  - text: 兔
+- moves: D' F' L' D L R' R
+  commands:
+  - text: 禎
+- moves: D' F' L' D L R' R'
+  commands:
+  - text: 記
+- moves: D' F' L' D L R' L
+  commands:
+  - text: 主
+- moves: D' F' L' D L R' L'
+  commands:
+  - text: な
+- moves: D' F' L' D L R' U
+  commands:
+  - text: タ
+- moves: D' F' L' D L R' U'
+  commands:
+  - text: 永
+- moves: D' F' L' D L R' B
+  commands:
+  - text: 粤
+- moves: D' F' L' D L R' B'
+  commands:
+  - text: ữ
+- moves: D' F' L' D L R' D
+  commands:
+  - text: 兰
+- moves: D' F' L' D L R' D'
+  commands:
+  - text: 実
+- moves: D' F' L' D L R' F
+  commands:
+  - text: 験
+- moves: D' F' L' D L R' F'
+  commands:
+  - text: 蘭
+- moves: D' F' L' D L L R
+  commands:
+  - text: 嗎
+- moves: D' F' L' D L L R'
+  commands:
+  - text: 么
+- moves: D' F' L' D L L L
+  commands:
+  - text: 麽
+- moves: D' F' L' D L L L'
+  commands:
+  - text: 梁
+- moves: D' F' L' D L L U
+  commands:
+  - text: 閩
+- moves: D' F' L' D L L U'
+  commands:
+  - text: 湘
+- moves: D' F' L' D L L B
+  commands:
+  - text: 贛
+- moves: D' F' L' D L L B'
+  commands:
+  - text: 赣
+- moves: D' F' L' D L L D
+  commands:
+  - text: 乙
+- moves: D' F' L' D L L D'
+  commands:
+  - text: 家
+- moves: D' F' L' D L L F
+  commands:
+  - text: 闽
+- moves: D' F' L' D L L F'
+  commands:
+  - text: ್
+- moves: D' F' L' D L L' R
+  commands:
+  - text: 华
+- moves: D' F' L' D L L' R'
+  commands:
+  - text: 水
+- moves: D' F' L' D L L' L
+  commands:
+  - text: 雨
+- moves: D' F' L' D L L' L'
+  commands:
+  - text: 華
+- moves: D' F' L' D L L' U
+  commands:
+  - text: ơ
+- moves: D' F' L' D L L' U'
+  commands:
+  - text: ㅉ
+- moves: D' F' L' D L L' B
+  commands:
+  - text: 铜
+- moves: D' F' L' D L L' B'
+  commands:
+  - text: 性
+- moves: D' F' L' D L L' D
+  commands:
+  - text: 邱
+- moves: D' F' L' D L L' D'
+  commands:
+  - text: 기
+- moves: D' F' L' D L L' F
+  commands:
+  - text: 畿
+- moves: D' F' L' D L L' F'
+  commands:
+  - text: 원
+- moves: D' F' L' D L U R
+  commands:
+  - text: 濟
+- moves: D' F' L' D L U R'
+  commands:
+  - text: 竹
+- moves: D' F' L' D L U L
+  commands:
+  - text: 龜
+- moves: D' F' L' D L U L'
+  commands:
+  - text: 龍
+- moves: D' F' L' D L U U
+  commands:
+  - text: 龙
+- moves: D' F' L' D L U U'
+  commands:
+  - text: ზ
+- moves: D' F' L' D L U B
+  commands:
+  - text: 龟
+- moves: D' F' L' D L U B'
+  commands:
+  - text: 马
+- moves: D' F' L' D L U D
+  commands:
+  - text: 鳥
+- moves: D' F' L' D L U D'
+  commands:
+  - text: 鸟
+- moves: D' F' L' D L U F
+  commands:
+  - text: 直
+- moves: D' F' L' D L U F'
+  commands:
+  - text: ỉ
+- moves: D' F' L' D L U' R
+  commands:
+  - text: ᓯ
+- moves: D' F' L' D L U' R'
+  commands:
+  - text: ᒋ
+- moves: D' F' L' D L U' L
+  commands:
+  - text: ᐅ
+- moves: D' F' L' D L U' L'
+  commands:
+  - text: ™
+- moves: D' F' L' D L U' U
+  commands:
+  - text: ℠
+- moves: D' F' L' D L U' U'
+  commands:
+  - text: 吴
+- moves: D' F' L' D L U' B
+  commands:
+  - text: ㄧ
+- moves: D' F' L' D L U' B'
+  commands:
+  - text: 燕
+- moves: D' F' L' D L U' D
+  commands:
+  - text: 蓟
+- moves: D' F' L' D L U' D'
+  commands:
+  - text: ն
+- moves: D' F' L' D L U' F
+  commands:
+  - text: 多
+- moves: D' F' L' D L U' F'
+  commands:
+  - text: オ
+- moves: D' F' L' D L B R
+  commands:
+  - text: ্
+- moves: D' F' L' D L B R'
+  commands:
+  - text: ज
+- moves: D' F' L' D L B L
+  commands:
+  - text: 景
+- moves: D' F' L' D L B L'
+  commands:
+  - text: よ
+- moves: D' F' L' D L B U
+  commands:
+  - text: ე
+- moves: D' F' L' D L B U'
+  commands:
+  - text: ი
+- moves: D' F' L' D L B B
+  commands:
+  - text: თ
+- moves: D' F' L' D L B B'
+  commands:
+  - text: 銀
+- moves: D' F' L' D L B D
+  commands:
+  - text: ფ
+- moves: D' F' L' D L B D'
+  commands:
+  - text: ხ
+- moves: D' F' L' D L B F
+  commands:
+  - text: 株
+- moves: D' F' L' D L B F'
+  commands:
+  - text: 会
+- moves: D' F' L' D L B' R
+  commands:
+  - text: 横
+- moves: D' F' L' D L B' R'
+  commands:
+  - text: ူ
+- moves: D' F' L' D L B' L
+  commands:
+  - text: 社
+- moves: D' F' L' D L B' L'
+  commands:
+  - text: 式
+- moves: D' F' L' D L B' U
+  commands:
+  - text: 觀
+- moves: D' F' L' D L B' U'
+  commands:
+  - text: 貴
+- moves: D' F' L' D L B' B
+  commands:
+  - text: ὔ
+- moves: D' F' L' D L B' B'
+  commands:
+  - text: ㄸ
+- moves: D' F' L' D L B' D
+  commands:
+  - text: ㅆ
+- moves: D' F' L' D L B' D'
+  commands:
+  - text: た
+- moves: D' F' L' D L B' F
+  commands:
+  - text: ㅃ
+- moves: D' F' L' D L B' F'
+  commands:
+  - text: ṓ
+- moves: D' F' L' D L D R
+  commands:
+  - text: ∨
+- moves: D' F' L' D L D R'
+  commands:
+  - text: ガ
+- moves: D' F' L' D L D L
+  commands:
+  - text: 柳
+- moves: D' F' L' D L D L'
+  commands:
+  - text: 樹
+- moves: D' F' L' D L D U
+  commands:
+  - text: 幸
+- moves: D' F' L' D L D U'
+  commands:
+  - text: 良
+- moves: D' F' L' D L D B
+  commands:
+  - text: 機
+- moves: D' F' L' D L D B'
+  commands:
+  - text: 緖
+- moves: D' F' L' D L D D
+  commands:
+  - text: 真
+- moves: D' F' L' D L D D'
+  commands:
+  - text: 歌
+- moves: D' F' L' D L D F
+  commands:
+  - text: ユ
+- moves: D' F' L' D L D F'
+  commands:
+  - text: 千
+- moves: D' F' L' D L D' R
+  commands:
+  - text: 利
+- moves: D' F' L' D L D' R'
+  commands:
+  - text: 春
+- moves: D' F' L' D L D' L
+  commands:
+  - text: 無
+- moves: D' F' L' D L D' L'
+  commands:
+  - text: ピ
+- moves: D' F' L' D L D' U
+  commands:
+  - text: 久
+- moves: D' F' L' D L D' U'
+  commands:
+  - text: 紀
+- moves: D' F' L' D L D' B
+  commands:
+  - text: 帆
+- moves: D' F' L' D L D' B'
+  commands:
+  - text: 城
+- moves: D' F' L' D L D' D
+  commands:
+  - text: 兎
+- moves: D' F' L' D L D' D'
+  commands:
+  - text: 雪
+- moves: D' F' L' D L D' F
+  commands:
+  - text: 星
+- moves: D' F' L' D L D' F'
+  commands:
+  - text: ヒ
+- moves: D' F' L' D L F R
+  commands:
+  - text: 侯
+- moves: D' F' L' D L F R'
+  commands:
+  - text: ¾
+- moves: D' F' L' D L F L
+  commands:
+  - text: 隆
+- moves: D' F' L' D L F L'
+  commands:
+  - text: 鈴
+- moves: D' F' L' D L F U
+  commands:
+  - text: 園
+- moves: D' F' L' D L F U'
+  commands:
+  - text: 知
+- moves: D' F' L' D L F B
+  commands:
+  - text: 撫
+- moves: D' F' L' D L F B'
+  commands:
+  - text: 狼
+- moves: D' F' L' D L F D
+  commands:
+  - text: 麹
+- moves: D' F' L' D L F D'
+  commands:
+  - text: 宋
+- moves: D' F' L' D L F F
+  commands:
+  - text: ・
+- moves: D' F' L' D L F F'
+  commands:
+  - text: 桃
+- moves: D' F' L' D L F' R
+  commands:
+  - text: 櫻
+- moves: D' F' L' D L F' R'
+  commands:
+  - text: 茸
+- moves: D' F' L' D L F' L
+  commands:
+  - text: ザ
+- moves: D' F' L' D L F' L'
+  commands:
+  - text: ナ
+- moves: D' F' L' D L F' U
+  commands:
+  - text: 煮
+- moves: D' F' L' D L F' U'
+  commands:
+  - text: 昌
+- moves: D' F' L' D L F' B
+  commands:
+  - text: 定
+- moves: D' F' L' D L F' B'
+  commands:
+  - text: 叔
+- moves: D' F' L' D L F' D
+  commands:
+  - text: 至
+- moves: D' F' L' D L F' D'
+  commands:
+  - text: 寶
+- moves: D' F' L' D L F' F
+  commands:
+  - text: 嘉
+- moves: D' F' L' D L F' F'
+  commands:
+  - text: 建
+- moves: D' F' L' D L' R R
+  commands:
+  - text: 箸
+- moves: D' F' L' D L' R R'
+  commands:
+  - text: 徹
+- moves: D' F' L' D L' R L
+  commands:
+  - text: 楊
+- moves: D' F' L' D L' R L'
+  commands:
+  - text: 隋
+- moves: D' F' L' D L' R U
+  commands:
+  - text: 堅
+- moves: D' F' L' D L' R U'
+  commands:
+  - text: 麦
+- moves: D' F' L' D L' R B
+  commands:
+  - text: 齊
+- moves: D' F' L' D L' R B'
+  commands:
+  - text: ῥ
+- moves: D' F' L' D L' R D
+  commands:
+  - text: 〉
+- moves: D' F' L' D L' R D'
+  commands:
+  - text: ㄥ
+- moves: D' F' L' D L' R F
+  commands:
+  - text: ಸ
+- moves: D' F' L' D L' R F'
+  commands:
+  - text: 高
+- moves: D' F' L' D L' R' R
+  commands:
+  - text: 外
+- moves: D' F' L' D L' R' R'
+  commands:
+  - text: 勝
+- moves: D' F' L' D L' R' L
+  commands:
+  - text: ಳ
+- moves: D' F' L' D L' R' L'
+  commands:
+  - text: ॉ
+- moves: D' F' L' D L' R' U
+  commands:
+  - text: ण
+- moves: D' F' L' D L' R' U'
+  commands:
+  - text: ಹ
+- moves: D' F' L' D L' R' B
+  commands:
+  - text: ಯ
+- moves: D' F' L' D L' R' B'
+  commands:
+  - text: ꮻ
+- moves: D' F' L' D L' R' D
+  commands:
+  - text: ೊ
+- moves: D' F' L' D L' R' D'
+  commands:
+  - text: ठ
+- moves: D' F' L' D L' R' F
+  commands:
+  - text: भ
+- moves: D' F' L' D L' R' F'
+  commands:
+  - text: ਆ
+- moves: D' F' L' D L' L R
+  commands:
+  - text: 盆
+- moves: D' F' L' D L' L R'
+  commands:
+  - text: ἑ
+- moves: D' F' L' D L' L L
+  commands:
+  - text: ḋ
+- moves: D' F' L' D L' L L'
+  commands:
+  - text: ˋ
+- moves: D' F' L' D L' L U
+  commands:
+  - text: ὼ
+- moves: D' F' L' D L' L U'
+  commands:
+  - text: ṙ
+- moves: D' F' L' D L' L B
+  commands:
+  - text: ٍ
+- moves: D' F' L' D L' L B'
+  commands:
+  - text: अ
+- moves: D' F' L' D L' L D
+  commands:
+  - text: া
+- moves: D' F' L' D L' L D'
+  commands:
+  - text: ڑ
+- moves: D' F' L' D L' L F
+  commands:
+  - text: ٹ
+- moves: D' F' L' D L' L F'
+  commands:
+  - text: ঙ
+- moves: D' F' L' D L' L' R
+  commands:
+  - text: 藏
+- moves: D' F' L' D L' L' R'
+  commands:
+  - text: ப
+- moves: D' F' L' D L' L' L
+  commands:
+  - text: 二
+- moves: D' F' L' D L' L' L'
+  commands:
+  - text: ෝ
+- moves: D' F' L' D L' L' U
+  commands:
+  - text: ே
+- moves: D' F' L' D L' L' U'
+  commands:
+  - text: わ
+- moves: D' F' L' D L' L' B
+  commands:
+  - text: 限
+- moves: D' F' L' D L' L' B'
+  commands:
+  - text: て
+- moves: D' F' L' D L' L' D
+  commands:
+  - text: မ
+- moves: D' F' L' D L' L' D'
+  commands:
+  - text: 廈
+- moves: D' F' L' D L' L' F
+  commands:
+  - text: 禪
+- moves: D' F' L' D L' L' F'
+  commands:
+  - text: 禅
+- moves: D' F' L' D L' U R
+  commands:
+  - text: ♮
+- moves: D' F' L' D L' U R'
+  commands:
+  - text: 东
+- moves: D' F' L' D L' U L
+  commands:
+  - text: ャ
+- moves: D' F' L' D L' U L'
+  commands:
+  - text: 伝
+- moves: D' F' L' D L' U U
+  commands:
+  - text: သ
+- moves: D' F' L' D L' U U'
+  commands:
+  - text: パ
+- moves: D' F' L' D L' U B
+  commands:
+  - text: 則
+- moves: D' F' L' D L' U B'
+  commands:
+  - text: ぱ
+- moves: D' F' L' D L' U D
+  commands:
+  - text: 鎧
+- moves: D' F' L' D L' U D'
+  commands:
+  - text: ่
+- moves: D' F' L' D L' U F
+  commands:
+  - text: ヴ
+- moves: D' F' L' D L' U F'
+  commands:
+  - text: 動
+- moves: D' F' L' D L' U' R
+  commands:
+  - text: ダ
+- moves: D' F' L' D L' U' R'
+  commands:
+  - text: 焼
+- moves: D' F' L' D L' U' L
+  commands:
+  - text: 空
+- moves: D' F' L' D L' U' L'
+  commands:
+  - text: ఖ
+- moves: D' F' L' D L' U' U
+  commands:
+  - text: 戦
+- moves: D' F' L' D L' U' U'
+  commands:
+  - text: 士
+- moves: D' F' L' D L' U' B
+  commands:
+  - text: ァ
+- moves: D' F' L' D L' U' B'
+  commands:
+  - text: 夜
+- moves: D' F' L' D L' U' D
+  commands:
+  - text: 舞
+- moves: D' F' L' D L' U' D'
+  commands:
+  - text: 叉
+- moves: D' F' L' D L' U' F
+  commands:
+  - text: 犬
+- moves: D' F' L' D L' U' F'
+  commands:
+  - text: ‌
+- moves: D' F' L' D L' B R
+  commands:
+  - text: ല
+- moves: D' F' L' D L' B R'
+  commands:
+  - text: か
+- moves: D' F' L' D L' B L
+  commands:
+  - text: 鲜
+- moves: D' F' L' D L' B L'
+  commands:
+  - text: 界
+- moves: D' F' L' D L' B U
+  commands:
+  - text: ｇ
+- moves: D' F' L' D L' B U'
+  commands:
+  - text: ｘ
+- moves: D' F' L' D L' B B
+  commands:
+  - text: ｐ
+- moves: D' F' L' D L' B B'
+  commands:
+  - text: 키
+- moves: D' F' L' D L' B D
+  commands:
+  - text: 紋
+- moves: D' F' L' D L' B D'
+  commands:
+  - text: 章
+- moves: D' F' L' D L' B F
+  commands:
+  - text: ὖ
+- moves: D' F' L' D L' B F'
+  commands:
+  - text: 卓
+- moves: D' F' L' D L' B' R
+  commands:
+  - text: 椎
+- moves: D' F' L' D L' B' R'
+  commands:
+  - text: ᬗ
+- moves: D' F' L' D L' B' L
+  commands:
+  - text: 若
+- moves: D' F' L' D L' B' L'
+  commands:
+  - text: 布
+- moves: D' F' L' D L' B' U
+  commands:
+  - text: だ
+- moves: D' F' L' D L' B' U'
+  commands:
+  - text: 汁
+- moves: D' F' L' D L' B' B
+  commands:
+  - text: ˠ
+- moves: D' F' L' D L' B' B'
+  commands:
+  - text: ற
+- moves: D' F' L' D L' B' D
+  commands:
+  - text: ਬ
+- moves: D' F' L' D L' B' D'
+  commands:
+  - text: ꮿ
+- moves: D' F' L' D L' B' F
+  commands:
+  - text: ὴ
+- moves: D' F' L' D L' B' F'
+  commands:
+  - text: せ
+- moves: D' F' L' D L' D R
+  commands:
+  - text: 白
+- moves: D' F' L' D L' D R'
+  commands:
+  - text: 醤
+- moves: D' F' L' D L' D L
+  commands:
+  - text: ɝ
+- moves: D' F' L' D L' D L'
+  commands:
+  - text: 米
+- moves: D' F' L' D L' D U
+  commands:
+  - text: 豆
+- moves: D' F' L' D L' D U'
+  commands:
+  - text: ɵ
+- moves: D' F' L' D L' D B
+  commands:
+  - text: ꭲ
+- moves: D' F' L' D L' D B'
+  commands:
+  - text: ਸ
+- moves: D' F' L' D L' D D
+  commands:
+  - text: ਘ
+- moves: D' F' L' D L' D D'
+  commands:
+  - text: ਿ
+- moves: D' F' L' D L' D F
+  commands:
+  - text: ੋ
+- moves: D' F' L' D L' D F'
+  commands:
+  - text: ਹ
+- moves: D' F' L' D L' D' R
+  commands:
+  - text: ੀ
+- moves: D' F' L' D L' D' R'
+  commands:
+  - text: ਅ
+- moves: D' F' L' D L' D' L
+  commands:
+  - text: ꭰ
+- moves: D' F' L' D L' D' L'
+  commands:
+  - text: ᏼ
+- moves: D' F' L' D L' D' U
+  commands:
+  - text: ʄ
+- moves: D' F' L' D L' D' U'
+  commands:
+  - text: ꮒ
+- moves: D' F' L' D L' D' B
+  commands:
+  - text: ਐ
+- moves: D' F' L' D L' D' B'
+  commands:
+  - text: ਔ
+- moves: D' F' L' D L' D' D
+  commands:
+  - text: ʍ
+- moves: D' F' L' D L' D' D'
+  commands:
+  - text: ਈ
+- moves: D' F' L' D L' D' F
+  commands:
+  - text: ਏ
+- moves: D' F' L' D L' D' F'
+  commands:
+  - text: ਉ
+- moves: D' F' L' D L' F R
+  commands:
+  - text: ਇ
+- moves: D' F' L' D L' F R'
+  commands:
+  - text: ɺ
+- moves: D' F' L' D L' F L
+  commands:
+  - text: ਊ
+- moves: D' F' L' D L' F L'
+  commands:
+  - text: ள
+- moves: D' F' L' D L' F U
+  commands:
+  - text: ᖃ
+- moves: D' F' L' D L' F U'
+  commands:
+  - text: ு
+- moves: D' F' L' D L' F B
+  commands:
+  - text: उ
+- moves: D' F' L' D L' F B'
+  commands:
+  - text: ਜ
+- moves: D' F' L' D L' F D
+  commands:
+  - text: ਪ
+- moves: D' F' L' D L' F D'
+  commands:
+  - text: ɳ
+- moves: D' F' L' D L' F F
+  commands:
+  - text: ூ
+- moves: D' F' L' D L' F F'
+  commands:
+  - text: ர
+- moves: D' F' L' D L' F' R
+  commands:
+  - text: ʡ
+- moves: D' F' L' D L' F' R'
+  commands:
+  - text: ⲣ
+- moves: D' F' L' D L' F' L
+  commands:
+  - text: ⲁ
+- moves: D' F' L' D L' F' L'
+  commands:
+  - text: ய
+- moves: D' F' L' D L' F' U
+  commands:
+  - text: ஃ
+- moves: D' F' L' D L' F' U'
+  commands:
+  - text: ʈ
+- moves: D' F' L' D L' F' B
+  commands:
+  - text: ⲱ
+- moves: D' F' L' D L' F' B'
+  commands:
+  - text: ⲙ
+- moves: D' F' L' D L' F' D
+  commands:
+  - text: ి
+- moves: D' F' L' D L' F' D'
+  commands:
+  - text: ำ
+- moves: D' F' L' D L' F' F
+  commands:
+  - text: ส
+- moves: D' F' L' D L' F' F'
+  commands:
+  - text: อ
+- moves: D' F' L' D U R R
+  commands:
+  - text: 𑀨
+- moves: D' F' L' D U R R'
+  commands:
+  - text: ฿
+- moves: D' F' L' D U R L
+  commands:
+  - text: ←
+- moves: D' F' L' D U R L'
+  commands:
+  - text: ¿
+- moves: D' F' L' D U R U
+  commands:
+  - text: 𐭐
+- moves: D' F' L' D U R U'
+  commands:
+  - text: 태
+- moves: D' F' L' D U R B
+  commands:
+  - text: 拳
+- moves: D' F' L' D U R B'
+  commands:
+  - text: ץ
+- moves: D' F' L' D U R D
+  commands:
+  - text: 𑀈
+- moves: D' F' L' D U R D'
+  commands:
+  - text: ֲ
+- moves: D' F' L' D U R F
+  commands:
+  - text: 跆
+- moves: D' F' L' D U R F'
+  commands:
+  - text: 권
+- moves: D' F' L' D U R' R
+  commands:
+  - text: 禱
+- moves: D' F' L' D U R' R'
+  commands:
+  - text: ී
+- moves: D' F' L' D U R' L
+  commands:
+  - text: ல
+- moves: D' F' L' D U R' L'
+  commands:
+  - text: 示
+- moves: D' F' L' D U R' U
+  commands:
+  - text: ங
+- moves: D' F' L' D U R' U'
+  commands:
+  - text: 𐨭
+- moves: D' F' L' D U R' B
+  commands:
+  - text: ං
+- moves: D' F' L' D U R' B'
+  commands:
+  - text: ක
+- moves: D' F' L' D U R' D
+  commands:
+  - text: 𐰣
+- moves: D' F' L' D U R' D'
+  commands:
+  - text: ශ
+- moves: D' F' L' D U R' F
+  commands:
+  - text: ්
+- moves: D' F' L' D U R' F'
+  commands:
+  - text: ර
+- moves: D' F' L' D U L R
+  commands:
+  - text: ነ
+- moves: D' F' L' D U L R'
+  commands:
+  - text: 把
+- moves: D' F' L' D U L L
+  commands:
+  - text: 𑀯
+- moves: D' F' L' D U L L'
+  commands:
+  - text: 𐰾
+- moves: D' F' L' D U L U
+  commands:
+  - text: ረ
+- moves: D' F' L' D U L U'
+  commands:
+  - text: 𐨟
+- moves: D' F' L' D U L B
+  commands:
+  - text: 김
+- moves: D' F' L' D U L B'
+  commands:
+  - text: ැ
+- moves: D' F' L' D U L D
+  commands:
+  - text: අ
+- moves: D' F' L' D U L D'
+  commands:
+  - text: ි
+- moves: D' F' L' D U L F
+  commands:
+  - text: 𐭌
+- moves: D' F' L' D U L F'
+  commands:
+  - text: 중
+- moves: D' F' L' D U L' R
+  commands:
+  - text: ἔ
+- moves: D' F' L' D U L' R'
+  commands:
+  - text: 𑀮
+- moves: D' F' L' D U L' L
+  commands:
+  - text: 𐱅
+- moves: D' F' L' D U L' L'
+  commands:
+  - text: ứ
+- moves: D' F' L' D U L' U
+  commands:
+  - text: 榮
+- moves: D' F' L' D U L' U'
+  commands:
+  - text: ọ
+- moves: D' F' L' D U L' B
+  commands:
+  - text: 𐰚
+- moves: D' F' L' D U L' B'
+  commands:
+  - text: ‱
+- moves: D' F' L' D U L' D
+  commands:
+  - text: 孝
+- moves: D' F' L' D U L' D'
+  commands:
+  - text: 𑀭
+- moves: D' F' L' D U L' F
+  commands:
+  - text: 𑀰
+- moves: D' F' L' D U L' F'
+  commands:
+  - text: 𐭕
+- moves: D' F' L' D U U R
+  commands:
+  - text: ተ
+- moves: D' F' L' D U U R'
+  commands:
+  - text: 𐩩
+- moves: D' F' L' D U U L
+  commands:
+  - text: 𐨮
+- moves: D' F' L' D U U L'
+  commands:
+  - text: 𐱂
+- moves: D' F' L' D U U U
+  commands:
+  - text: 𐰘
+- moves: D' F' L' D U U U'
+  commands:
+  - text: 𐨪
+- moves: D' F' L' D U U B
+  commands:
+  - text: 𐰼
+- moves: D' F' L' D U U B'
+  commands:
+  - text: 𐩦
+- moves: D' F' L' D U U D
+  commands:
+  - text: 𐩺
+- moves: D' F' L' D U U D'
+  commands:
+  - text: 𐭔
+- moves: D' F' L' D U U F
+  commands:
+  - text: 𐰺
+- moves: D' F' L' D U U F'
+  commands:
+  - text: 𑀞
+- moves: D' F' L' D U U' R
+  commands:
+  - text: 𑀲
+- moves: D' F' L' D U U' R'
+  commands:
+  - text: 𐨗
+- moves: D' F' L' D U U' L
+  commands:
+  - text: 𐭑
+- moves: D' F' L' D U U' L'
+  commands:
+  - text: 𐩮
+- moves: D' F' L' D U U' U
+  commands:
+  - text: 𐰆
+- moves: D' F' L' D U U' U'
+  commands:
+  - text: 𐩲
+- moves: D' F' L' D U U' B
+  commands:
+  - text: 𐨅
+- moves: D' F' L' D U U' B'
+  commands:
+  - text: 𐩰
+- moves: D' F' L' D U U' D
+  commands:
+  - text: 𑀧
+- moves: D' F' L' D U U' D'
+  commands:
+  - text: ፈ
+- moves: D' F' L' D U U' F
+  commands:
+  - text: 𐰏
+- moves: D' F' L' D U U' F'
+  commands:
+  - text: 𐰍
+- moves: D' F' L' D U B R
+  commands:
+  - text: 𐭏
+- moves: D' F' L' D U B R'
+  commands:
+  - text: 𐨤
+- moves: D' F' L' D U B L
+  commands:
+  - text: 𐭒
+- moves: D' F' L' D U B L'
+  commands:
+  - text: 𐰴
+- moves: D' F' L' D U B U
+  commands:
+  - text: 𐭓
+- moves: D' F' L' D U B U'
+  commands:
+  - text: 𐰸
+- moves: D' F' L' D U B B
+  commands:
+  - text: 𐩤
+- moves: D' F' L' D U B B'
+  commands:
+  - text: 𑀔
+- moves: D' F' L' D U B D
+  commands:
+  - text: ሐ
+- moves: D' F' L' D U B D'
+  commands:
+  - text: 𐰯
+- moves: D' F' L' D U B F
+  commands:
+  - text: ጸ
+- moves: D' F' L' D U B F'
+  commands:
+  - text: 𐨯
+- moves: D' F' L' D U B' R
+  commands:
+  - text: ዐ
+- moves: D' F' L' D U B' R'
+  commands:
+  - text: 𑀏
+- moves: D' F' L' D U B' L
+  commands:
+  - text: 𑀇
+- moves: D' F' L' D U B' L'
+  commands:
+  - text: ወ
+- moves: D' F' L' D U B' U
+  commands:
+  - text: 𑀐
+- moves: D' F' L' D U B' U'
+  commands:
+  - text: 𑀳
+- moves: D' F' L' D U B' B
+  commands:
+  - text: 𑀉
+- moves: D' F' L' D U B' B'
+  commands:
+  - text: 𐰃
+- moves: D' F' L' D U B' D
+  commands:
+  - text: 𐩣
+- moves: D' F' L' D U B' D'
+  commands:
+  - text: 𑀦
+- moves: D' F' L' D U B' F
+  commands:
+  - text: 𐭎
+- moves: D' F' L' D U B' F'
+  commands:
+  - text: 𑀱
+- moves: D' F' L' D U D R
+  commands:
+  - text: 𐰓
+- moves: D' F' L' D U D R'
+  commands:
+  - text: 𐩯
+- moves: D' F' L' D U D L
+  commands:
+  - text: 𐨣
+- moves: D' F' L' D U D L'
+  commands:
+  - text: 𐰤
+- moves: D' F' L' D U D U
+  commands:
+  - text: መ
+- moves: D' F' L' D U D U'
+  commands:
+  - text: 𐰢
+- moves: D' F' L' D U D B
+  commands:
+  - text: 𐩬
+- moves: D' F' L' D U D B'
+  commands:
+  - text: 𐭍
+- moves: D' F' L' D U D D
+  commands:
+  - text: 𐭃
+- moves: D' F' L' D U D D'
+  commands:
+  - text: 𑀫
+- moves: D' F' L' D U D F
+  commands:
+  - text: 𐨨
+- moves: D' F' L' D U D F'
+  commands:
+  - text: 𑀕
+- moves: D' F' L' D U D' R
+  commands:
+  - text: 𐰖
+- moves: D' F' L' D U D' R'
+  commands:
+  - text: 𐰜
+- moves: D' F' L' D U D' L
+  commands:
+  - text: 𐨫
+- moves: D' F' L' D U D' L'
+  commands:
+  - text: 𐰠
+- moves: D' F' L' D U D' U
+  commands:
+  - text: 𐰞
+- moves: D' F' L' D U D' U'
+  commands:
+  - text: 𐰋
+- moves: D' F' L' D U D' B
+  commands:
+  - text: 𐭋
+- moves: D' F' L' D U D' B'
+  commands:
+  - text: 𐩡
+- moves: D' F' L' D U D' D
+  commands:
+  - text: 𐭊
+- moves: D' F' L' D U D' D'
+  commands:
+  - text: ከ
+- moves: D' F' L' D U D' F
+  commands:
+  - text: 𐨐
+- moves: D' F' L' D U D' F'
+  commands:
+  - text: 𑀓
+- moves: D' F' L' D U F R
+  commands:
+  - text: 𐩫
+- moves: D' F' L' D U F R'
+  commands:
+  - text: 𐰁
+- moves: D' F' L' D U F L
+  commands:
+  - text: 𐩱
+- moves: D' F' L' D U F L'
+  commands:
+  - text: 𑀊
+- moves: D' F' L' D U F U
+  commands:
+  - text: 𑀖
+- moves: D' F' L' D U F U'
+  commands:
+  - text: 𐨠
+- moves: D' F' L' D U F B
+  commands:
+  - text: የ
+- moves: D' F' L' D U F B'
+  commands:
+  - text: 𐨩
+- moves: D' F' L' D U F D
+  commands:
+  - text: 𑀬
+- moves: D' F' L' D U F D'
+  commands:
+  - text: 𐱃
+- moves: D' F' L' D U F F
+  commands:
+  - text: 𐭉
+- moves: D' F' L' D U F F'
+  commands:
+  - text: 糞
+- moves: D' F' L' D U F' R
+  commands:
+  - text: 𐨓
+- moves: D' F' L' D U F' R'
+  commands:
+  - text: ጠ
+- moves: D' F' L' D U F' L
+  commands:
+  - text: 𑀝
+- moves: D' F' L' D U F' L'
+  commands:
+  - text: 𑀣
+- moves: D' F' L' D U F' U
+  commands:
+  - text: 𐭈
+- moves: D' F' L' D U F' U'
+  commands:
+  - text: 𐩷
+- moves: D' F' L' D U F' B
+  commands:
+  - text: 분
+- moves: D' F' L' D U F' B'
+  commands:
+  - text: 𑀒
+- moves: D' F' L' D U F' D
+  commands:
+  - text: 𐭆
+- moves: D' F' L' D U F' D'
+  commands:
+  - text: 𐰕
+- moves: D' F' L' D U F' F
+  commands:
+  - text: 𐩢
+- moves: D' F' L' D U F' F'
+  commands:
+  - text: 𐭇
+- moves: D' F' L' D U' R R
+  commands:
+  - text: ื
+- moves: D' F' L' D U' R R'
+  commands:
+  - text: ด
+- moves: D' F' L' D U' R L
+  commands:
+  - text: ู
+- moves: D' F' L' D U' R L'
+  commands:
+  - text: ₮
+- moves: D' F' L' D U' R U
+  commands:
+  - text: క
+- moves: D' F' L' D U' R U'
+  commands:
+  - text: ీ
+- moves: D' F' L' D U' R B
+  commands:
+  - text: ా
+- moves: D' F' L' D U' R B'
+  commands:
+  - text: ₰
+- moves: D' F' L' D U' R D
+  commands:
+  - text: ℳ
+- moves: D' F' L' D U' R D'
+  commands:
+  - text: ද
+- moves: D' F' L' D U' R F
+  commands:
+  - text: ɴ
+- moves: D' F' L' D U' R F'
+  commands:
+  - text: ⁿ
+- moves: D' F' L' D U' R' R
+  commands:
+  - text: ↔
+- moves: D' F' L' D U' R' R'
+  commands:
+  - text: ─
+- moves: D' F' L' D U' R' L
+  commands:
+  - text: 長
+- moves: D' F' L' D U' R' L'
+  commands:
+  - text: ≤
+- moves: D' F' L' D U' R' U
+  commands:
+  - text: ˡ
+- moves: D' F' L' D U' R' U'
+  commands:
+  - text: ᬸ
+- moves: D' F' L' D U' R' B
+  commands:
+  - text: ῴ
+- moves: D' F' L' D U' R' B'
+  commands:
+  - text: 伸
+- moves: D' F' L' D U' R' D
+  commands:
+  - text: 植
+- moves: D' F' L' D U' R' D'
+  commands:
+  - text: ᬘ
+- moves: D' F' L' D U' R' F
+  commands:
+  - text: ᭄
+- moves: D' F' L' D U' R' F'
+  commands:
+  - text: ˑ
+- moves: D' F' L' D U' L R
+  commands:
+  - text: 者
+- moves: D' F' L' D U' L R'
+  commands:
+  - text: 勇
+- moves: D' F' L' D U' L L
+  commands:
+  - text: 乒
+- moves: D' F' L' D U' L L'
+  commands:
+  - text: 乓
+- moves: D' F' L' D U' L U
+  commands:
+  - text: 夫
+- moves: D' F' L' D U' L U'
+  commands:
+  - text: め
+- moves: D' F' L' D U' L B
+  commands:
+  - text: 干
+- moves: D' F' L' D U' L B'
+  commands:
+  - text: 冬
+- moves: D' F' L' D U' L D
+  commands:
+  - text: 香
+- moves: D' F' L' D U' L D'
+  commands:
+  - text: ὶ
+- moves: D' F' L' D U' L F
+  commands:
+  - text: 茹
+- moves: D' F' L' D U' L F'
+  commands:
+  - text: ば
+- moves: D' F' L' D U' L' R
+  commands:
+  - text: ृ
+- moves: D' F' L' D U' L' R'
+  commands:
+  - text: 용
+- moves: D' F' L' D U' L' L
+  commands:
+  - text: യ
+- moves: D' F' L' D U' L' L'
+  commands:
+  - text: ം
+- moves: D' F' L' D U' L' U
+  commands:
+  - text: ള
+- moves: D' F' L' D U' L' U'
+  commands:
+  - text: 집
+- moves: D' F' L' D U' L' B
+  commands:
+  - text: മ
+- moves: D' F' L' D U' L' B'
+  commands:
+  - text: ₡
+- moves: D' F' L' D U' L' D
+  commands:
+  - text: ἄ
+- moves: D' F' L' D U' L' D'
+  commands:
+  - text: 維
+- moves: D' F' L' D U' L' F
+  commands:
+  - text: キ
+- moves: D' F' L' D U' L' F'
+  commands:
+  - text: 錄
+- moves: D' F' L' D U' U' R
+  commands:
+  - text: ḩ
+- moves: D' F' L' D U' U' R'
+  commands:
+  - text: ᬩ
+- moves: D' F' L' D U' U' L
+  commands:
+  - text: 港
+- moves: D' F' L' D U' U' L'
+  commands:
+  - text: ἥ
+- moves: D' F' L' D U' U' U
+  commands:
+  - text: ゴ
+- moves: D' F' L' D U' U' U'
+  commands:
+  - text: இ
+- moves: D' F' L' D U' U' B
+  commands:
+  - text: ɻ
+- moves: D' F' L' D U' U' B'
+  commands:
+  - text: ɠ
+- moves: D' F' L' D U' U' D
+  commands:
+  - text: ɤ
+- moves: D' F' L' D U' U' D'
+  commands:
+  - text: ɞ
+- moves: D' F' L' D U' U' F
+  commands:
+  - text: ʰ
+- moves: D' F' L' D U' U' F'
+  commands:
+  - text: ɶ
+- moves: D' F' L' D U' B' R
+  commands:
+  - text: ɚ
+- moves: D' F' L' D U' B' R'
+  commands:
+  - text: ɜ
+- moves: D' F' L' D U' B' L
+  commands:
+  - text: ʛ
+- moves: D' F' L' D U' B' L'
+  commands:
+  - text: ʉ
+- moves: D' F' L' D U' B' U
+  commands:
+  - text: ɘ
+- moves: D' F' L' D U' B' U'
+  commands:
+  - text: ɯ
+- moves: D' F' L' D U' B' B
+  commands:
+  - text: න
+- moves: D' F' L' D U' B' B'
+  commands:
+  - text: ʘ
+- moves: D' F' L' D U' B' D
+  commands:
+  - text: ǃ
+- moves: D' F' L' D U' B' D'
+  commands:
+  - text: ව
+- moves: D' F' L' D U' B' F
+  commands:
+  - text: ɰ
+- moves: D' F' L' D U' B' F'
+  commands:
+  - text: ɭ
+- moves: D' F' L' D U' D R
+  commands:
+  - text: ɧ
+- moves: D' F' L' D U' D R'
+  commands:
+  - text: ɗ
+- moves: D' F' L' D U' D L
+  commands:
+  - text: ɓ
+- moves: D' F' L' D U' D L'
+  commands:
+  - text: 作
+- moves: D' F' L' D U' D U
+  commands:
+  - text: ʎ
+- moves: D' F' L' D U' D U'
+  commands:
+  - text: ʟ
+- moves: D' F' L' D U' D B
+  commands:
+  - text: ʙ
+- moves: D' F' L' D U' D B'
+  commands:
+  - text: ʀ
+- moves: D' F' L' D U' D D
+  commands:
+  - text: ɮ
+- moves: D' F' L' D U' D D'
+  commands:
+  - text: ɽ
+- moves: D' F' L' D U' D F
+  commands:
+  - text: 𑀢
+- moves: D' F' L' D U' D F'
+  commands:
+  - text: 實
+- moves: D' F' L' D U' D' R
+  commands:
+  - text: ₢
+- moves: D' F' L' D U' D' R'
+  commands:
+  - text: ₩
+- moves: D' F' L' D U' D' L
+  commands:
+  - text: ɖ
+- moves: D' F' L' D U' D' L'
+  commands:
+  - text: ɸ
+- moves: D' F' L' D U' D' U
+  commands:
+  - text: ʢ
+- moves: D' F' L' D U' D' U'
+  commands:
+  - text: 𐱁
+- moves: D' F' L' D U' D' B
+  commands:
+  - text: ʜ
+- moves: D' F' L' D U' D' B'
+  commands:
+  - text: ɟ
+- moves: D' F' L' D U' D' D
+  commands:
+  - text: ɢ
+- moves: D' F' L' D U' D' D'
+  commands:
+  - text: ሠ
+- moves: D' F' L' D U' D' F
+  commands:
+  - text: ♠
+- moves: D' F' L' D U' D' F'
+  commands:
+  - text: ǖ
+- moves: D' F' L' D U' F R
+  commands:
+  - text: ǜ
+- moves: D' F' L' D U' F R'
+  commands:
+  - text: ǘ
+- moves: D' F' L' D U' F L
+  commands:
+  - text: ♣
+- moves: D' F' L' D U' F L'
+  commands:
+  - text: ♥
+- moves: D' F' L' D U' F U
+  commands:
+  - text: 𐩧
+- moves: D' F' L' D U' F U'
+  commands:
+  - text: ₫
+- moves: D' F' L' D U' F B
+  commands:
+  - text: ₥
+- moves: D' F' L' D U' F B'
+  commands:
+  - text: ៛
+- moves: D' F' L' D U' F D
+  commands:
+  - text: ₪
+- moves: D' F' L' D U' F D'
+  commands:
+  - text: ₨
+- moves: D' F' L' D U' F F
+  commands:
+  - text: 𐨑
+- moves: D' F' L' D U' F F'
+  commands:
+  - text: ₦
+- moves: D' F' L' D U' F' R
+  commands:
+  - text: ₧
+- moves: D' F' L' D U' F' R'
+  commands:
+  - text: 𐰽
+- moves: D' F' L' D U' F' L
+  commands:
+  - text: ₯
+- moves: D' F' L' D U' F' L'
+  commands:
+  - text: ₣
+- moves: D' F' L' D U' F' U
+  commands:
+  - text: ₭
+- moves: D' F' L' D U' F' U'
+  commands:
+  - text: ₴
+- moves: D' F' L' D U' F' B
+  commands:
+  - text: ₠
+- moves: D' F' L' D U' F' B'
+  commands:
+  - text: 思
+- moves: D' F' L' D U' F' D
+  commands:
+  - text: 生
+- moves: D' F' L' D U' F' D'
+  commands:
+  - text: ±
+- moves: D' F' L' D U' F' F
+  commands:
+  - text: ₳
+- moves: D' F' L' D U' F' F'
+  commands:
+  - text: ₵
+- moves: D' F' L' D D R R
+  commands:
+  - text: ി
+- moves: D' F' L' D D R R'
+  commands:
+  - text: 𐩸
+- moves: D' F' L' D D R L
+  commands:
+  - text: 𑀚
+- moves: D' F' L' D D R L'
+  commands:
+  - text: ሴ
+- moves: D' F' L' D D R U
+  commands:
+  - text: 𑀑
+- moves: D' F' L' D D R U'
+  commands:
+  - text: 𐨬
+- moves: D' F' L' D D R B
+  commands:
+  - text: 𐰈
+- moves: D' F' L' D D R B'
+  commands:
+  - text: 宏
+- moves: D' F' L' D D R D
+  commands:
+  - text: 刀
+- moves: D' F' L' D D R D'
+  commands:
+  - text: ዳ
+- moves: D' F' L' D D R F
+  commands:
+  - text: 𐭁
+- moves: D' F' L' D D R F'
+  commands:
+  - text: 𐩵
+- moves: D' F' L' D D R' R
+  commands:
+  - text: 𐭄
+- moves: D' F' L' D D R' R'
+  commands:
+  - text: 𐨱
+- moves: D' F' L' D D R' L
+  commands:
+  - text: 𐩥
+- moves: D' F' L' D D R' L'
+  commands:
+  - text: 𐭅
+- moves: D' F' L' D D R' U
+  commands:
+  - text: 례
+- moves: D' F' L' D D R' U'
+  commands:
+  - text: 𐩠
+- moves: D' F' L' D D R' B
+  commands:
+  - text: ሀ
+- moves: D' F' L' D D R' B'
+  commands:
+  - text: 명
+- moves: D' F' L' D D R' D
+  commands:
+  - text: ደ
+- moves: D' F' L' D D R' D'
+  commands:
+  - text: 𑀟
+- moves: D' F' L' D D R' F
+  commands:
+  - text: 𐨢
+- moves: D' F' L' D D R' F'
+  commands:
+  - text: 𑀠
+- moves: D' F' L' D D L R
+  commands:
+  - text: 𑀤
+- moves: D' F' L' D D L R'
+  commands:
+  - text: 𑀥
+- moves: D' F' L' D D L L
+  commands:
+  - text: 𐩨
+- moves: D' F' L' D D L L'
+  commands:
+  - text: 𐭂
+- moves: D' F' L' D D L U
+  commands:
+  - text: 𐨒
+- moves: D' F' L' D D L U'
+  commands:
+  - text: 𐰱
+- moves: D' F' L' D D L B
+  commands:
+  - text: ⋅
+- moves: D' F' L' D D L B'
+  commands:
+  - text: 𐰲
+- moves: D' F' L' D D L D
+  commands:
+  - text: 𐩴
+- moves: D' F' L' D D L D'
+  commands:
+  - text: ገ
+- moves: D' F' L' D D L F
+  commands:
+  - text: ท
+- moves: D' F' L' D D L F'
+  commands:
+  - text: በ
+- moves: D' F' L' D D L' R
+  commands:
+  - text: 𑀪
+- moves: D' F' L' D D L' R'
+  commands:
+  - text: 𐰉
+- moves: D' F' L' D D L' L
+  commands:
+  - text: 𐨦
+- moves: D' F' L' D D L' L'
+  commands:
+  - text: ㎠
+- moves: D' F' L' D D L' U
+  commands:
+  - text: 𑀩
+- moves: D' F' L' D D L' U'
+  commands:
+  - text: ማ
+- moves: D' F' L' D D L' B
+  commands:
+  - text: 류
+- moves: D' F' L' D D L' B'
+  commands:
+  - text: ま
+- moves: D' F' L' D D L' D
+  commands:
+  - text: አ
+- moves: D' F' L' D D L' D'
+  commands:
+  - text: 𑀆
+- moves: D' F' L' D D L' F
+  commands:
+  - text: 𑀅
+- moves: D' F' L' D D L' F'
+  commands:
+  - text: 幹
+- moves: D' F' L' D D U R
+  commands:
+  - text: さ
+- moves: D' F' L' D D U R'
+  commands:
+  - text: 𐭀
+- moves: D' F' L' D D U L
+  commands:
+  - text: 県
+- moves: D' F' L' D D U L'
+  commands:
+  - text: 작
+- moves: D' F' L' D D U U
+  commands:
+  - text: 鮮
+- moves: D' F' L' D D U U'
+  commands:
+  - text: ˇ
+- moves: D' F' L' D D U B
+  commands:
+  - text: 나
+- moves: D' F' L' D D U B'
+  commands:
+  - text: 丁
+- moves: D' F' L' D D U D
+  commands:
+  - text: 사
+- moves: D' F' L' D D U D'
+  commands:
+  - text: ĸ
+- moves: D' F' L' D D U F
+  commands:
+  - text: ዊ
+- moves: D' F' L' D D U F'
+  commands:
+  - text: ụ
+- moves: D' F' L' D D U' R
+  commands:
+  - text: 古
+- moves: D' F' L' D D U' R'
+  commands:
+  - text: ῑ
+- moves: D' F' L' D D U' L
+  commands:
+  - text: ㄜ
+- moves: D' F' L' D D U' L'
+  commands:
+  - text: ㄐ
+- moves: D' F' L' D D U' U
+  commands:
+  - text: ਓ
+- moves: D' F' L' D D U' U'
+  commands:
+  - text: ˊ
+- moves: D' F' L' D D U' B
+  commands:
+  - text: 经
+- moves: D' F' L' D D U' B'
+  commands:
+  - text: ㄠ
+- moves: D' F' L' D D U' D
+  commands:
+  - text: 琴
+- moves: D' F' L' D D U' D'
+  commands:
+  - text: 友
+- moves: D' F' L' D D U' F
+  commands:
+  - text: 籟
+- moves: D' F' L' D D U' F'
+  commands:
+  - text: ਾ
+- moves: D' F' L' D D B R
+  commands:
+  - text: 線
+- moves: D' F' L' D D B R'
+  commands:
+  - text: ⌀
+- moves: D' F' L' D D B L
+  commands:
+  - text: 월
+- moves: D' F' L' D D B L'
+  commands:
+  - text: 영
+- moves: D' F' L' D D B U
+  commands:
+  - text: ỳ
+- moves: D' F' L' D D B U'
+  commands:
+  - text: 벌
+- moves: D' F' L' D D B B
+  commands:
+  - text: 항
+- moves: D' F' L' D D B B'
+  commands:
+  - text: 쟁
+- moves: D' F' L' D D B D
+  commands:
+  - text: る
+- moves: D' F' L' D D B D'
+  commands:
+  - text: 고
+- moves: D' F' L' D D B F
+  commands:
+  - text: 혁
+- moves: D' F' L' D D B F'
+  commands:
+  - text: 려
+- moves: D' F' L' D D B' R
+  commands:
+  - text: 拌
+- moves: D' F' L' D D B' R'
+  commands:
+  - text: 蒜
+- moves: D' F' L' D D B' L
+  commands:
+  - text: 不
+- moves: D' F' L' D D B' L'
+  commands:
+  - text: ṫ
+- moves: D' F' L' D D B' U
+  commands:
+  - text: 施
+- moves: D' F' L' D D B' U'
+  commands:
+  - text: 钱
+- moves: D' F' L' D D B' B
+  commands:
+  - text: 快
+- moves: D' F' L' D D B' B'
+  commands:
+  - text: 今
+- moves: D' F' L' D D B' D
+  commands:
+  - text: 师
+- moves: D' F' L' D D B' D'
+  commands:
+  - text: 氏
+- moves: D' F' L' D D B' F
+  commands:
+  - text: 食
+- moves: D' F' L' D D B' F'
+  commands:
+  - text: ҧ
+- moves: D' F' L' D D D R
+  commands:
+  - text: 백
+- moves: D' F' L' D D D R'
+  commands:
+  - text: 신
+- moves: D' F' L' D D D L
+  commands:
+  - text: ♪
+- moves: D' F' L' D D D L'
+  commands:
+  - text: ㎤
+- moves: D' F' L' D D D U
+  commands:
+  - text: พ
+- moves: D' F' L' D D D U'
+  commands:
+  - text: น
+- moves: D' F' L' D D D B
+  commands:
+  - text: า
+- moves: D' F' L' D D D B'
+  commands:
+  - text: ุ
+- moves: D' F' L' D D D D
+  commands:
+  - text: ง
+- moves: D' F' L' D D D D'
+  commands:
+  - text: №
+- moves: D' F' L' D D D F
+  commands:
+  - text: ✓
+- moves: D' F' L' D D D F'
+  commands:
+  - text: ㎝
+- moves: D' F' L' D D D' R
+  commands:
+  - text: ᾶ
+- moves: D' F' L' D D D' R'
+  commands:
+  - text: ₱
+- moves: D' F' L' D D D' L
+  commands:
+  - text: 抠
+- moves: D' F' L' D D D' L'
+  commands:
+  - text: 力
+- moves: D' F' L' D D D' U
+  commands:
+  - text: 目
+- moves: D' F' L' D D D' U'
+  commands:
+  - text: 弾
+- moves: D' F' L' D D D' B
+  commands:
+  - text: 列
+- moves: D' F' L' D D D' B'
+  commands:
+  - text: 丸
+- moves: D' F' L' D D D' D
+  commands:
+  - text: 삼
+- moves: D' F' L' D D D' D'
+  commands:
+  - text: 戸
+- moves: D' F' L' D D D' F
+  commands:
+  - text: 男
+- moves: D' F' L' D D D' F'
+  commands:
+  - text: 县
+- moves: D' F' L' D D F R
+  commands:
+  - text: ന
+- moves: D' F' L' D D F R'
+  commands:
+  - text: 暦
+- moves: D' F' L' D D F L
+  commands:
+  - text: ൂ
+- moves: D' F' L' D D F L'
+  commands:
+  - text: ұ
+- moves: D' F' L' D D F U
+  commands:
+  - text: ച
+- moves: D' F' L' D D F U'
+  commands:
+  - text: 手
+- moves: D' F' L' D D F B
+  commands:
+  - text: ኀ
+- moves: D' F' L' D D F B'
+  commands:
+  - text: ይ
+- moves: D' F' L' D D F D
+  commands:
+  - text: ላ
+- moves: D' F' L' D D F D'
+  commands:
+  - text: ٩
+- moves: D' F' L' D D F F
+  commands:
+  - text: ሥ
+- moves: D' F' L' D D F F'
+  commands:
+  - text: 哥
+- moves: D' F' F B' L U R
+  commands:
+  - text: 您
+- moves: D' F' F B' L U R'
+  commands:
+  - text: ิ
+- moves: D' F' F B' L U L
+  commands:
+  - text: ว
+- moves: D' F' F B' L U L'
+  commands:
+  - text: ம
+- moves: D' F' F B' L U U
+  commands:
+  - text: ウ
+- moves: D' F' F B' L U U'
+  commands:
+  - text: య
+- moves: D' F' F B' L U B
+  commands:
+  - text: వ
+- moves: D' F' F B' L U B'
+  commands:
+  - text: வ
+- moves: D' F' F B' L U D
+  commands:
+  - text: ォ
+- moves: D' F' F B' L U D'
+  commands:
+  - text: 崎
+- moves: D' F' F B' L U F
+  commands:
+  - text: 松
+- moves: D' F' F B' L U F'
+  commands:
+  - text: ᬦ
+- moves: D' F' F B' L' R' R
+  commands:
+  - text: य
+- moves: D' F' F B' L' R' R'
+  commands:
+  - text: ἕ
+- moves: D' F' F B' L' R' L
+  commands:
+  - text: ∫
+- moves: D' F' F B' L' R' L'
+  commands:
+  - text: ǂ
+- moves: D' F' F B' L' R' U
+  commands:
+  - text: ѓ
+- moves: D' F' F B' L' R' U'
+  commands:
+  - text: ȳ
+- moves: D' F' F B' L' R' B
+  commands:
+  - text: њ
+- moves: D' F' F B' L' R' B'
+  commands:
+  - text: ќ
+- moves: D' F' F B' L' R' D
+  commands:
+  - text: ѕ
+- moves: D' F' F B' L' R' D'
+  commands:
+  - text: ђ
+- moves: D' F' F B' L' R' F
+  commands:
+  - text: ḹ
+- moves: D' F' F B' L' R' F'
+  commands:
+  - text: ċ
+- moves: D' F' F B' L' L R
+  commands:
+  - text: ڈ
+- moves: D' F' F B' L' L R'
+  commands:
+  - text: ♓
+- moves: D' F' F B' L' L L
+  commands:
+  - text: ὐ
+- moves: D' F' F B' L' L L'
+  commands:
+  - text: چ
+- moves: D' F' F B' L' L U
+  commands:
+  - text: ♊
+- moves: D' F' F B' L' L U'
+  commands:
+  - text: ♎
+- moves: D' F' F B' L' L B
+  commands:
+  - text: ☾
+- moves: D' F' F B' L' L B'
+  commands:
+  - text: ♐
+- moves: D' F' F B' L' L D
+  commands:
+  - text: ♏
+- moves: D' F' F B' L' L D'
+  commands:
+  - text: ♋
+- moves: D' F' F B' L' L F
+  commands:
+  - text: ♌
+- moves: D' F' F B' L' L F'
+  commands:
+  - text: ♍
+- moves: D' F' F B' L' L' R
+  commands:
+  - text: ǣ
+- moves: D' F' F B' L' L' R'
+  commands:
+  - text: ŗ
+- moves: D' F' F B' L' L' L
+  commands:
+  - text: ļ
+- moves: D' F' F B' L' L' L'
+  commands:
+  - text: ŝ
+- moves: D' F' F B' L' L' U
+  commands:
+  - text: ѡ
+- moves: D' F' F B' L' L' U'
+  commands:
+  - text: ĵ
+- moves: D' F' F B' L' L' B
+  commands:
+  - text: ŕ
+- moves: D' F' F B' L' L' B'
+  commands:
+  - text: ĺ
+- moves: D' F' F B' L' L' D
+  commands:
+  - text: ≥
+- moves: D' F' F B' L' L' D'
+  commands:
+  - text: ז
+- moves: D' F' F B' L' L' F
+  commands:
+  - text: ‍
+- moves: D' F' F B' L' L' F'
+  commands:
+  - text: 애
+- moves: D' F' F B' L' U R
+  commands:
+  - text: ḻ
+- moves: D' F' F B' L' U R'
+  commands:
+  - text: ♈
+- moves: D' F' F B' L' U L
+  commands:
+  - text: ♉
+- moves: D' F' F B' L' U L'
+  commands:
+  - text: ☽
+- moves: D' F' F B' L' U U
+  commands:
+  - text: ↄ
+- moves: D' F' F B' L' U U'
+  commands:
+  - text: 宣
+- moves: D' F' F B' L' U B
+  commands:
+  - text: ㅖ
+- moves: D' F' F B' L' U B'
+  commands:
+  - text: ㄷ
+- moves: D' F' F B' L' U D
+  commands:
+  - text: ㅊ
+- moves: D' F' F B' L' U D'
+  commands:
+  - text: ㅌ
+- moves: D' F' F B' L' U F
+  commands:
+  - text: 東
+- moves: D' F' F B' L' U F'
+  commands:
+  - text: ㅋ
+- moves: D' F' F B' L' U' R
+  commands:
+  - text: 王
+- moves: D' F' F B' L' U' R'
+  commands:
+  - text: ා
+- moves: D' F' F B' L' U' L
+  commands:
+  - text: 藤
+- moves: D' F' F B' L' U' L'
+  commands:
+  - text: ҁ
+- moves: D' F' F B' L' U' U
+  commands:
+  - text: 都
+- moves: D' F' F B' L' U' U'
+  commands:
+  - text: ¨
+- moves: D' F' F B' L' U' B
+  commands:
+  - text: 映
+- moves: D' F' F B' L' U' B'
+  commands:
+  - text: ა
+- moves: D' F' F B' L' U' D
+  commands:
+  - text: ̚
+- moves: D' F' F B' L' U' D'
+  commands:
+  - text: ♑
+- moves: D' F' F B' L' U' F
+  commands:
+  - text: ♒
+- moves: D' F' F B' L' U' F'
+  commands:
+  - text: গ
+- moves: D' F' F B' L' B' R
+  commands:
+  - text: ㅁ
+- moves: D' F' F B' L' B' R'
+  commands:
+  - text: ㅂ
+- moves: D' F' F B' L' B' L
+  commands:
+  - text: ㅈ
+- moves: D' F' F B' L' B' L'
+  commands:
+  - text: ㅘ
+- moves: D' F' F B' L' B' U
+  commands:
+  - text: ㅝ
+- moves: D' F' F B' L' B' U'
+  commands:
+  - text: ㅟ
+- moves: D' F' F B' L' B' B
+  commands:
+  - text: ㅢ
+- moves: D' F' F B' L' B' B'
+  commands:
+  - text: ㅞ
+- moves: D' F' F B' L' B' D
+  commands:
+  - text: ㅙ
+- moves: D' F' F B' L' B' D'
+  commands:
+  - text: ㅚ
+- moves: D' F' F B' L' B' F
+  commands:
+  - text: 明
+- moves: D' F' F B' L' B' F'
+  commands:
+  - text: ἠ
+- moves: D' F' F B' L' D R
+  commands:
+  - text: ㅠ
+- moves: D' F' F B' L' D R'
+  commands:
+  - text: ㅒ
+- moves: D' F' F B' L' D L
+  commands:
+  - text: ㅔ
+- moves: D' F' F B' L' D L'
+  commands:
+  - text: ㅐ
+- moves: D' F' F B' L' D U
+  commands:
+  - text: ㅣ
+- moves: D' F' F B' L' D U'
+  commands:
+  - text: ㅗ
+- moves: D' F' F B' L' D B
+  commands:
+  - text: ㅛ
+- moves: D' F' F B' L' D B'
+  commands:
+  - text: マ
+- moves: D' F' F B' L' D D
+  commands:
+  - text: ケ
+- moves: D' F' F B' L' D D'
+  commands:
+  - text: 澤
+- moves: D' F' F B' L' D F
+  commands:
+  - text: 奈
+- moves: D' F' F B' L' D F'
+  commands:
+  - text: 李
+- moves: D' F' F B' L' D' R
+  commands:
+  - text: テ
+- moves: D' F' F B' L' D' R'
+  commands:
+  - text: ᐃ
+- moves: D' F' F B' L' D' L
+  commands:
+  - text: ネ
+- moves: D' F' F B' L' D' L'
+  commands:
+  - text: ब
+- moves: D' F' F B' L' D' U
+  commands:
+  - text: 蒨
+- moves: D' F' F B' L' D' U'
+  commands:
+  - text: 廢
+- moves: D' F' F B' L' D' B
+  commands:
+  - text: 頊
+- moves: D' F' F B' L' D' B'
+  commands:
+  - text: 伯
+- moves: D' F' F B' L' D' D
+  commands:
+  - text: 太
+- moves: D' F' F B' L' D' D'
+  commands:
+  - text: 卜
+- moves: D' F' F B' L' D' F
+  commands:
+  - text: 後
+- moves: D' F' F B' L' D' F'
+  commands:
+  - text: き
+- moves: D' F' F B' L' F R
+  commands:
+  - text: ာ
+- moves: D' F' F B' L' F R'
+  commands:
+  - text: 秋
+- moves: D' F' F B' L' F L
+  commands:
+  - text: ㄉ
+- moves: D' F' F B' L' F L'
+  commands:
+  - text: ‧
+- moves: D' F' F B' L' F U
+  commands:
+  - text: ဆ
+- moves: D' F' F B' L' F U'
+  commands:
+  - text: ရ
+- moves: D' F' F B' L' F B
+  commands:
+  - text: த
+- moves: D' F' F B' L' F B'
+  commands:
+  - text: そ
+- moves: D' F' F B' L' F D
+  commands:
+  - text: フ
+- moves: D' F' F B' L' F D'
+  commands:
+  - text: ム
+- moves: D' F' F B' L' F F
+  commands:
+  - text: カ
+- moves: D' F' F B' L' F F'
+  commands:
+  - text: ュ
+- moves: D' F' F B' L' F' R
+  commands:
+  - text: う
+- moves: D' F' F B' L' F' R'
+  commands:
+  - text: こ
+- moves: D' F' F B' L' F' L
+  commands:
+  - text: 球
+- moves: D' F' F B' L' F' L'
+  commands:
+  - text: ख
+- moves: D' F' F B' L' F' U
+  commands:
+  - text: ੰ
+- moves: D' F' F B' L' F' U'
+  commands:
+  - text: ਨ
+- moves: D' F' F B' L' F' B
+  commands:
+  - text: み
+- moves: D' F' F B' L' F' B'
+  commands:
+  - text: ਮ
+- moves: D' F' F B' L' F' D
+  commands:
+  - text: ὅ
+- moves: D' F' F B' L' F' D'
+  commands:
+  - text: ్
+- moves: D' F' F B' L' F' F
+  commands:
+  - text: 리
+- moves: D' F' F B' L' F' F'
+  commands:
+  - text: ₤
+- moves: D' F' F B' U R R
+  commands:
+  - text: ң
+- moves: D' F' F B' U R R'
+  commands:
+  - text: ለ
+- moves: D' F' F B' U R L
+  commands:
+  - text: ジ
+- moves: D' F' F B' U R L'
+  commands:
+  - text: ∴
+- moves: D' F' F B' U R U
+  commands:
+  - text: 위
+- moves: D' F' F B' U R U'
+  commands:
+  - text: љ
+- moves: D' F' F B' U R B
+  commands:
+  - text: เ
+- moves: D' F' F B' U R B'
+  commands:
+  - text: ร
+- moves: D' F' F B' U R D
+  commands:
+  - text: ŀ
+- moves: D' F' F B' U R D'
+  commands:
+  - text: ө
+- moves: D' F' F B' U R F
+  commands:
+  - text: ก
+- moves: D' F' F B' U R F'
+  commands:
+  - text: ἰ
+- moves: D' F' F B' U R' R
+  commands:
+  - text: į
+- moves: D' F' F B' U R' R'
+  commands:
+  - text: ǫ
+- moves: D' F' F B' U R' L
+  commands:
+  - text: ṝ
+- moves: D' F' F B' U R' L'
+  commands:
+  - text: ∆
+- moves: D' F' F B' U R' U
+  commands:
+  - text: ď
+- moves: D' F' F B' U R' U'
+  commands:
+  - text: 新
+- moves: D' F' F B' U R' B
+  commands:
+  - text: 打
+- moves: D' F' F B' U R' B'
+  commands:
+  - text: ニ
+- moves: D' F' F B' U R' D
+  commands:
+  - text: ŷ
+- moves: D' F' F B' U R' D'
+  commands:
+  - text: 小
+- moves: D' F' F B' U R' F
+  commands:
+  - text: 金
+- moves: D' F' F B' U R' F'
+  commands:
+  - text: ৳
+- moves: D' F' F B' U L R
+  commands:
+  - text: 筷
+- moves: D' F' F B' U L R'
+  commands:
+  - text: ை
+- moves: D' F' F B' U L L
+  commands:
+  - text: 史
+- moves: D' F' F B' U L L'
+  commands:
+  - text: ח
+- moves: D' F' F B' U L U
+  commands:
+  - text: 車
+- moves: D' F' F B' U L U'
+  commands:
+  - text: 漢
+- moves: D' F' F B' U L B
+  commands:
+  - text: ල
+- moves: D' F' F B' U L B'
+  commands:
+  - text: 通
+- moves: D' F' F B' U L D
+  commands:
+  - text: 普
+- moves: D' F' F B' U L D'
+  commands:
+  - text: ạ
+- moves: D' F' F B' U L F
+  commands:
+  - text: 君
+- moves: D' F' F B' U L F'
+  commands:
+  - text: ắ
+- moves: D' F' F B' U L' R
+  commands:
+  - text: ʕ
+- moves: D' F' F B' U L' R'
+  commands:
+  - text: 年
+- moves: D' F' F B' U L' L
+  commands:
+  - text: ―
+- moves: D' F' F B' U L' L'
+  commands:
+  - text: ﬁ
+- moves: D' F' F B' U L' U
+  commands:
+  - text: ƒ
+- moves: D' F' F B' U L' U'
+  commands:
+  - text: כ
+- moves: D' F' F B' U L' B
+  commands:
+  - text: 洛
+- moves: D' F' F B' U L' B'
+  commands:
+  - text: 秦
+- moves: D' F' F B' U L' D
+  commands:
+  - text: 宇
+- moves: D' F' F B' U L' D'
+  commands:
+  - text: ¤
+- moves: D' F' F B' U L' F
+  commands:
+  - text: 出
+- moves: D' F' F B' U L' F'
+  commands:
+  - text: 们
+- moves: D' F' F B' U U R
+  commands:
+  - text: ٠
+- moves: D' F' F B' U U R'
+  commands:
+  - text: ↑
+- moves: D' F' F B' U U L
+  commands:
+  - text: ©
+- moves: D' F' F B' U U L'
+  commands:
+  - text: 神
+- moves: D' F' F B' U U U
+  commands:
+  - text: 開
+- moves: D' F' F B' U U U'
+  commands:
+  - text: ¬
+- moves: D' F' F B' U U B
+  commands:
+  - text: 斯
+- moves: D' F' F B' U U B'
+  commands:
+  - text: 馬
+- moves: D' F' F B' U U D
+  commands:
+  - text: 波
+- moves: D' F' F B' U U D'
+  commands:
+  - text: 泰
+- moves: D' F' F B' U U F
+  commands:
+  - text: 俄
+- moves: D' F' F B' U U F'
+  commands:
+  - text: ị
+- moves: D' F' F B' U U' R
+  commands:
+  - text: 慶
+- moves: D' F' F B' U U' R'
+  commands:
+  - text: 제
+- moves: D' F' F B' U U' L
+  commands:
+  - text: 名
+- moves: D' F' F B' U U' L'
+  commands:
+  - text: 吗
+- moves: D' F' F B' U U' U
+  commands:
+  - text: 客
+- moves: D' F' F B' U U' U'
+  commands:
+  - text: 清
+- moves: D' F' F B' U U' B
+  commands:
+  - text: ᕆ
+- moves: D' F' F B' U U' B'
+  commands:
+  - text: 吳
+- moves: D' F' F B' U U' D
+  commands:
+  - text: ⁄
+- moves: D' F' F B' U U' D'
+  commands:
+  - text: ®
+- moves: D' F' F B' U U' F
+  commands:
+  - text: 충
+- moves: D' F' F B' U U' F'
+  commands:
+  - text: ᒍ
+- moves: D' F' F B' U B R
+  commands:
+  - text: 全
+- moves: D' F' F B' U B R'
+  commands:
+  - text: ѳ
+- moves: D' F' F B' U B L
+  commands:
+  - text: ி
+- moves: D' F' F B' U B L'
+  commands:
+  - text: 우
+- moves: D' F' F B' U B U
+  commands:
+  - text: 周
+- moves: D' F' F B' U B U'
+  commands:
+  - text: 朝
+- moves: D' F' F B' U B B
+  commands:
+  - text: 조
+- moves: D' F' F B' U B B'
+  commands:
+  - text: 어
+- moves: D' F' F B' U B D
+  commands:
+  - text: ḗ
+- moves: D' F' F B' U B D'
+  commands:
+  - text: റ
+- moves: D' F' F B' U B F
+  commands:
+  - text: 露
+- moves: D' F' F B' U B F'
+  commands:
+  - text: ാ
+- moves: D' F' F B' U B' R
+  commands:
+  - text: ₄
+- moves: D' F' F B' U B' R'
+  commands:
+  - text: 강
+- moves: D' F' F B' U B' L
+  commands:
+  - text: 인
+- moves: D' F' F B' U B' L'
+  commands:
+  - text: ̞
+- moves: D' F' F B' U B' U
+  commands:
+  - text: ቀ
+- moves: D' F' F B' U B' U'
+  commands:
+  - text: 自
+- moves: D' F' F B' U B' B
+  commands:
+  - text: 幕
+- moves: D' F' F B' U B' B'
+  commands:
+  - text: 민
+- moves: D' F' F B' U B' D
+  commands:
+  - text: 合
+- moves: D' F' F B' U B' D'
+  commands:
+  - text: ग
+- moves: D' F' F B' U B' F
+  commands:
+  - text: 愛
+- moves: D' F' F B' U B' F'
+  commands:
+  - text: レ
+- moves: D' F' F B' U D R
+  commands:
+  - text: ῖ
+- moves: D' F' F B' U D R'
+  commands:
+  - text: 坦
+- moves: D' F' F B' U D L
+  commands:
+  - text: 英
+- moves: D' F' F B' U D L'
+  commands:
+  - text: 叫
+- moves: D' F' F B' U D U
+  commands:
+  - text: 什
+- moves: D' F' F B' U D U'
+  commands:
+  - text: 法
+- moves: D' F' F B' U D B
+  commands:
+  - text: 官
+- moves: D' F' F B' U D B'
+  commands:
+  - text: ᑉ
+- moves: D' F' F B' U D D
+  commands:
+  - text: ᓴ
+- moves: D' F' F B' U D D'
+  commands:
+  - text: ᒡ
+- moves: D' F' F B' U D F
+  commands:
+  - text: ᑏ
+- moves: D' F' F B' U D F'
+  commands:
+  - text: ᐸ
+- moves: D' F' F B' U F R
+  commands:
+  - text: ᐳ
+- moves: D' F' F B' U F R'
+  commands:
+  - text: 治
+- moves: D' F' F B' U F L
+  commands:
+  - text: 韓
+- moves: D' F' F B' U F L'
+  commands:
+  - text: 자
+- moves: D' F' F B' U F U
+  commands:
+  - text: 치
+- moves: D' F' F B' U F U'
+  commands:
+  - text: ᕙ
+- moves: D' F' F B' U F B
+  commands:
+  - text: コ
+- moves: D' F' F B' U F B'
+  commands:
+  - text: け
+- moves: D' F' F B' U F D
+  commands:
+  - text: 康
+- moves: D' F' F B' U F D'
+  commands:
+  - text: 完
+- moves: D' F' F B' U F F
+  commands:
+  - text: 陕
+- moves: D' F' F B' U F F'
+  commands:
+  - text: ᐱ
+- moves: D' F' F B' U F' R
+  commands:
+  - text: 尚
+- moves: D' F' F B' U F' R'
+  commands:
+  - text: ѯ
+- moves: D' F' F B' U F' L
+  commands:
+  - text: 羅
+- moves: D' F' F B' U F' L'
+  commands:
+  - text: ʽ
+- moves: D' F' F B' U F' U
+  commands:
+  - text: 상
+- moves: D' F' F B' U F' U'
+  commands:
+  - text: 𐨀
+- moves: D' F' F B' U F' B
+  commands:
+  - text: ѵ
+- moves: D' F' F B' U F' B'
+  commands:
+  - text: 忠
+- moves: D' F' F B' U F' D
+  commands:
+  - text: 청
+- moves: D' F' F B' U F' D'
+  commands:
+  - text: 부
+- moves: D' F' F B' U F' F
+  commands:
+  - text: 原
+- moves: D' F' F B' U F' F'
+  commands:
+  - text: 선
+- moves: D' F' F F R' B' R
+  commands:
+  - text: ᖕ
+- moves: D' F' F F R' B' R'
+  commands:
+  - text: 文
+- moves: D' F' F F R' B' L
+  commands:
+  - text: ≠
+- moves: D' F' F F R' B' L'
+  commands:
+  - text: ㅎ
+- moves: D' F' F F R' B' U
+  commands:
+  - text: ㅅ
+- moves: D' F' F F R' B' U'
+  commands:
+  - text: ㄱ
+- moves: D' F' F F R' B' B
+  commands:
+  - text: ہ
+- moves: D' F' F F R' B' B'
+  commands:
+  - text: ㅍ
+- moves: D' F' F F R' B' D
+  commands:
+  - text: ㅏ
+- moves: D' F' F F R' B' D'
+  commands:
+  - text: ㅡ
+- moves: D' F' F F R' B' F
+  commands:
+  - text: ㅜ
+- moves: D' F' F F R' B' F'
+  commands:
+  - text: ㅑ
+- moves: D' F' F F R' D' R
+  commands:
+  - text: リ
+- moves: D' F' F F R' D' R'
+  commands:
+  - text: 先
+- moves: D' F' F F R' D' L
+  commands:
+  - text: 霸
+- moves: D' F' F F R' D' L'
+  commands:
+  - text: 丙
+- moves: D' F' F F R' D' U
+  commands:
+  - text: 湯
+- moves: D' F' F F R' D' U'
+  commands:
+  - text: エ
+- moves: D' F' F F R' D' B
+  commands:
+  - text: ड
+- moves: D' F' F F R' D' B'
+  commands:
+  - text: ♯
+- moves: D' F' F F R' D' D
+  commands:
+  - text: サ
+- moves: D' F' F F R' D' D'
+  commands:
+  - text: ɱ
+- moves: D' F' F F R' D' F
+  commands:
+  - text: ņ
+- moves: D' F' F F R' D' F'
+  commands:
+  - text: ோ
+- moves: D' F' F F R' F R
+  commands:
+  - text: क
+- moves: D' F' F F R' F R'
+  commands:
+  - text: ḏ
+- moves: D' F' F F R' F L
+  commands:
+  - text: ̪
+- moves: D' F' F F R' F L'
+  commands:
+  - text: ĉ
+- moves: D' F' F F R' F U
+  commands:
+  - text: ם
+- moves: D' F' F F R' F U'
+  commands:
+  - text: が
+- moves: D' F' F F R' F B
+  commands:
+  - text: ĝ
+- moves: D' F' F F R' F B'
+  commands:
+  - text: 代
+- moves: D' F' F F R' F D
+  commands:
+  - text: ġ
+- moves: D' F' F F R' F D'
+  commands:
+  - text: ㅓ
+- moves: D' F' F F R' F F
+  commands:
+  - text: 가
+- moves: D' F' F F R' F F'
+  commands:
+  - text: ㄴ
+- moves: D' F' F F R' F' R
+  commands:
+  - text: ʌ
+- moves: D' F' F F R' F' R'
+  commands:
+  - text: 狮
+- moves: D' F' F F R' F' L
+  commands:
+  - text: ṁ
+- moves: D' F' F F R' F' L'
+  commands:
+  - text: ệ
+- moves: D' F' F F R' F' U
+  commands:
+  - text: ỹ
+- moves: D' F' F F R' F' U'
+  commands:
+  - text: پ
+- moves: D' F' F F R' F' B
+  commands:
+  - text: 전
+- moves: D' F' F F R' F' B'
+  commands:
+  - text: 북
+- moves: D' F' F F R' F' D
+  commands:
+  - text: 光
+- moves: D' F' F F R' F' D'
+  commands:
+  - text: ं
+- moves: D' F' F F R' F' F
+  commands:
+  - text: ט
+- moves: D' F' F F R' F' F'
+  commands:
+  - text: 산
+- moves: D' F' F F U R R
+  commands:
+  - text: ക
+- moves: D' F' F F U R R'
+  commands:
+  - text:  
+- moves: D' F' F F U R L
+  commands:
+  - text: ť
+- moves: D' F' F F U R L'
+  commands:
+  - text: 话
+- moves: D' F' F F U R U
+  commands:
+  - text: ‎
+- moves: D' F' F F U R U'
+  commands:
+  - text: は
+- moves: D' F' F F U R B
+  commands:
+  - text: 基
+- moves: D' F' F F U R B'
+  commands:
+  - text: 巴
+- moves: D' F' F F U R D
+  commands:
+  - text: ħ
+- moves: D' F' F F U R D'
+  commands:
+  - text: 方
+- moves: D' F' F F U R F
+  commands:
+  - text: 命
+- moves: D' F' F F U R F'
+  commands:
+  - text: ᓪ
+- moves: D' F' F F U R' R
+  commands:
+  - text: 语
+- moves: D' F' F F U R' R'
+  commands:
+  - text: 媽
+- moves: D' F' F F U R' L
+  commands:
+  - text: 州
+- moves: D' F' F F U R' L'
+  commands:
+  - text: 世
+- moves: D' F' F F U R' U
+  commands:
+  - text: ど
+- moves: D' F' F F U R' U'
+  commands:
+  - text: 商
+- moves: D' F' F F U R' B
+  commands:
+  - text: 川
+- moves: D' F' F F U R' B'
+  commands:
+  - text: 児
+- moves: D' F' F F U R' D
+  commands:
+  - text: 西
+- moves: D' F' F F U R' D'
+  commands:
+  - text: ¼
+- moves: D' F' F F U R' F
+  commands:
+  - text: 話
+- moves: D' F' F F U R' F'
+  commands:
+  - text: ᓚ
+- moves: D' F' F F U L R
+  commands:
+  - text: ғ
+- moves: D' F' F F U L R'
+  commands:
+  - text: ो
+- moves: D' F' F F U L L
+  commands:
+  - text: 内
+- moves: D' F' F F U L L'
+  commands:
+  - text: ㅕ
+- moves: D' F' F F U L U
+  commands:
+  - text: を
+- moves: D' F' F F U L U'
+  commands:
+  - text: ค
+- moves: D' F' F F U L B
+  commands:
+  - text: 寺
+- moves: D' F' F F U L B'
+  commands:
+  - text: ห
+- moves: D' F' F F U L D
+  commands:
+  - text: ү
+- moves: D' F' F F U L D'
+  commands:
+  - text: ¶
+- moves: D' F' F F U L F
+  commands:
+  - text: 履
+- moves: D' F' F F U L F'
+  commands:
+  - text: ǚ
+- moves: D' F' F F U L' R
+  commands:
+  - text: ク
+- moves: D' F' F F U L' R'
+  commands:
+  - text: ћ
+- moves: D' F' F F U L' L
+  commands:
+  - text: 人
+- moves: D' F' F F U L' L'
+  commands:
+  - text: 少
+- moves: D' F' F F U L' U
+  commands:
+  - text: 佐
+- moves: D' F' F F U L' U'
+  commands:
+  - text: 、
+- moves: D' F' F F U L' B
+  commands:
+  - text: ɒ
+- moves: D' F' F F U L' B'
+  commands:
+  - text: 三
+- moves: D' F' F F U L' D
+  commands:
+  - text: 中
+- moves: D' F' F F U L' D'
+  commands:
+  - text: 汉
+- moves: D' F' F F U L' F
+  commands:
+  - text: व
+- moves: D' F' F F U L' F'
+  commands:
+  - text: 信
+- moves: D' F' F F B' D' R
+  commands:
+  - text: ᔪ
+- moves: D' F' F F B' D' R'
+  commands:
+  - text: ᔭ
+- moves: D' F' F F B' D' L
+  commands:
+  - text: ᓄ
+- moves: D' F' F F B' D' L'
+  commands:
+  - text: ᖁ
+- moves: D' F' F F B' D' U
+  commands:
+  - text: 田
+- moves: D' F' F F B' D' U'
+  commands:
+  - text: 山
+- moves: D' F' F F B' D' B
+  commands:
+  - text: 特
+- moves: D' F' F F B' D' B'
+  commands:
+  - text: 別
+- moves: D' F' F F B' D' D
+  commands:
+  - text: 별
+- moves: D' F' F F B' D' D'
+  commands:
+  - text: 특
+- moves: D' F' F F B' D' F
+  commands:
+  - text: 女
+- moves: D' F' F F B' D' F'
+  commands:
+  - text: デ
+- moves: D' F' F F F L R
+  commands:
+  - text: ु
+- moves: D' F' F F F L R'
+  commands:
+  - text: ½
+- moves: D' F' F F F L L
+  commands:
+  - text: प
+- moves: D' F' F F F L L'
+  commands:
+  - text: ☉
+- moves: D' F' F F F L U
+  commands:
+  - text: ڤ
+- moves: D' F' F F F L U'
+  commands:
+  - text: 老
+- moves: D' F' F F F L B
+  commands:
+  - text: ㄹ
+- moves: D' F' F F F L B'
+  commands:
+  - text: ル
+- moves: D' F' F F F L D
+  commands:
+  - text: ん
+- moves: D' F' F F F L D'
+  commands:
+  - text: स
+- moves: D' F' F F F L F
+  commands:
+  - text: ラ
+- moves: D' F' F F F L F'
+  commands:
+  - text: ɥ
+- moves: D' F' F F F L' R
+  commands:
+  - text: ώ
+- moves: D' F' F F F L' R'
+  commands:
+  - text: ģ
+- moves: D' F' F F F L' L
+  commands:
+  - text: ֶ
+- moves: D' F' F F F L' L'
+  commands:
+  - text: ֵ
+- moves: D' F' F F F L' U
+  commands:
+  - text: ע
+- moves: D' F' F F F L' U'
+  commands:
+  - text: ʷ
+- moves: D' F' F F F L' B
+  commands:
+  - text: ї
+- moves: D' F' F F F L' B'
+  commands:
+  - text: し
+- moves: D' F' F F F L' D
+  commands:
+  - text: ്
+- moves: D' F' F F F L' D'
+  commands:
+  - text: „
+- moves: D' F' F F F L' F
+  commands:
+  - text: ȝ
+- moves: D' F' F F F L' F'
+  commands:
+  - text: ḷ
+- moves: D' F' F F F U R
+  commands:
+  - text: ễ
+- moves: D' F' F F F U R'
+  commands:
+  - text: ド
+- moves: D' F' F F F U L
+  commands:
+  - text: ڬ
+- moves: D' F' F F F U L'
+  commands:
+  - text: バ
+- moves: D' F' F F F U U
+  commands:
+  - text: े
+- moves: D' F' F F F U U'
+  commands:
+  - text: ŵ
+- moves: D' F' F F F U B
+  commands:
+  - text: ᒥ
+- moves: D' F' F F F U B'
+  commands:
+  - text: 武
+- moves: D' F' F F F U D
+  commands:
+  - text: ế
+- moves: D' F' F F F U D'
+  commands:
+  - text: ʋ
+- moves: D' F' F F F U F
+  commands:
+  - text: ן
+- moves: D' F' F F F U F'
+  commands:
+  - text: џ
+- moves: D' F' F F F U' R
+  commands:
+  - text: ǁ
+- moves: D' F' F F F U' R'
+  commands:
+  - text: ľ
+- moves: D' F' F F F U' L
+  commands:
+  - text: ų
+- moves: D' F' F F F U' L'
+  commands:
+  - text: 安
+- moves: D' F' F F F U' U
+  commands:
+  - text: 日
+- moves: D' F' F F F U' U'
+  commands:
+  - text: ᓕ
+- moves: D' F' F F F U' B
+  commands:
+  - text: 美
+- moves: D' F' F F F U' B'
+  commands:
+  - text: ᖅ
+- moves: D' F' F F F U' D
+  commands:
+  - text: ᖏ
+- moves: D' F' F F F U' D'
+  commands:
+  - text: ᓂ
+- moves: D' F' F F F U' F
+  commands:
+  - text: ᕗ
+- moves: D' F' F F F U' F'
+  commands:
+  - text: ी
+- moves: D' F' F F F D' R
+  commands:
+  - text: 말
+- moves: D' F' F F F D' R'
+  commands:
+  - text: ў
+- moves: D' F' F F F D' L
+  commands:
+  - text: の
+- moves: D' F' F F F D' L'
+  commands:
+  - text: ม
+- moves: D' F' F F F D' U
+  commands:
+  - text: 好
+- moves: D' F' F F F D' U'
+  commands:
+  - text: ķ
+- moves: D' F' F F F D' B
+  commands:
+  - text: گ
+- moves: D' F' F F F D' B'
+  commands:
+  - text: √
+- moves: D' F' F F F D' D
+  commands:
+  - text: צ
+- moves: D' F' F F F D' D'
+  commands:
+  - text: ？
+- moves: D' F' F F F D' F
+  commands:
+  - text: ᐆ
+- moves: D' F' F F F D' F'
+  commands:
+  - text: ڠ

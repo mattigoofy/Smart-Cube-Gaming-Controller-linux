@@ -38,12 +38,20 @@ class TextCommand(Command):
         if not isinstance(obj, TextCommand):
             return NotImplemented
         return self.text == obj.text
+    
+    def __hash__(self) -> int:
+        return hash(self.text)
 
     def _is_on_keyboard(self) -> bool:
         """
         True if this key is a valid key on a keyboard (for example, "a", "win", "left arrow", or "ctrl"), False otherwise (for example, "A", or "😭")
         """
-        raise NotImplementedError
+        map = KeyboardMap()
+        try:
+            map.get(self.text)
+            return True
+        except ValueError:
+            return False
 
     def execute(self) -> None:
         # TODO Check if self.text exists as a single character on keyboard. If so, execute as KeyCommand instead.
@@ -70,6 +78,9 @@ class KeyCommand(Command):
         if not isinstance(value, KeyCommand):
             return NotImplemented
         return self.key == value.key
+    
+    def __hash__(self) -> int:
+        return hash(self.key)
 
     def execute(self) -> None:
         self.press()

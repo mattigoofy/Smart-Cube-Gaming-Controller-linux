@@ -344,7 +344,11 @@ class YamlParser(Parser):
             "bindings": []
         }
 
-        for move_list, command_list in config.bindings.bindings.items():
+        # Sort by length; shorter length commands show up first
+        items = config.bindings.bindings.items()
+        items_sorted = sorted(items, key=lambda i: len(i[0]))
+        
+        for move_list, command_list in items_sorted:
             commands: list[dict] = []
             for command in command_list:
                 commands.append(self._command_to_dict(command))
@@ -355,7 +359,7 @@ class YamlParser(Parser):
             })
 
         with open(filepath, mode="w") as f:
-            yaml.safe_dump(yml_dict, f, default_flow_style=False)
+            yaml.safe_dump(yml_dict, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
 
     def _command_key_to_command(
         self, command_key: CommandKeys, value: str

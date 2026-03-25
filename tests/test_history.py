@@ -16,7 +16,7 @@ def history():
         MoveType.R_PRIME,
         MoveType.U,
     ]
-    history = MoveHistory(0, 0)
+    history = MoveHistory(0)
     for move in moves:
         history.append(move)
     return history

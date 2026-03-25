@@ -35,6 +35,23 @@ class KeyboardMap:
     def default_map(self) -> dict[str, int]:
         map: dict[str, int] = dict()
 
+        map.update(self._printable_keys())
+        map.update(self._common_keys()) 
+
+        # Arrow keys
+        map["left arrow"] = ecodes.KEY_LEFT
+        map["right arrow"] = ecodes.KEY_RIGHT
+        map["up arrow"] = ecodes.KEY_UP
+        map["down arrow"] = ecodes.KEY_DOWN
+
+        # Modifiers and a few extras
+        map.update(self._modifier_keys())
+
+        return map
+    
+    def _printable_keys(self) -> dict[str, int]:
+        map: dict[str, int] = dict()
+
         # Map in the form of { "a": <key as int> }
         for c in "abcdefghijklmnopqrstuvwxyz":
             map[c] = getattr(ecodes, "KEY_" + c.upper())
@@ -59,24 +76,22 @@ class KeyboardMap:
             }
         )
 
-        # Common keys
+        return map
+    
+    def _common_keys(self):
+        map: dict[str, int] = dict()
         map["space"] = ecodes.KEY_SPACE
         map["enter"] = ecodes.KEY_ENTER
         map["return"] = ecodes.KEY_ENTER
         map["tab"] = ecodes.KEY_TAB
         map["backspace"] = ecodes.KEY_BACKSPACE
-
-        # Arrow keys
-        map["left arrow"] = ecodes.KEY_LEFT
-        map["right arrow"] = ecodes.KEY_RIGHT
-        map["up arrow"] = ecodes.KEY_UP
-        map["down arrow"] = ecodes.KEY_DOWN
-
-        # Modifiers and a few extras
+        return map
+    
+    def _modifier_keys(self):
+        map: dict[str, int] = dict()
         map["shift"] = ecodes.KEY_LEFTSHIFT
         map["ctrl"] = ecodes.KEY_LEFTCTRL
         map["alt"] = ecodes.KEY_LEFTALT
-
         return map
     
     def press_key(self, key: str):
@@ -109,4 +124,7 @@ class KeyboardMap:
         if not mapped:
             raise ValueError(f"Key not found: {key}")
         return mapped
+    
+    def get_no_throw(self, key: str) -> int | None:
+        return self._character_map.get(key)
     

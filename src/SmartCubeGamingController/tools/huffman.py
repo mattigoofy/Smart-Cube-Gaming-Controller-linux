@@ -10,6 +10,7 @@ from types import SimpleNamespace
 
 import SmartCubeGamingController.modes.binds.moves as SmartCubeMoves
 import SmartCubeGamingController.modes.binds.binds as SmartCubeBinds
+from SmartCubeGamingController.modes.directinput import KeyboardMap
 
 _GHOST_NODE_PREFIX: str = "GHOST_NODE_"
 
@@ -49,7 +50,7 @@ class HuffmanTree:
 
     def set_frequency_analysis(self, filepath: str) -> None:
         with open(filepath, "r", encoding="utf-8") as file:
-            raw_json = json.load(file, object_hook=SimpleNamespace)
+            raw_json = json.load(file, object_hook=lambda d: SimpleNamespace(**d))
 
             self._symbol_distribution_table = raw_json.frequencies
 
@@ -89,8 +90,10 @@ class HuffmanTable:
     """
 
     def __init__(self) -> None:
-        self._mapping: dict[SmartCubeBinds.TextCommand, SmartCubeMoves.MoveList] = {}
+        self._mapping: dict[SmartCubeBinds.Command, SmartCubeMoves.MoveList] = {}
         self._binary_digit_mapping: dict[int, SmartCubeMoves.MoveType] = {}
+
+        self._map = KeyboardMap()
 
     @property
     def mapping(self):
@@ -114,9 +117,9 @@ class HuffmanTable:
                     raise ValueError(
                         f"Expected node {node} to have a symbol associated with it, it did not."
                     )
-                text = SmartCubeBinds.TextCommand(node.symbol)
-                move = SmartCubeMoves.MoveType(move_list)
-                self.mapping[text] = SmartCubeMoves.MoveList(moves=[move])
+                casted = self._cast_symbol(node.symbol) 
+                command = self._to_command(casted)
+                self.mapping[command] = move_list
             return
 
         for i, child in enumerate(node.children):
@@ -130,6 +133,22 @@ class HuffmanTable:
             new_move_list = [move for move in move_list]
             new_move_list.append(new_move)
             self._walk(child, SmartCubeMoves.MoveList(new_move_list))
+
+    def _cast_symbol(self, symbol: str):
+        casted_symbol = symbol
+        match symbol:
+            case '\n':
+                casted_symbol = "enter"
+            case _:
+                pass
+        return casted_symbol
+    
+    # TODO this function is soooo sssllloooowwww
+    def _to_command(self, symbol: str) -> "SmartCubeBinds.Command":
+        if self._map.get_no_throw(symbol) is None:
+            return SmartCubeBinds.TextCommand(symbol)
+        else:
+            return SmartCubeBinds.KeyCommand(symbol)
 
     def dump(self, filepath: str):
         with open(filepath, "w") as file:
@@ -198,6 +217,10 @@ def main():
         }
     )
     table.from_tree(tree)
+    binds = table.to_bindings()
+    configuration = SmartCubeBinds.BindingsConfiguration()
+    configuration.bindings = binds
+    configuration.export("binds/temp.yaml")
     # table.to_bindfile(
     #     "binds/full_huffman_mapping.txt",
     #     sort_type=HuffmanTable.SortType.ShortestFirst,
