@@ -2,12 +2,12 @@ import textwrap
 
 import pytest
 
-import SmartCubeGamingController.binds.binds as SmartCubeBinds
-import SmartCubeGamingController.binds.parsers as SmartCubeParsers
+import SmartCubeGamingController.modes.binds.binds as SmartCubeBinds
+import SmartCubeGamingController.modes.binds.parsers as SmartCubeParsers
 
 
 def command_to_debug_tuple(cmd):
-    from SmartCubeGamingController.binds.binds import (
+    from SmartCubeGamingController.modes.binds.binds import (
         KeyCombinationCommand,
         KeyCommand,
         ShellCommand,
@@ -41,7 +41,7 @@ def command_list_to_debug_list(command_list):
 
 @pytest.fixture
 def bind_config_solution():
-    from SmartCubeGamingController.binds.binds import (
+    from SmartCubeGamingController.modes.binds.binds import (
         TextCommand,
         KeyCommand,
         KeyCombinationCommand,
@@ -49,7 +49,7 @@ def bind_config_solution():
         SleepCommand,
         CommandList,
     )
-    from SmartCubeGamingController.binds.moves import (
+    from SmartCubeGamingController.modes.binds.moves import (
         MoveList,
         MoveType,
     )

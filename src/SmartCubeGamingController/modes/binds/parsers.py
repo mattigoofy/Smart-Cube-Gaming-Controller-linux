@@ -144,6 +144,9 @@ class TxtParser(Parser):
                     result.bindings.extend(partial_binding)
 
         return result
+    
+    def export(self, config: "SmartCubeBinds.BindingsConfiguration", filepath: str) -> None:
+        ...
 
     @dataclass
     class DirectiveConfig:
@@ -263,6 +266,9 @@ class JsonParser(Parser):
     #                 process_shell_instruction(entry)
     #             else:
     #                 raise Exception("Invalid JSON type")
+
+    def export(self, config: "SmartCubeBinds.BindingsConfiguration", filepath: str) -> None:
+        ...
 
 
 class YamlParser(Parser):

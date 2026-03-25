@@ -5,7 +5,7 @@ Tests for BindingsConfiguration._from_txt (the plain-text binding parser).
 import textwrap
 import pytest
 
-from SmartCubeGamingController.binds.binds import (
+from SmartCubeGamingController.modes.binds.binds import (
     BindingsConfiguration,
     Command,
     KeyCombinationCommand,
@@ -14,8 +14,8 @@ from SmartCubeGamingController.binds.binds import (
     SleepCommand,
     TextCommand,
 )
-from SmartCubeGamingController.binds.moves import MoveType, MoveList
-from SmartCubeGamingController.binds.parsers import (
+from SmartCubeGamingController.modes.binds.moves import MoveType, MoveList
+from SmartCubeGamingController.modes.binds.parsers import (
     _parse_command_list,
     _parse_command_token,
     _parse_move_list,

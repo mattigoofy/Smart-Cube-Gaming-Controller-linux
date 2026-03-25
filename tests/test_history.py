@@ -1,11 +1,11 @@
 import pytest
 
-from SmartCubeGamingController.binds.binds import (
+from SmartCubeGamingController.modes.binds.binds import (
     Bindings,
     CommandList,
     KeyCommand,
 )
-from SmartCubeGamingController.binds.moves import MoveHistory, MoveList, MoveType
+from SmartCubeGamingController.modes.binds.moves import MoveHistory, MoveList, MoveType
 
 
 @pytest.fixture

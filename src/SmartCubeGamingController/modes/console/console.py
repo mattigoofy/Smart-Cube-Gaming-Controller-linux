@@ -91,6 +91,7 @@ class Console:
     def __init__(self):
         self.keyboard = Keyboard()
 
+    # TODO use `match` instead of a chain of ifs; makes this more explicit, and the linter can see what enum values are / aren't used.
     def handle_move(self, move: MoveType):
         if move == MoveType.R:
             self.keyboard.move_cursor(Directions.UP)

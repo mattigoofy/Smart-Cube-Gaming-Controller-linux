@@ -165,7 +165,7 @@ class CommandList:
 
 class Bindings:
     def __init__(self) -> None:
-        self._bindings: dict[SmartCubeMoves.MoveList, CommandList] = {}
+        self._bindings: dict["SmartCubeMoves.MoveList", CommandList] = {}
 
     @property
     def bindings(self):
@@ -176,7 +176,7 @@ class Bindings:
             return NotImplemented
         return self._bindings == other._bindings
 
-    def update(self, moves: SmartCubeMoves.MoveList, commands: CommandList):
+    def update(self, moves: "SmartCubeMoves.MoveList", commands: CommandList):
         self._bindings.update({moves: commands})
         return self
     

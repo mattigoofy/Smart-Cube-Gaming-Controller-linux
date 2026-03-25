@@ -2,7 +2,7 @@ from dataclasses import dataclass
 import queue
 import pytest
 from unittest.mock import MagicMock, patch
-from SmartCubeGamingController.binds.moves import MoveList, MoveType
+from SmartCubeGamingController.modes.binds.moves import MoveList, MoveType
 from SmartCubeGamingController.app import App
 
 

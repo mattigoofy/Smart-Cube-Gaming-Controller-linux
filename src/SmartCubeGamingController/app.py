@@ -41,6 +41,7 @@ class App:
         except queue.Empty:
             return
 
+        # TODO Separate functions for each mode, maybe even make a quick Mode enum? --> fail on unrecognized mode
         if self._current_mode == "BIND":
             self._move_history.set_time(time.time())
 

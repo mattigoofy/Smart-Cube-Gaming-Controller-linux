@@ -1,6 +1,6 @@
 import enum
 
-from SmartCubeGamingController.modes.binds.binds import Bindings
+import SmartCubeGamingController.modes.binds.binds as SmartCubeBinds
 
 
 class MoveType(enum.Enum):
@@ -84,6 +84,7 @@ class MoveHistory:
         self.history.append(move)
         return self
 
+    # TODO rename this function `update` instead, and update time internally instead of taking an argument
     def set_time(self, time: float):
         if time - self.last_time > self.idle_time:
             print("History cleared due to idleness")
@@ -100,7 +101,7 @@ class MoveHistory:
     # FIXME `clear` probably shouldn't be (another) responsibility of this function. Instead, the calling function should handle this.
     def find_match(
         self,
-        bindings: "Bindings",
+        bindings: "SmartCubeBinds.Bindings",
         greedy: bool = False,
         clear: ClearHistoryType = ClearHistoryType.All,
     ) -> MoveList | None:
@@ -116,7 +117,7 @@ class MoveHistory:
             The matched MoveList, or None if nothing matched.
         """
 
-        def _greedy_search(bindings: "Bindings"):
+        def _greedy_search(bindings: "SmartCubeBinds.Bindings"):
             best: MoveList | None = None
             best_end = -1
 
@@ -137,7 +138,7 @@ class MoveHistory:
                             best = move_list
             return best
 
-        def _non_greedy_search(bindings: "Bindings"):
+        def _non_greedy_search(bindings: "SmartCubeBinds.Bindings"):
             best: MoveList | None = None
             best_overlap = 0
             print(best)
