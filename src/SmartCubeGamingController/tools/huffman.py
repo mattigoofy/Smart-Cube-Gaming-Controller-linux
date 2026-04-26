@@ -3,11 +3,14 @@ N-ary Huffman implementation
 https://arxiv.org/pdf/2105.07073
 """
 
-import enum
 import heapq
 import json
 import math
 from types import SimpleNamespace
+
+import SmartCubeGamingController.modes.binds.moves as SmartCubeMoves
+import SmartCubeGamingController.modes.binds.binds as SmartCubeBinds
+from SmartCubeGamingController.modes.directinput import KeyboardMap
 
 _GHOST_NODE_PREFIX: str = "GHOST_NODE_"
 
@@ -47,7 +50,7 @@ class HuffmanTree:
 
     def set_frequency_analysis(self, filepath: str) -> None:
         with open(filepath, "r", encoding="utf-8") as file:
-            raw_json = json.load(file, object_hook=SimpleNamespace)
+            raw_json = json.load(file, object_hook=lambda d: SimpleNamespace(**d))
 
             self._symbol_distribution_table = raw_json.frequencies
 
@@ -87,8 +90,10 @@ class HuffmanTable:
     """
 
     def __init__(self) -> None:
-        self._mapping: dict[str, str] = {}
-        self._binary_digit_mapping: dict[int, str] = {}
+        self._mapping: dict[SmartCubeBinds.Command, SmartCubeMoves.MoveList] = {}
+        self._binary_digit_mapping: dict[int, SmartCubeMoves.MoveType] = {}
+
+        self._map = KeyboardMap()
 
     @property
     def mapping(self):
@@ -99,73 +104,72 @@ class HuffmanTable:
     def from_tree(self, root: HuffmanTree) -> "HuffmanTable":
         self.bits_per_edge = number_of_binary_digits(root.degree)
         self._mapping = {}
-        self._walk(root.tree, "")
+        self._walk(root.tree, SmartCubeMoves.MoveList())
         return self
 
-    def set_binary_digit_mapping(self, mapping: dict[int, str]):
+    def set_binary_digit_mapping(self, mapping: dict[int, SmartCubeMoves.MoveType]):
         self._binary_digit_mapping = mapping
 
-    def _walk(self, node: HuffmanTreeNode, code: str) -> None:
+    def _walk(self, node: HuffmanTreeNode, move_list: SmartCubeMoves.MoveList) -> None:
         if node.is_leaf():
             if not node.is_ghost():
-                # Single-symbol edge case: give it the empty string (or "0")
-                self.mapping[node.symbol] = code if code else "0"  # type: ignore
+                if not node.symbol:
+                    raise ValueError(
+                        f"Expected node {node} to have a symbol associated with it, it did not."
+                    )
+                casted = self._cast_symbol(node.symbol) 
+                command = self._to_command(casted)
+                self.mapping[command] = move_list
             return
-        b = self.bits_per_edge
+
         for i, child in enumerate(node.children):
+            new_move = str(i)
             if self._binary_digit_mapping:
                 label = self._binary_digit_mapping[i]
-                if label:
-                    edge_label = label
-                else:
-                    edge_label = str(i)
-            else:
-                # Display as binary, for funsies
-                edge_label = format(i, f"0{b}b")
-            self._walk(child, code + edge_label)
+                new_move = label
+            new_move = SmartCubeMoves.MoveType(new_move)
+
+            # Doing this instead of using MoveList.append(), because we shouldn't mutate the parameter variable.
+            new_move_list = [move for move in move_list]
+            new_move_list.append(new_move)
+            self._walk(child, SmartCubeMoves.MoveList(new_move_list))
+
+    def _cast_symbol(self, symbol: str):
+        casted_symbol = symbol
+        match symbol:
+            case '\n':
+                casted_symbol = "enter"
+            case _:
+                pass
+        return casted_symbol
+    
+    # TODO this function is soooo sssllloooowwww
+    def _to_command(self, symbol: str) -> "SmartCubeBinds.Command":
+        if self._map.get_no_throw(symbol) is None:
+            return SmartCubeBinds.TextCommand(symbol)
+        else:
+            return SmartCubeBinds.KeyCommand(symbol)
 
     def dump(self, filepath: str):
         with open(filepath, "w") as file:
             file.write(self.__repr__())
 
-    class SortType(enum.Enum):
-        Alphabetically = enum.auto()
-        ShortestFirst = enum.auto()
+    def to_bindings(self) -> SmartCubeBinds.Bindings:
+        binds = SmartCubeBinds.Bindings()
 
-    def to_bindfile(self, filepath: str, sort_type: SortType | None = None):
-        string_builder = ""
+        for text_command, move_list in self.mapping.items():
+            binds.update(move_list, SmartCubeBinds.CommandList([text_command]))
 
-        sorted_list: list[tuple[str, str]] = []
-        match sort_type:
-            case self.SortType.Alphabetically:
-                sorted_list = sorted(self.mapping.items(), key=lambda kv: kv[0])
-            case self.SortType.ShortestFirst:
-                sorted_list = sorted(self.mapping.items(), key=lambda kv: len(kv[1]))
-            case _:
-                sorted_list = sorted(self.mapping.items())
-
-        for key, value in sorted_list:
-            # Special cases
-            match key:
-                case "\n":
-                    string_builder += f"{value}- enter\n"
-                case "\t":
-                    string_builder += f"{value}- tab\n"
-                case " ":
-                    string_builder += f"{value}- space\n"
-                case _:
-                    string_builder += f"{value}- {key}\n"
-
-        with open(filepath, "w") as file:
-            file.write(string_builder)
+        return binds
 
     def __repr__(self) -> str:
         lines = [
             f"HuffmanTable (bits_per_edge={self.bits_per_edge}, {len(self.mapping)} symbols)"
         ]
-        for sym, code in sorted(self.mapping.items(), key=lambda kv: len(kv[1])):
-            display = repr(sym) if (sym.isspace() or not sym.isprintable()) else sym
-            lines.append(f"  {display:20s}  ->  {code}")
+        for text_command, move_list in sorted(
+            self.mapping.items(), key=lambda kv: len(kv[1])
+        ):
+            lines.append(f"  {text_command:20s}  ->  {move_list}")
         return "\n".join(lines)
 
 
@@ -191,32 +195,38 @@ def main():
     tree = HuffmanTree(degree=12)
     # tree.set_frequency_analysis('tools/data/character_usage_frequencies_5000_articles.json')
     # tree.set_frequency_analysis("tools/data/character_usage_frequencies_full")
-    tree.set_frequency_analysis("tools/data/character_usage_frequencies_full_backspace")
+    # tree.set_frequency_analysis("tools/data/character_usage_frequencies_full_backspace")
     # tree.set_frequency_analysis('tools/data/character_usage_frequencies_tiny')
+    tree.set_frequency_analysis("src/data/character_usage_analysis/temp")
     tree.generate()
     table = HuffmanTable()
     table.set_binary_digit_mapping(
         {
-            0: "R ",
-            1: "R' ",
-            2: "L ",
-            3: "L' ",
-            4: "U ",
-            5: "U' ",
-            6: "B ",
-            7: "B' ",
-            8: "D ",
-            9: "D' ",
-            10: "F ",
-            11: "F' ",
+            0: SmartCubeMoves.MoveType.R,
+            1: SmartCubeMoves.MoveType.R_PRIME,
+            2: SmartCubeMoves.MoveType.L,
+            3: SmartCubeMoves.MoveType.L_PRIME,
+            4: SmartCubeMoves.MoveType.U,
+            5: SmartCubeMoves.MoveType.U_PRIME,
+            6: SmartCubeMoves.MoveType.B,
+            7: SmartCubeMoves.MoveType.B_PRIME,
+            8: SmartCubeMoves.MoveType.D,
+            9: SmartCubeMoves.MoveType.D_PRIME,
+            10: SmartCubeMoves.MoveType.F,
+            11: SmartCubeMoves.MoveType.F_PRIME,
         }
     )
     table.from_tree(tree)
-    table.to_bindfile(
-        "binds/full_huffman_mapping.txt",
-        sort_type=HuffmanTable.SortType.ShortestFirst,
-    )
+    binds = table.to_bindings()
+    configuration = SmartCubeBinds.BindingsConfiguration()
+    configuration.bindings = binds
+    configuration.export("binds/temp.yaml")
+    # table.to_bindfile(
+    #     "binds/full_huffman_mapping.txt",
+    #     sort_type=HuffmanTable.SortType.ShortestFirst,
+    # )
     # table.to_bindfile('tools/data/mappings/mapping_tiny.txt', sort_type=HuffmanTable.SortType.ShortestFirst)
+    # table.to_bindfile("src/data/mappings/temp.txt", sort_type=HuffmanTable.SortType.ShortestFirst)
 
 
 if __name__ == "__main__":

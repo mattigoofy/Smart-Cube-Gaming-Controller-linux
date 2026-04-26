@@ -1,0 +1,1660 @@
+R - r
+L - o
+U - n
+B - i
+D - e
+F - space
+L' - shift
+U' - t
+B' - a
+R' R - 3
+R' L - 5
+R' U - 7
+R' B - (
+R' D - 2
+R' F - 0
+D' R - v
+D' L - w
+D' U - y
+D' B - 1
+D' D - b
+D' F - g
+F' R - ctrl
+F' L - win
+F' U - p
+F' B - m
+F' D - d
+F' F - l
+R' R' - 6
+R' L' - 4
+R' U' - 8
+R' B' - )
+R' D' - –
+R' F' - k
+D' R' - 9
+D' L' - .
+D' U' - ,
+D' B' - enter
+D' D' - f
+F' R' - fn
+F' L' - alt
+F' U' - u
+F' B' - c
+F' D' - h
+F' F' - s
+D' F' L - q
+D' F' U - :
+D' F' B - "
+D' F' D - x
+D' F' R' - tab
+D' F' U' - '
+D' F' B' - z
+D' F' D' - -
+D' F' F' - j
+D' F' R R - }
+D' F' R L - +
+D' F' R B - _
+D' F' R D - ?
+D' F' R F - =
+D' F' F L - ]
+D' F' F B - é
+D' F' F D - •
+D' F' R L' - ó
+D' F' R U' - í
+D' F' R D' - ’
+D' F' R F' - ö
+D' F' L' L - !
+D' F' L' B - &
+D' F' L' F - %
+D' F' F R' - #
+D' F' F L' - [
+D' F' F U' -  
+D' F' F D' - ;
+D' F' F F' - /
+D' F' R U R - å
+D' F' R U U - ɨ
+D' F' R U B - ~
+D' F' R U F - ن
+D' F' L' R' - á
+D' F' L' L' - ü
+D' F' L' U' - *
+D' F' L' D' - |
+D' F' L' F' - —
+D' F' F R R - č
+D' F' F R L - о
+D' F' F R B - ɔ
+D' F' F R D - َ
+D' F' F R F - ī
+D' F' F U R - ُ
+D' F' F U L - ×
+D' F' F U U - ʁ
+D' F' F U B - ł
+D' F' F U D - ²
+D' F' F U F - а
+D' F' F F R - ا
+D' F' F F L - ā
+D' F' F F B - “
+D' F' F F D - °
+D' F' R R' R - ē
+D' F' R R' L - ÷
+D' F' R R' U - ق
+D' F' R R' B - ح
+D' F' R R' D - ع
+D' F' R R' F - ş
+D' F' R U U' - ž
+D' F' R U B' - ı
+D' F' R U D' - ř
+D' F' R U F' - б
+D' F' R B' R - в
+D' F' R B' U - 𝄇
+D' F' R B' D - â
+D' F' R B' F - ы
+D' F' L' R R - ^
+D' F' L' R L - ɐ
+D' F' L' R U - ʿ
+D' F' L' R B - р
+D' F' L' R D - ß
+D' F' L' R F - ɑ
+D' F' L' U R - ̃
+D' F' L' U L - к
+D' F' L' U U - н
+D' F' L' U D - ø
+D' F' L' D R - ‘
+D' F' L' D B - ي
+D' F' L' D F - š
+D' F' F R R' - ْ
+D' F' F R L' - ú
+D' F' F R U' - ã
+D' F' F R B' - \
+D' F' F R D' - م
+D' F' F R F' - ō
+D' F' F U L' - <
+D' F' F U U' - ñ
+D' F' F U D' - ə
+D' F' F B' R - ɛ
+D' F' F B' B - >
+D' F' F B' D - ˈ
+D' F' F B' F - ç
+D' F' F F L' - ل
+D' F' F F U' - ”
+D' F' F F D' - {
+D' F' F F F' - $
+D' F' R R' R' - ɪ
+D' F' R R' L' - ͡
+D' F' R R' U' - ʃ
+D' F' R R' B' - →
+D' F' R R' D' - ý
+D' F' R R' F' - ę
+D' F' R U L R - ⊼
+D' F' R U L L - 之
+D' F' R U L U - ह
+D' F' R U L B - त
+D' F' R U L D - च
+D' F' R U L F - נ
+D' F' R U D R - ׁ
+D' F' R U D L - ъ
+D' F' R U D U - ǔ
+D' F' R U D B - ᑕ
+D' F' R U D D - ĩ
+D' F' R U D F - ύ
+D' F' R B' R' - æ
+D' F' R B' L' - 𝄆
+D' F' R B' U' - ː
+D' F' R B' B' - ï
+D' F' R B' D' - ɾ
+D' F' R B' F' - د
+D' F' L' R L' - ب
+D' F' L' R B' - е
+D' F' L' R D' - ū
+D' F' L' U R' - ô
+D' F' L' U L' - ‿
+D' F' L' U U' - ś
+D' F' L' U B' - ć
+D' F' L' U D' - ‡
+D' F' L' U F' - à
+D' F' L' B' R - л
+D' F' L' B' L - т
+D' F' L' B' B - и
+D' F' L' B' D - ë
+D' F' L' D R' - −
+D' F' L' D B' - ر
+D' F' L' D D' - @
+D' F' L' D F' - с
+D' F' F R U R - ș
+D' F' F R U L - ʐ
+D' F' F R U U - ה
+D' F' F R U B - ʑ
+D' F' F R U D - û
+D' F' F R U F - 子
+D' F' F B' D' - ä
+D' F' F B' F' - è
+D' F' F F U U - ь
+D' F' F F U B - ′
+D' F' F F U D - س
+D' F' F F U F - ò
+D' F' F F F R - õ
+D' F' F F F B - у
+D' F' F F F D - м
+D' F' F F F F - д
+D' F' R U R' R - ト
+D' F' R U R' L - 月
+D' F' R U R' U - ồ
+D' F' R U R' B - 남
+D' F' R U R' D - 주
+D' F' R U R' F - ィ
+D' F' R U L R' - ĥ
+D' F' R U L L' - श
+D' F' R U L U' - ˢ
+D' F' R U L B' - ψ
+D' F' R U L D' - מ
+D' F' R U L F' -  
+D' F' R U L' R - ד
+D' F' R U L' L - ∈
+D' F' R U L' U - ء
+D' F' R U L' B - 翔
+D' F' R U L' D - 鼎
+D' F' R U L' F - є
+D' F' R U D R' - 字
+D' F' R U D L' - ¥
+D' F' R U D U' - ᓗ
+D' F' R U D B' - ᑲ
+D' F' R U D D' - ス
+D' F' R U D F' - ŭ
+D' F' R B' L R - க
+D' F' R B' L L - 陈
+D' F' R B' L U - ئ
+D' F' R B' L B - 木
+D' F' R B' L D - 語
+D' F' R B' L F - 대
+D' F' R B' B R - ″
+D' F' R B' B L - ㅇ
+D' F' R B' B U - פ
+D' F' R B' B B - ल
+D' F' R B' B D - ɦ
+D' F' R B' B F - א
+D' F' L' U B R - ☿
+D' F' L' U B L - ♄
+D' F' L' U B U - ṉ
+D' F' L' U B B - 噌
+D' F' L' U B D - і
+D' F' L' U B F - ᑦ
+D' F' L' U F R - ÿ
+D' F' L' U F L - 역
+D' F' L' U F U - щ
+D' F' L' U F B - ʻ
+D' F' L' U F D - न
+D' F' L' U F F - 평
+D' F' L' B' L' - ّ
+D' F' L' B' U' - و
+D' F' L' B' D' - ٱ
+D' F' L' B' F' - ِ
+D' F' F R U R' - ´
+D' F' F R U L' - ṅ
+D' F' F R U U' - ָ
+D' F' F R U B' - χ
+D' F' F R U D' - ц
+D' F' F R U F' - ー
+D' F' F U R' R - 시
+D' F' F U R' L - ᓇ
+D' F' F U R' U - ¡
+D' F' F U R' B - ز
+D' F' F U R' D - ₂
+D' F' F U R' F - ִ
+D' F' F U B' R - θ
+D' F' F U B' L - ɬ
+D' F' F U B' U - µ
+D' F' F U B' B - ɫ
+D' F' F U B' D - ж
+D' F' F U B' F - đ
+D' F' F U F' R - х
+D' F' F U F' L - ż
+D' F' F U F' U - ्
+D' F' F U F' B - ش
+D' F' F U F' D - ʊ
+D' F' F U F' F - 道
+D' F' F B' L R - €
+D' F' F B' L L - ɲ
+D' F' F B' L B - ص
+D' F' F B' L D - ǎ
+D' F' F B' L F - 市
+D' F' F F R' R - τ
+D' F' F F R' L - ج
+D' F' F F R' U - ο
+D' F' F F R' B - ṣ
+D' F' F F R' D - ·
+D' F' F F U U' - ∞
+D' F' F F U B' - п
+D' F' F F U D' - ʂ
+D' F' F F U F' - £
+D' F' F F B' R - î
+D' F' F F B' L - ḥ
+D' F' F F B' U - †
+D' F' F F B' B - ʒ
+D' F' F F B' D - ه
+D' F' F F B' F - ف
+D' F' F F F R' - ك
+D' F' F F F B' - α
+D' F' F F F F' - ت
+D' F' R U R' R' - －
+D' F' R U R' L' - ư
+D' F' R U R' U' - 라
+D' F' R U R' B' - 宗
+D' F' R U R' D' - ミ
+D' F' R U R' F' - ש
+D' F' R U L' R' - ℕ
+D' F' R U L' L' - 献
+D' F' R U L' U' - 贡
+D' F' R U L' B' - 성
+D' F' R U L' D' - ア
+D' F' R U L' F' - ˤ
+D' F' R B' L R' - ё
+D' F' R B' L L' - ґ
+D' F' R B' L U' - ή
+D' F' R B' L B' - 儿
+D' F' R B' L D' - 경
+D' F' R B' L F' - 국
+D' F' R B' B R' - 南
+D' F' R B' B L' - ♭
+D' F' R B' B U' - イ
+D' F' R B' B B' - ű
+D' F' R B' B D' - ṃ
+D' F' R B' B F' - ק
+D' F' L' R R' R - ר
+D' F' L' R R' L - 漫
+D' F' L' R R' U - 本
+D' F' L' R R' B - 글
+D' F' L' R R' D - ũ
+D' F' L' R R' F - द
+D' F' L' R U' R - э
+D' F' L' R U' L - ṟ
+D' F' L' R U' U - ю
+D' F' L' R U' B - 域
+D' F' L' R U' D - 廣
+D' F' L' R U' F - 　
+D' F' L' R F' R - 你
+D' F' L' R F' L - ἀ
+D' F' L' R F' U - 經
+D' F' L' R F' B - ĭ
+D' F' L' R F' D - ि
+D' F' L' R F' F - ♂
+D' F' L' U B R' - ♃
+D' F' L' U B L' - ἡ
+D' F' L' U B U' - ؤ
+D' F' L' U B B' - ẽ
+D' F' L' U B D' - ζ
+D' F' L' U B F' - ा
+D' F' L' U F R' - ň
+D' F' L' U F L' - ̩
+D' F' L' U F U' - 北
+D' F' L' U F B' - ĕ
+D' F' L' U F D' - ³
+D' F' L' U F F' - ф
+D' F' L' B' U R - ת
+D' F' L' B' U L - §
+D' F' L' B' U U - 德
+D' F' L' B' U B - ˌ
+D' F' L' B' U D - أ
+D' F' L' B' U F - ţ
+D' F' L' B' F R - ث
+D' F' L' B' F U - ů
+D' F' L' B' F B - ַ
+D' F' L' D U' U - ù
+D' F' L' D U' B - β
+D' F' L' D D F' - þ
+D' F' F U R' R' - ♦
+D' F' F U R' L' - ְ
+D' F' F U R' U' - …
+D' F' F U R' B' - ė
+D' F' F U R' D' - ǐ
+D' F' F U R' F' - ʔ
+D' F' F U B' R' - 한
+D' F' F U B' L' - ч
+D' F' F U B' U' - ʼ
+D' F' F U B' B' - ά
+D' F' F U B' D' - қ
+D' F' F U B' F' - ṛ
+D' F' F U F' R' - ʾ
+D' F' F U F' L' - ¹
+D' F' F U F' U' - ʏ
+D' F' F U F' B' - ی
+D' F' F U F' D' - ź
+D' F' F U F' F' - 陳
+D' F' F B' R' R - ּ
+D' F' F B' R' L - ő
+D' F' F B' R' U - γ
+D' F' F B' R' B - й
+D' F' F B' R' D - ɣ
+D' F' F B' R' F - κ
+D' F' F B' L R' - π
+D' F' F B' L L' - ­
+D' F' F B' L U' - i̇
+D' F' F B' L B' - خ
+D' F' F B' L D' - ̯
+D' F' F B' L F' - ʲ
+D' F' F B' L' R - غ
+D' F' F B' L' B - ш
+D' F' F B' U D' - ו
+D' F' F B' U' R - œ
+D' F' F B' U' L - φ
+D' F' F B' U' U - ǀ
+D' F' F B' U' B - σ
+D' F' F B' U' D - ɡ
+D' F' F B' U' F - ŋ
+D' F' F B' B' R - ε
+D' F' F B' B' L - `
+D' F' F B' B' U - ـ
+D' F' F B' B' B - ν
+D' F' F B' B' D - г
+D' F' F B' B' F - ς
+D' F' F F R' R' - ṇ
+D' F' F F R' L' - ٰ
+D' F' F F R' U' - ě
+D' F' F F U R R - ക
+D' F' F F U R L - ť
+D' F' F F U R U - ‎
+D' F' F F U R B - 基
+D' F' F F U R D - ħ
+D' F' F F U R F - 命
+D' F' F F U L R - ғ
+D' F' F F U L L - 内
+D' F' F F U L U - を
+D' F' F F U L B - 寺
+D' F' F F U L D - ү
+D' F' F F U L F - 履
+D' F' F F B' R' - ρ
+D' F' F F B' L' - ń
+D' F' F F B' U' - я
+D' F' F F B' B' - ê
+D' F' F F B' F' - ð
+D' F' F F F L R - ु
+D' F' F F F L L - प
+D' F' F F F L U - ڤ
+D' F' F F F L B - ㄹ
+D' F' F F F L D - ん
+D' F' F F F L F - ラ
+D' F' F F F U R - ễ
+D' F' F F F U L - ڬ
+D' F' F F F U U - े
+D' F' F F F U B - ᒥ
+D' F' F F F U D - ế
+D' F' F F F U F - ן
+D' F' L' R R' R' - ŏ
+D' F' L' R R' L' - ↓
+D' F' L' R R' U' - 国
+D' F' L' R R' B' - ᑎ
+D' F' L' R R' D' - ב
+D' F' L' R R' F' - ்
+D' F' L' R U' R' - إ
+D' F' L' R U' L' - ロ
+D' F' L' R U' U' - آ
+D' F' L' R U' B' - 天
+D' F' L' R U' D' - º
+D' F' L' R U' F' - 画
+D' F' L' R F' R' - ≡
+D' F' L' R F' L' - ξ
+D' F' L' R F' U' - ン
+D' F' L' R F' B' - ک
+D' F' L' R F' D' - 帝
+D' F' L' R F' F' - ǒ
+D' F' L' B' R' R - ί
+D' F' L' B' R' L - ́
+D' F' L' B' R' U - ♀
+D' F' L' B' R' B - ض
+D' F' L' B' R' D - ɹ
+D' F' L' B' R' F - 광
+D' F' L' B' U R' - ό
+D' F' L' B' U L' - 大
+D' F' L' B' U U' - ֹ
+D' F' L' B' U B' - 國
+D' F' L' B' U D' - म
+D' F' L' B' U F' - ẓ
+D' F' L' B' B' R - 味
+D' F' L' B' B' L - 양
+D' F' L' B' B' U - ط
+D' F' L' B' B' B - 서
+D' F' L' B' B' D - »
+D' F' L' B' B' F - ة
+D' F' L' B' F R' - ‑
+D' F' L' B' F L' - र
+D' F' L' B' F U' - 도
+D' F' L' B' F B' - ‒
+D' F' L' D L R R - 幼
+D' F' L' D L R L - 阳
+D' F' L' D L R U - 林
+D' F' L' D L R B - 延
+D' F' L' D L R D - ᙱ
+D' F' L' D L R F - ₃
+D' F' L' D L L R - 嗎
+D' F' L' D L L L - 麽
+D' F' L' D L L U - 閩
+D' F' L' D L L B - 贛
+D' F' L' D L L D - 乙
+D' F' L' D L L F - 闽
+D' F' L' D L U R - 濟
+D' F' L' D L U L - 龜
+D' F' L' D L U U - 龙
+D' F' L' D L U B - 龟
+D' F' L' D L U D - 鳥
+D' F' L' D L U F - 直
+D' F' L' D L B R - ্
+D' F' L' D L B L - 景
+D' F' L' D L B U - ე
+D' F' L' D L B B - თ
+D' F' L' D L B D - ფ
+D' F' L' D L B F - 株
+D' F' L' D L D R - ∨
+D' F' L' D L D L - 柳
+D' F' L' D L D U - 幸
+D' F' L' D L D B - 機
+D' F' L' D L D D - 真
+D' F' L' D L D F - ユ
+D' F' L' D L F R - 侯
+D' F' L' D L F L - 隆
+D' F' L' D L F U - 園
+D' F' L' D L F B - 撫
+D' F' L' D L F D - 麹
+D' F' L' D L F F - ・
+D' F' L' D U R R - 𑀨
+D' F' L' D U R L - ←
+D' F' L' D U R U - 𐭐
+D' F' L' D U R B - 拳
+D' F' L' D U R D - 𑀈
+D' F' L' D U R F - 跆
+D' F' L' D U L R - ነ
+D' F' L' D U L L - 𑀯
+D' F' L' D U L U - ረ
+D' F' L' D U L B - 김
+D' F' L' D U L D - අ
+D' F' L' D U L F - 𐭌
+D' F' L' D U U R - ተ
+D' F' L' D U U L - 𐨮
+D' F' L' D U U U - 𐰘
+D' F' L' D U U B - 𐰼
+D' F' L' D U U D - 𐩺
+D' F' L' D U U F - 𐰺
+D' F' L' D U B R - 𐭏
+D' F' L' D U B L - 𐭒
+D' F' L' D U B U - 𐭓
+D' F' L' D U B B - 𐩤
+D' F' L' D U B D - ሐ
+D' F' L' D U B F - ጸ
+D' F' L' D U D R - 𐰓
+D' F' L' D U D L - 𐨣
+D' F' L' D U D U - መ
+D' F' L' D U D B - 𐩬
+D' F' L' D U D D - 𐭃
+D' F' L' D U D F - 𐨨
+D' F' L' D U F R - 𐩫
+D' F' L' D U F L - 𐩱
+D' F' L' D U F U - 𑀖
+D' F' L' D U F B - የ
+D' F' L' D U F D - 𑀬
+D' F' L' D U F F - 𐭉
+D' F' L' D D R R - ി
+D' F' L' D D R L - 𑀚
+D' F' L' D D R U - 𑀑
+D' F' L' D D R B - 𐰈
+D' F' L' D D R D - 刀
+D' F' L' D D R F - 𐭁
+D' F' L' D D L R - 𑀤
+D' F' L' D D L L - 𐩨
+D' F' L' D D L U - 𐨒
+D' F' L' D D L B - ⋅
+D' F' L' D D L D - 𐩴
+D' F' L' D D L F - ท
+D' F' L' D D U R - さ
+D' F' L' D D U L - 県
+D' F' L' D D U U - 鮮
+D' F' L' D D U B - 나
+D' F' L' D D U D - 사
+D' F' L' D D U F - ዊ
+D' F' L' D D B R - 線
+D' F' L' D D B L - 월
+D' F' L' D D B U - ỳ
+D' F' L' D D B B - 항
+D' F' L' D D B D - る
+D' F' L' D D B F - 혁
+D' F' L' D D D R - 백
+D' F' L' D D D L - ♪
+D' F' L' D D D U - พ
+D' F' L' D D D B - า
+D' F' L' D D D D - ง
+D' F' L' D D D F - ✓
+D' F' L' D D F R - ന
+D' F' L' D D F L - ൂ
+D' F' L' D D F U - ച
+D' F' L' D D F B - ኀ
+D' F' L' D D F D - ላ
+D' F' L' D D F F - ሥ
+D' F' F B' R' R' - י
+D' F' F B' R' L' - ω
+D' F' F B' R' U' - ì
+D' F' F B' R' B' - ɕ
+D' F' F B' R' D' - ḍ
+D' F' F B' R' F' - η
+D' F' F B' L U R - 您
+D' F' F B' L U L - ว
+D' F' F B' L U U - ウ
+D' F' F B' L U B - వ
+D' F' F B' L U D - ォ
+D' F' F B' L U F - 松
+D' F' F B' U R R - ң
+D' F' F B' U R L - ジ
+D' F' F B' U R U - 위
+D' F' F B' U R B - เ
+D' F' F B' U R D - ŀ
+D' F' F B' U R F - ก
+D' F' F B' U L R - 筷
+D' F' F B' U L L - 史
+D' F' F B' U L U - 車
+D' F' F B' U L B - ල
+D' F' F B' U L D - 普
+D' F' F B' U L F - 君
+D' F' F B' U U R - ٠
+D' F' F B' U U L - ©
+D' F' F B' U U U - 開
+D' F' F B' U U B - 斯
+D' F' F B' U U D - 波
+D' F' F B' U U F - 俄
+D' F' F B' U B R - 全
+D' F' F B' U B L - ி
+D' F' F B' U B U - 周
+D' F' F B' U B B - 조
+D' F' F B' U B D - ḗ
+D' F' F B' U B F - 露
+D' F' F B' U D R - ῖ
+D' F' F B' U D L - 英
+D' F' F B' U D U - 什
+D' F' F B' U D B - 官
+D' F' F B' U D D - ᓴ
+D' F' F B' U D F - ᑏ
+D' F' F B' U F R - ᐳ
+D' F' F B' U F L - 韓
+D' F' F B' U F U - 치
+D' F' F B' U F B - コ
+D' F' F B' U F D - 康
+D' F' F B' U F F - 陕
+D' F' F B' U' R' - λ
+D' F' F B' U' L' - ğ
+D' F' F B' U' U' - δ
+D' F' F B' U' B' - ‖
+D' F' F B' U' D' - ą
+D' F' F B' U' F' - з
+D' F' F B' B' R' - ă
+D' F' F B' B' L' - ى
+D' F' F B' B' U' - ≈
+D' F' F B' B' B' - ṭ
+D' F' F B' B' D' - μ
+D' F' F B' B' F' - ι
+D' F' F F R' F R - क
+D' F' F F R' F L - ̪
+D' F' F F R' F U - ם
+D' F' F F R' F B - ĝ
+D' F' F F R' F D - ġ
+D' F' F F R' F F - 가
+D' F' F F U R R' -  
+D' F' F F U R L' - 话
+D' F' F F U R U' - は
+D' F' F F U R B' - 巴
+D' F' F F U R D' - 方
+D' F' F F U R F' - ᓪ
+D' F' F F U R' R - 语
+D' F' F F U R' L - 州
+D' F' F F U R' U - ど
+D' F' F F U R' B - 川
+D' F' F F U R' D - 西
+D' F' F F U R' F - 話
+D' F' F F U L R' - ो
+D' F' F F U L L' - ㅕ
+D' F' F F U L U' - ค
+D' F' F F U L B' - ห
+D' F' F F U L D' - ¶
+D' F' F F U L F' - ǚ
+D' F' F F U L' R - ク
+D' F' F F U L' L - 人
+D' F' F F U L' U - 佐
+D' F' F F U L' B - ɒ
+D' F' F F U L' D - 中
+D' F' F F U L' F - व
+D' F' F F F L R' - ½
+D' F' F F F L L' - ☉
+D' F' F F F L U' - 老
+D' F' F F F L B' - ル
+D' F' F F F L D' - स
+D' F' F F F L F' - ɥ
+D' F' F F F L' R - ώ
+D' F' F F F L' L - ֶ
+D' F' F F F L' U - ע
+D' F' F F F L' B - ї
+D' F' F F F L' D - ്
+D' F' F F F L' F - ȝ
+D' F' F F F U R' - ド
+D' F' F F F U L' - バ
+D' F' F F F U U' - ŵ
+D' F' F F F U B' - 武
+D' F' F F F U D' - ʋ
+D' F' F F F U F' - џ
+D' F' F F F U' R - ǁ
+D' F' F F F U' L - ų
+D' F' F F F U' U - 日
+D' F' F F F U' B - 美
+D' F' F F F U' D - ᖏ
+D' F' F F F U' F - ᕗ
+D' F' F F F D' R - 말
+D' F' F F F D' L - の
+D' F' F F F D' U - 好
+D' F' F F F D' B - گ
+D' F' F F F D' D - צ
+D' F' F F F D' F - ᐆ
+D' F' L' B' R' R' - ᐊ
+D' F' L' B' R' L' - ذ
+D' F' L' B' R' U' - ʝ
+D' F' L' B' R' B' - ל
+D' F' L' B' R' D' -  
+D' F' L' B' R' F' - υ
+D' F' L' B' B' R' - ј
+D' F' L' B' B' L' - ظ
+D' F' L' B' B' U' - 울
+D' F' L' B' B' B' - «
+D' F' L' B' B' D' - έ
+D' F' L' B' B' F' - ¢
+D' F' L' B' F L L - ℓ
+D' F' L' B' F L U - 江
+D' F' L' B' F L B - 倍
+D' F' L' B' F L D - 溜
+D' F' L' B' F L F - 撮
+D' F' L' B' F D R - 郡
+D' F' L' B' F D L - 屋
+D' F' L' B' F D U - 门
+D' F' L' B' F D B - ٤
+D' F' L' B' F D D - 受
+D' F' L' B' F D F - ١
+D' F' L' B' F F R - 百
+D' F' L' B' F F L - 留
+D' F' L' B' F F U - 紙
+D' F' L' B' F F B - も
+D' F' L' B' F F D - ベ
+D' F' L' B' F F F - 芝
+D' F' L' D L R R' - 咸
+D' F' L' D L R L' - 榆
+D' F' L' D L R U' - 桐
+D' F' L' D L R B' - 每
+D' F' L' D L R D' - 粵
+D' F' L' D L R F' - 兔
+D' F' L' D L R' R - 禎
+D' F' L' D L R' L - 主
+D' F' L' D L R' U - タ
+D' F' L' D L R' B - 粤
+D' F' L' D L R' D - 兰
+D' F' L' D L R' F - 験
+D' F' L' D L L R' - 么
+D' F' L' D L L L' - 梁
+D' F' L' D L L U' - 湘
+D' F' L' D L L B' - 赣
+D' F' L' D L L D' - 家
+D' F' L' D L L F' - ್
+D' F' L' D L L' R - 华
+D' F' L' D L L' L - 雨
+D' F' L' D L L' U - ơ
+D' F' L' D L L' B - 铜
+D' F' L' D L L' D - 邱
+D' F' L' D L L' F - 畿
+D' F' L' D L U R' - 竹
+D' F' L' D L U L' - 龍
+D' F' L' D L U U' - ზ
+D' F' L' D L U B' - 马
+D' F' L' D L U D' - 鸟
+D' F' L' D L U F' - ỉ
+D' F' L' D L U' R - ᓯ
+D' F' L' D L U' L - ᐅ
+D' F' L' D L U' U - ℠
+D' F' L' D L U' B - ㄧ
+D' F' L' D L U' D - 蓟
+D' F' L' D L U' F - 多
+D' F' L' D L B R' - ज
+D' F' L' D L B L' - よ
+D' F' L' D L B U' - ი
+D' F' L' D L B B' - 銀
+D' F' L' D L B D' - ხ
+D' F' L' D L B F' - 会
+D' F' L' D L B' R - 横
+D' F' L' D L B' L - 社
+D' F' L' D L B' U - 觀
+D' F' L' D L B' B - ὔ
+D' F' L' D L B' D - ㅆ
+D' F' L' D L B' F - ㅃ
+D' F' L' D L D R' - ガ
+D' F' L' D L D L' - 樹
+D' F' L' D L D U' - 良
+D' F' L' D L D B' - 緖
+D' F' L' D L D D' - 歌
+D' F' L' D L D F' - 千
+D' F' L' D L D' R - 利
+D' F' L' D L D' L - 無
+D' F' L' D L D' U - 久
+D' F' L' D L D' B - 帆
+D' F' L' D L D' D - 兎
+D' F' L' D L D' F - 星
+D' F' L' D L F R' - ¾
+D' F' L' D L F L' - 鈴
+D' F' L' D L F U' - 知
+D' F' L' D L F B' - 狼
+D' F' L' D L F D' - 宋
+D' F' L' D L F F' - 桃
+D' F' L' D L F' R - 櫻
+D' F' L' D L F' L - ザ
+D' F' L' D L F' U - 煮
+D' F' L' D L F' B - 定
+D' F' L' D L F' D - 至
+D' F' L' D L F' F - 嘉
+D' F' L' D L' R R - 箸
+D' F' L' D L' R L - 楊
+D' F' L' D L' R U - 堅
+D' F' L' D L' R B - 齊
+D' F' L' D L' R D - 〉
+D' F' L' D L' R F - ಸ
+D' F' L' D L' L R - 盆
+D' F' L' D L' L L - ḋ
+D' F' L' D L' L U - ὼ
+D' F' L' D L' L B - ٍ
+D' F' L' D L' L D - া
+D' F' L' D L' L F - ٹ
+D' F' L' D L' U R - ♮
+D' F' L' D L' U L - ャ
+D' F' L' D L' U U - သ
+D' F' L' D L' U B - 則
+D' F' L' D L' U D - 鎧
+D' F' L' D L' U F - ヴ
+D' F' L' D L' B R - ല
+D' F' L' D L' B L - 鲜
+D' F' L' D L' B U - ｇ
+D' F' L' D L' B B - ｐ
+D' F' L' D L' B D - 紋
+D' F' L' D L' B F - ὖ
+D' F' L' D L' D R - 白
+D' F' L' D L' D L - ɝ
+D' F' L' D L' D U - 豆
+D' F' L' D L' D B - ꭲ
+D' F' L' D L' D D - ਘ
+D' F' L' D L' D F - ੋ
+D' F' L' D L' F R - ਇ
+D' F' L' D L' F L - ਊ
+D' F' L' D L' F U - ᖃ
+D' F' L' D L' F B - उ
+D' F' L' D L' F D - ਪ
+D' F' L' D L' F F - ூ
+D' F' L' D U R R' - ฿
+D' F' L' D U R L' - ¿
+D' F' L' D U R U' - 태
+D' F' L' D U R B' - ץ
+D' F' L' D U R D' - ֲ
+D' F' L' D U R F' - 권
+D' F' L' D U R' R - 禱
+D' F' L' D U R' L - ல
+D' F' L' D U R' U - ங
+D' F' L' D U R' B - ං
+D' F' L' D U R' D - 𐰣
+D' F' L' D U R' F - ්
+D' F' L' D U L R' - 把
+D' F' L' D U L L' - 𐰾
+D' F' L' D U L U' - 𐨟
+D' F' L' D U L B' - ැ
+D' F' L' D U L D' - ි
+D' F' L' D U L F' - 중
+D' F' L' D U L' R - ἔ
+D' F' L' D U L' L - 𐱅
+D' F' L' D U L' U - 榮
+D' F' L' D U L' B - 𐰚
+D' F' L' D U L' D - 孝
+D' F' L' D U L' F - 𑀰
+D' F' L' D U U R' - 𐩩
+D' F' L' D U U L' - 𐱂
+D' F' L' D U U U' - 𐨪
+D' F' L' D U U B' - 𐩦
+D' F' L' D U U D' - 𐭔
+D' F' L' D U U F' - 𑀞
+D' F' L' D U U' R - 𑀲
+D' F' L' D U U' L - 𐭑
+D' F' L' D U U' U - 𐰆
+D' F' L' D U U' B - 𐨅
+D' F' L' D U U' D - 𑀧
+D' F' L' D U U' F - 𐰏
+D' F' L' D U B R' - 𐨤
+D' F' L' D U B L' - 𐰴
+D' F' L' D U B U' - 𐰸
+D' F' L' D U B B' - 𑀔
+D' F' L' D U B D' - 𐰯
+D' F' L' D U B F' - 𐨯
+D' F' L' D U B' R - ዐ
+D' F' L' D U B' L - 𑀇
+D' F' L' D U B' U - 𑀐
+D' F' L' D U B' B - 𑀉
+D' F' L' D U B' D - 𐩣
+D' F' L' D U B' F - 𐭎
+D' F' L' D U D R' - 𐩯
+D' F' L' D U D L' - 𐰤
+D' F' L' D U D U' - 𐰢
+D' F' L' D U D B' - 𐭍
+D' F' L' D U D D' - 𑀫
+D' F' L' D U D F' - 𑀕
+D' F' L' D U D' R - 𐰖
+D' F' L' D U D' L - 𐨫
+D' F' L' D U D' U - 𐰞
+D' F' L' D U D' B - 𐭋
+D' F' L' D U D' D - 𐭊
+D' F' L' D U D' F - 𐨐
+D' F' L' D U F R' - 𐰁
+D' F' L' D U F L' - 𑀊
+D' F' L' D U F U' - 𐨠
+D' F' L' D U F B' - 𐨩
+D' F' L' D U F D' - 𐱃
+D' F' L' D U F F' - 糞
+D' F' L' D U F' R - 𐨓
+D' F' L' D U F' L - 𑀝
+D' F' L' D U F' U - 𐭈
+D' F' L' D U F' B - 분
+D' F' L' D U F' D - 𐭆
+D' F' L' D U F' F - 𐩢
+D' F' L' D U' R R - ื
+D' F' L' D U' R L - ู
+D' F' L' D U' R U - క
+D' F' L' D U' R B - ా
+D' F' L' D U' R D - ℳ
+D' F' L' D U' R F - ɴ
+D' F' L' D U' L R - 者
+D' F' L' D U' L L - 乒
+D' F' L' D U' L U - 夫
+D' F' L' D U' L B - 干
+D' F' L' D U' L D - 香
+D' F' L' D U' L F - 茹
+D' F' L' D U' D R - ɧ
+D' F' L' D U' D L - ɓ
+D' F' L' D U' D U - ʎ
+D' F' L' D U' D B - ʙ
+D' F' L' D U' D D - ɮ
+D' F' L' D U' D F - 𑀢
+D' F' L' D U' F R - ǜ
+D' F' L' D U' F L - ♣
+D' F' L' D U' F U - 𐩧
+D' F' L' D U' F B - ₥
+D' F' L' D U' F D - ₪
+D' F' L' D U' F F - 𐨑
+D' F' L' D D R R' - 𐩸
+D' F' L' D D R L' - ሴ
+D' F' L' D D R U' - 𐨬
+D' F' L' D D R B' - 宏
+D' F' L' D D R D' - ዳ
+D' F' L' D D R F' - 𐩵
+D' F' L' D D R' R - 𐭄
+D' F' L' D D R' L - 𐩥
+D' F' L' D D R' U - 례
+D' F' L' D D R' B - ሀ
+D' F' L' D D R' D - ደ
+D' F' L' D D R' F - 𐨢
+D' F' L' D D L R' - 𑀥
+D' F' L' D D L L' - 𐭂
+D' F' L' D D L U' - 𐰱
+D' F' L' D D L B' - 𐰲
+D' F' L' D D L D' - ገ
+D' F' L' D D L F' - በ
+D' F' L' D D L' R - 𑀪
+D' F' L' D D L' L - 𐨦
+D' F' L' D D L' U - 𑀩
+D' F' L' D D L' B - 류
+D' F' L' D D L' D - አ
+D' F' L' D D L' F - 𑀅
+D' F' L' D D U R' - 𐭀
+D' F' L' D D U L' - 작
+D' F' L' D D U U' - ˇ
+D' F' L' D D U B' - 丁
+D' F' L' D D U D' - ĸ
+D' F' L' D D U F' - ụ
+D' F' L' D D U' R - 古
+D' F' L' D D U' L - ㄜ
+D' F' L' D D U' U - ਓ
+D' F' L' D D U' B - 经
+D' F' L' D D U' D - 琴
+D' F' L' D D U' F - 籟
+D' F' L' D D B R' - ⌀
+D' F' L' D D B L' - 영
+D' F' L' D D B U' - 벌
+D' F' L' D D B B' - 쟁
+D' F' L' D D B D' - 고
+D' F' L' D D B F' - 려
+D' F' L' D D B' R - 拌
+D' F' L' D D B' L - 不
+D' F' L' D D B' U - 施
+D' F' L' D D B' B - 快
+D' F' L' D D B' D - 师
+D' F' L' D D B' F - 食
+D' F' L' D D D R' - 신
+D' F' L' D D D L' - ㎤
+D' F' L' D D D U' - น
+D' F' L' D D D B' - ุ
+D' F' L' D D D D' - №
+D' F' L' D D D F' - ㎝
+D' F' L' D D D' R - ᾶ
+D' F' L' D D D' L - 抠
+D' F' L' D D D' U - 目
+D' F' L' D D D' B - 列
+D' F' L' D D D' D - 삼
+D' F' L' D D D' F - 男
+D' F' L' D D F R' - 暦
+D' F' L' D D F L' - ұ
+D' F' L' D D F U' - 手
+D' F' L' D D F B' - ይ
+D' F' L' D D F D' - ٩
+D' F' L' D D F F' - 哥
+D' F' F B' L U R' - ิ
+D' F' F B' L U L' - ம
+D' F' F B' L U U' - య
+D' F' F B' L U B' - வ
+D' F' F B' L U D' - 崎
+D' F' F B' L U F' - ᬦ
+D' F' F B' L' L R - ڈ
+D' F' F B' L' L L - ὐ
+D' F' F B' L' L U - ♊
+D' F' F B' L' L B - ☾
+D' F' F B' L' L D - ♏
+D' F' F B' L' L F - ♌
+D' F' F B' L' U R - ḻ
+D' F' F B' L' U L - ♉
+D' F' F B' L' U U - ↄ
+D' F' F B' L' U B - ㅖ
+D' F' F B' L' U D - ㅊ
+D' F' F B' L' U F - 東
+D' F' F B' L' D R - ㅠ
+D' F' F B' L' D L - ㅔ
+D' F' F B' L' D U - ㅣ
+D' F' F B' L' D B - ㅛ
+D' F' F B' L' D D - ケ
+D' F' F B' L' D F - 奈
+D' F' F B' L' F R - ာ
+D' F' F B' L' F L - ㄉ
+D' F' F B' L' F U - ဆ
+D' F' F B' L' F B - த
+D' F' F B' L' F D - フ
+D' F' F B' L' F F - カ
+D' F' F B' U R R' - ለ
+D' F' F B' U R L' - ∴
+D' F' F B' U R U' - љ
+D' F' F B' U R B' - ร
+D' F' F B' U R D' - ө
+D' F' F B' U R F' - ἰ
+D' F' F B' U R' R - į
+D' F' F B' U R' L - ṝ
+D' F' F B' U R' U - ď
+D' F' F B' U R' B - 打
+D' F' F B' U R' D - ŷ
+D' F' F B' U R' F - 金
+D' F' F B' U L R' - ை
+D' F' F B' U L L' - ח
+D' F' F B' U L U' - 漢
+D' F' F B' U L B' - 通
+D' F' F B' U L D' - ạ
+D' F' F B' U L F' - ắ
+D' F' F B' U L' R - ʕ
+D' F' F B' U L' L - ―
+D' F' F B' U L' U - ƒ
+D' F' F B' U L' B - 洛
+D' F' F B' U L' D - 宇
+D' F' F B' U L' F - 出
+D' F' F B' U U R' - ↑
+D' F' F B' U U L' - 神
+D' F' F B' U U U' - ¬
+D' F' F B' U U B' - 馬
+D' F' F B' U U D' - 泰
+D' F' F B' U U F' - ị
+D' F' F B' U U' R - 慶
+D' F' F B' U U' L - 名
+D' F' F B' U U' U - 客
+D' F' F B' U U' B - ᕆ
+D' F' F B' U U' D - ⁄
+D' F' F B' U U' F - 충
+D' F' F B' U B R' - ѳ
+D' F' F B' U B L' - 우
+D' F' F B' U B U' - 朝
+D' F' F B' U B B' - 어
+D' F' F B' U B D' - റ
+D' F' F B' U B F' - ാ
+D' F' F B' U B' R - ₄
+D' F' F B' U B' L - 인
+D' F' F B' U B' U - ቀ
+D' F' F B' U B' B - 幕
+D' F' F B' U B' D - 合
+D' F' F B' U B' F - 愛
+D' F' F B' U D R' - 坦
+D' F' F B' U D L' - 叫
+D' F' F B' U D U' - 法
+D' F' F B' U D B' - ᑉ
+D' F' F B' U D D' - ᒡ
+D' F' F B' U D F' - ᐸ
+D' F' F B' U F R' - 治
+D' F' F B' U F L' - 자
+D' F' F B' U F U' - ᕙ
+D' F' F B' U F B' - け
+D' F' F B' U F D' - 完
+D' F' F B' U F F' - ᐱ
+D' F' F B' U F' R - 尚
+D' F' F B' U F' L - 羅
+D' F' F B' U F' U - 상
+D' F' F B' U F' B - ѵ
+D' F' F B' U F' D - 청
+D' F' F B' U F' F - 原
+D' F' F F R' B' R - ᖕ
+D' F' F F R' B' L - ≠
+D' F' F F R' B' U - ㅅ
+D' F' F F R' B' B - ہ
+D' F' F F R' B' D - ㅏ
+D' F' F F R' B' F - ㅜ
+D' F' F F R' D' R - リ
+D' F' F F R' D' L - 霸
+D' F' F F R' D' U - 湯
+D' F' F F R' D' B - ड
+D' F' F F R' D' D - サ
+D' F' F F R' D' F - ņ
+D' F' F F R' F R' - ḏ
+D' F' F F R' F L' - ĉ
+D' F' F F R' F U' - が
+D' F' F F R' F B' - 代
+D' F' F F R' F D' - ㅓ
+D' F' F F R' F F' - ㄴ
+D' F' F F R' F' R - ʌ
+D' F' F F R' F' L - ṁ
+D' F' F F R' F' U - ỹ
+D' F' F F R' F' B - 전
+D' F' F F R' F' D - 光
+D' F' F F R' F' F - ט
+D' F' F F U R' R' - 媽
+D' F' F F U R' L' - 世
+D' F' F F U R' U' - 商
+D' F' F F U R' B' - 児
+D' F' F F U R' D' - ¼
+D' F' F F U R' F' - ᓚ
+D' F' F F U L' R' - ћ
+D' F' F F U L' L' - 少
+D' F' F F U L' U' - 、
+D' F' F F U L' B' - 三
+D' F' F F U L' D' - 汉
+D' F' F F U L' F' - 信
+D' F' F F B' D' R - ᔪ
+D' F' F F B' D' L - ᓄ
+D' F' F F B' D' U - 田
+D' F' F F B' D' B - 特
+D' F' F F B' D' D - 별
+D' F' F F B' D' F - 女
+D' F' F F F L' R' - ģ
+D' F' F F F L' L' - ֵ
+D' F' F F F L' U' - ʷ
+D' F' F F F L' B' - し
+D' F' F F F L' D' - „
+D' F' F F F L' F' - ḷ
+D' F' F F F U' R' - ľ
+D' F' F F F U' L' - 安
+D' F' F F F U' U' - ᓕ
+D' F' F F F U' B' - ᖅ
+D' F' F F F U' D' - ᓂ
+D' F' F F F U' F' - ी
+D' F' F F F D' R' - ў
+D' F' F F F D' L' - ม
+D' F' F F F D' U' - ķ
+D' F' F F F D' B' - √
+D' F' F F F D' D' - ？
+D' F' F F F D' F' - ڠ
+D' F' L' B' F L L' - 鸡
+D' F' L' B' F L U' - 火
+D' F' L' B' F L B' - 吝
+D' F' L' B' F L D' - 爷
+D' F' L' B' F L F' - ؿ
+D' F' L' B' F D R' - 縣
+D' F' L' B' F D L' - 根
+D' F' L' B' F D U' - ̸
+D' F' L' B' F D B' - 売
+D' F' L' B' F D D' - ᴣ
+D' F' L' B' F D F' - 我
+D' F' L' B' F D' R - ㄲ
+D' F' L' B' F D' L - ₁
+D' F' L' B' F D' U - 仁
+D' F' L' B' F D' B - ッ
+D' F' L' B' F D' D - 釜
+D' F' L' B' F D' F - 종
+D' F' L' B' F F R' - 民
+D' F' L' B' F F L' - 渭
+D' F' L' B' F F U' - 向
+D' F' L' B' F F B' - 成
+D' F' L' B' F F D' - 童
+D' F' L' B' F F F' - 居
+D' F' L' B' F F' R - 広
+D' F' L' B' F F' L - 宝
+D' F' L' B' F F' U - 島
+D' F' L' B' F F' B - 抹
+D' F' L' B' F F' D - 璧
+D' F' L' B' F F' F - 事
+D' F' L' D L R' R' - 記
+D' F' L' D L R' L' - な
+D' F' L' D L R' U' - 永
+D' F' L' D L R' B' - ữ
+D' F' L' D L R' D' - 実
+D' F' L' D L R' F' - 蘭
+D' F' L' D L L' R' - 水
+D' F' L' D L L' L' - 華
+D' F' L' D L L' U' - ㅉ
+D' F' L' D L L' B' - 性
+D' F' L' D L L' D' - 기
+D' F' L' D L L' F' - 원
+D' F' L' D L U' R' - ᒋ
+D' F' L' D L U' L' - ™
+D' F' L' D L U' U' - 吴
+D' F' L' D L U' B' - 燕
+D' F' L' D L U' D' - ն
+D' F' L' D L U' F' - オ
+D' F' L' D L B' R' - ူ
+D' F' L' D L B' L' - 式
+D' F' L' D L B' U' - 貴
+D' F' L' D L B' B' - ㄸ
+D' F' L' D L B' D' - た
+D' F' L' D L B' F' - ṓ
+D' F' L' D L D' R' - 春
+D' F' L' D L D' L' - ピ
+D' F' L' D L D' U' - 紀
+D' F' L' D L D' B' - 城
+D' F' L' D L D' D' - 雪
+D' F' L' D L D' F' - ヒ
+D' F' L' D L F' R' - 茸
+D' F' L' D L F' L' - ナ
+D' F' L' D L F' U' - 昌
+D' F' L' D L F' B' - 叔
+D' F' L' D L F' D' - 寶
+D' F' L' D L F' F' - 建
+D' F' L' D L' R R' - 徹
+D' F' L' D L' R L' - 隋
+D' F' L' D L' R U' - 麦
+D' F' L' D L' R B' - ῥ
+D' F' L' D L' R D' - ㄥ
+D' F' L' D L' R F' - 高
+D' F' L' D L' R' R - 外
+D' F' L' D L' R' L - ಳ
+D' F' L' D L' R' U - ण
+D' F' L' D L' R' B - ಯ
+D' F' L' D L' R' D - ೊ
+D' F' L' D L' R' F - भ
+D' F' L' D L' L R' - ἑ
+D' F' L' D L' L L' - ˋ
+D' F' L' D L' L U' - ṙ
+D' F' L' D L' L B' - अ
+D' F' L' D L' L D' - ڑ
+D' F' L' D L' L F' - ঙ
+D' F' L' D L' L' R - 藏
+D' F' L' D L' L' L - 二
+D' F' L' D L' L' U - ே
+D' F' L' D L' L' B - 限
+D' F' L' D L' L' D - မ
+D' F' L' D L' L' F - 禪
+D' F' L' D L' U R' - 东
+D' F' L' D L' U L' - 伝
+D' F' L' D L' U U' - パ
+D' F' L' D L' U B' - ぱ
+D' F' L' D L' U D' - ่
+D' F' L' D L' U F' - 動
+D' F' L' D L' U' R - ダ
+D' F' L' D L' U' L - 空
+D' F' L' D L' U' U - 戦
+D' F' L' D L' U' B - ァ
+D' F' L' D L' U' D - 舞
+D' F' L' D L' U' F - 犬
+D' F' L' D L' B R' - か
+D' F' L' D L' B L' - 界
+D' F' L' D L' B U' - ｘ
+D' F' L' D L' B B' - 키
+D' F' L' D L' B D' - 章
+D' F' L' D L' B F' - 卓
+D' F' L' D L' B' R - 椎
+D' F' L' D L' B' L - 若
+D' F' L' D L' B' U - だ
+D' F' L' D L' B' B - ˠ
+D' F' L' D L' B' D - ਬ
+D' F' L' D L' B' F - ὴ
+D' F' L' D L' D R' - 醤
+D' F' L' D L' D L' - 米
+D' F' L' D L' D U' - ɵ
+D' F' L' D L' D B' - ਸ
+D' F' L' D L' D D' - ਿ
+D' F' L' D L' D F' - ਹ
+D' F' L' D L' D' R - ੀ
+D' F' L' D L' D' L - ꭰ
+D' F' L' D L' D' U - ʄ
+D' F' L' D L' D' B - ਐ
+D' F' L' D L' D' D - ʍ
+D' F' L' D L' D' F - ਏ
+D' F' L' D L' F R' - ɺ
+D' F' L' D L' F L' - ள
+D' F' L' D L' F U' - ு
+D' F' L' D L' F B' - ਜ
+D' F' L' D L' F D' - ɳ
+D' F' L' D L' F F' - ர
+D' F' L' D L' F' R - ʡ
+D' F' L' D L' F' L - ⲁ
+D' F' L' D L' F' U - ஃ
+D' F' L' D L' F' B - ⲱ
+D' F' L' D L' F' D - ి
+D' F' L' D L' F' F - ส
+D' F' L' D U R' R' - ී
+D' F' L' D U R' L' - 示
+D' F' L' D U R' U' - 𐨭
+D' F' L' D U R' B' - ක
+D' F' L' D U R' D' - ශ
+D' F' L' D U R' F' - ර
+D' F' L' D U L' R' - 𑀮
+D' F' L' D U L' L' - ứ
+D' F' L' D U L' U' - ọ
+D' F' L' D U L' B' - ‱
+D' F' L' D U L' D' - 𑀭
+D' F' L' D U L' F' - 𐭕
+D' F' L' D U U' R' - 𐨗
+D' F' L' D U U' L' - 𐩮
+D' F' L' D U U' U' - 𐩲
+D' F' L' D U U' B' - 𐩰
+D' F' L' D U U' D' - ፈ
+D' F' L' D U U' F' - 𐰍
+D' F' L' D U B' R' - 𑀏
+D' F' L' D U B' L' - ወ
+D' F' L' D U B' U' - 𑀳
+D' F' L' D U B' B' - 𐰃
+D' F' L' D U B' D' - 𑀦
+D' F' L' D U B' F' - 𑀱
+D' F' L' D U D' R' - 𐰜
+D' F' L' D U D' L' - 𐰠
+D' F' L' D U D' U' - 𐰋
+D' F' L' D U D' B' - 𐩡
+D' F' L' D U D' D' - ከ
+D' F' L' D U D' F' - 𑀓
+D' F' L' D U F' R' - ጠ
+D' F' L' D U F' L' - 𑀣
+D' F' L' D U F' U' - 𐩷
+D' F' L' D U F' B' - 𑀒
+D' F' L' D U F' D' - 𐰕
+D' F' L' D U F' F' - 𐭇
+D' F' L' D U' R R' - ด
+D' F' L' D U' R L' - ₮
+D' F' L' D U' R U' - ీ
+D' F' L' D U' R B' - ₰
+D' F' L' D U' R D' - ද
+D' F' L' D U' R F' - ⁿ
+D' F' L' D U' R' R - ↔
+D' F' L' D U' R' L - 長
+D' F' L' D U' R' U - ˡ
+D' F' L' D U' R' B - ῴ
+D' F' L' D U' R' D - 植
+D' F' L' D U' R' F - ᭄
+D' F' L' D U' L R' - 勇
+D' F' L' D U' L L' - 乓
+D' F' L' D U' L U' - め
+D' F' L' D U' L B' - 冬
+D' F' L' D U' L D' - ὶ
+D' F' L' D U' L F' - ば
+D' F' L' D U' L' R - ृ
+D' F' L' D U' L' L - യ
+D' F' L' D U' L' U - ള
+D' F' L' D U' L' B - മ
+D' F' L' D U' L' D - ἄ
+D' F' L' D U' L' F - キ
+D' F' L' D U' U' R - ḩ
+D' F' L' D U' U' L - 港
+D' F' L' D U' U' U - ゴ
+D' F' L' D U' U' B - ɻ
+D' F' L' D U' U' D - ɤ
+D' F' L' D U' U' F - ʰ
+D' F' L' D U' B' R - ɚ
+D' F' L' D U' B' L - ʛ
+D' F' L' D U' B' U - ɘ
+D' F' L' D U' B' B - න
+D' F' L' D U' B' D - ǃ
+D' F' L' D U' B' F - ɰ
+D' F' L' D U' D R' - ɗ
+D' F' L' D U' D L' - 作
+D' F' L' D U' D U' - ʟ
+D' F' L' D U' D B' - ʀ
+D' F' L' D U' D D' - ɽ
+D' F' L' D U' D F' - 實
+D' F' L' D U' D' R - ₢
+D' F' L' D U' D' L - ɖ
+D' F' L' D U' D' U - ʢ
+D' F' L' D U' D' B - ʜ
+D' F' L' D U' D' D - ɢ
+D' F' L' D U' D' F - ♠
+D' F' L' D U' F R' - ǘ
+D' F' L' D U' F L' - ♥
+D' F' L' D U' F U' - ₫
+D' F' L' D U' F B' - ៛
+D' F' L' D U' F D' - ₨
+D' F' L' D U' F F' - ₦
+D' F' L' D U' F' R - ₧
+D' F' L' D U' F' L - ₯
+D' F' L' D U' F' U - ₭
+D' F' L' D U' F' B - ₠
+D' F' L' D U' F' D - 生
+D' F' L' D U' F' F - ₳
+D' F' L' D D R' R' - 𐨱
+D' F' L' D D R' L' - 𐭅
+D' F' L' D D R' U' - 𐩠
+D' F' L' D D R' B' - 명
+D' F' L' D D R' D' - 𑀟
+D' F' L' D D R' F' - 𑀠
+D' F' L' D D L' R' - 𐰉
+D' F' L' D D L' L' - ㎠
+D' F' L' D D L' U' - ማ
+D' F' L' D D L' B' - ま
+D' F' L' D D L' D' - 𑀆
+D' F' L' D D L' F' - 幹
+D' F' L' D D U' R' - ῑ
+D' F' L' D D U' L' - ㄐ
+D' F' L' D D U' U' - ˊ
+D' F' L' D D U' B' - ㄠ
+D' F' L' D D U' D' - 友
+D' F' L' D D U' F' - ਾ
+D' F' L' D D B' R' - 蒜
+D' F' L' D D B' L' - ṫ
+D' F' L' D D B' U' - 钱
+D' F' L' D D B' B' - 今
+D' F' L' D D B' D' - 氏
+D' F' L' D D B' F' - ҧ
+D' F' L' D D D' R' - ₱
+D' F' L' D D D' L' - 力
+D' F' L' D D D' U' - 弾
+D' F' L' D D D' B' - 丸
+D' F' L' D D D' D' - 戸
+D' F' L' D D D' F' - 县
+D' F' F B' L' R' R - य
+D' F' F B' L' R' L - ∫
+D' F' F B' L' R' U - ѓ
+D' F' F B' L' R' B - њ
+D' F' F B' L' R' D - ѕ
+D' F' F B' L' R' F - ḹ
+D' F' F B' L' L R' - ♓
+D' F' F B' L' L L' - چ
+D' F' F B' L' L U' - ♎
+D' F' F B' L' L B' - ♐
+D' F' F B' L' L D' - ♋
+D' F' F B' L' L F' - ♍
+D' F' F B' L' L' R - ǣ
+D' F' F B' L' L' L - ļ
+D' F' F B' L' L' U - ѡ
+D' F' F B' L' L' B - ŕ
+D' F' F B' L' L' D - ≥
+D' F' F B' L' L' F - ‍
+D' F' F B' L' U R' - ♈
+D' F' F B' L' U L' - ☽
+D' F' F B' L' U U' - 宣
+D' F' F B' L' U B' - ㄷ
+D' F' F B' L' U D' - ㅌ
+D' F' F B' L' U F' - ㅋ
+D' F' F B' L' U' R - 王
+D' F' F B' L' U' L - 藤
+D' F' F B' L' U' U - 都
+D' F' F B' L' U' B - 映
+D' F' F B' L' U' D - ̚
+D' F' F B' L' U' F - ♒
+D' F' F B' L' B' R - ㅁ
+D' F' F B' L' B' L - ㅈ
+D' F' F B' L' B' U - ㅝ
+D' F' F B' L' B' B - ㅢ
+D' F' F B' L' B' D - ㅙ
+D' F' F B' L' B' F - 明
+D' F' F B' L' D R' - ㅒ
+D' F' F B' L' D L' - ㅐ
+D' F' F B' L' D U' - ㅗ
+D' F' F B' L' D B' - マ
+D' F' F B' L' D D' - 澤
+D' F' F B' L' D F' - 李
+D' F' F B' L' D' R - テ
+D' F' F B' L' D' L - ネ
+D' F' F B' L' D' U - 蒨
+D' F' F B' L' D' B - 頊
+D' F' F B' L' D' D - 太
+D' F' F B' L' D' F - 後
+D' F' F B' L' F R' - 秋
+D' F' F B' L' F L' - ‧
+D' F' F B' L' F U' - ရ
+D' F' F B' L' F B' - そ
+D' F' F B' L' F D' - ム
+D' F' F B' L' F F' - ュ
+D' F' F B' L' F' R - う
+D' F' F B' L' F' L - 球
+D' F' F B' L' F' U - ੰ
+D' F' F B' L' F' B - み
+D' F' F B' L' F' D - ὅ
+D' F' F B' L' F' F - 리
+D' F' F B' U R' R' - ǫ
+D' F' F B' U R' L' - ∆
+D' F' F B' U R' U' - 新
+D' F' F B' U R' B' - ニ
+D' F' F B' U R' D' - 小
+D' F' F B' U R' F' - ৳
+D' F' F B' U L' R' - 年
+D' F' F B' U L' L' - ﬁ
+D' F' F B' U L' U' - כ
+D' F' F B' U L' B' - 秦
+D' F' F B' U L' D' - ¤
+D' F' F B' U L' F' - 们
+D' F' F B' U U' R' - 제
+D' F' F B' U U' L' - 吗
+D' F' F B' U U' U' - 清
+D' F' F B' U U' B' - 吳
+D' F' F B' U U' D' - ®
+D' F' F B' U U' F' - ᒍ
+D' F' F B' U B' R' - 강
+D' F' F B' U B' L' - ̞
+D' F' F B' U B' U' - 自
+D' F' F B' U B' B' - 민
+D' F' F B' U B' D' - ग
+D' F' F B' U B' F' - レ
+D' F' F B' U F' R' - ѯ
+D' F' F B' U F' L' - ʽ
+D' F' F B' U F' U' - 𐨀
+D' F' F B' U F' B' - 忠
+D' F' F B' U F' D' - 부
+D' F' F B' U F' F' - 선
+D' F' F F R' B' R' - 文
+D' F' F F R' B' L' - ㅎ
+D' F' F F R' B' U' - ㄱ
+D' F' F F R' B' B' - ㅍ
+D' F' F F R' B' D' - ㅡ
+D' F' F F R' B' F' - ㅑ
+D' F' F F R' D' R' - 先
+D' F' F F R' D' L' - 丙
+D' F' F F R' D' U' - エ
+D' F' F F R' D' B' - ♯
+D' F' F F R' D' D' - ɱ
+D' F' F F R' D' F' - ோ
+D' F' F F R' F' R' - 狮
+D' F' F F R' F' L' - ệ
+D' F' F F R' F' U' - پ
+D' F' F F R' F' B' - 북
+D' F' F F R' F' D' - ं
+D' F' F F R' F' F' - 산
+D' F' F F B' D' R' - ᔭ
+D' F' F F B' D' L' - ᖁ
+D' F' F F B' D' U' - 山
+D' F' F F B' D' B' - 別
+D' F' F F B' D' D' - 특
+D' F' F F B' D' F' - デ
+D' F' L' B' F D' R' - 京
+D' F' L' B' F D' L' - 천
+D' F' L' B' F D' U' - 蔚
+D' F' L' B' F D' B' - 세
+D' F' L' B' F D' D' - 구
+D' F' L' B' F D' F' - 佳
+D' F' L' B' F F' R' - 🇱
+D' F' L' B' F F' L' - 矢
+D' F' L' B' F F' U' - 尾
+D' F' L' B' F F' B' - 茶
+D' F' L' B' F F' D' - ブ
+D' F' L' B' F F' F' - 的
+D' F' L' D L' R' R' - 勝
+D' F' L' D L' R' L' - ॉ
+D' F' L' D L' R' U' - ಹ
+D' F' L' D L' R' B' - ꮻ
+D' F' L' D L' R' D' - ठ
+D' F' L' D L' R' F' - ਆ
+D' F' L' D L' L' R' - ப
+D' F' L' D L' L' L' - ෝ
+D' F' L' D L' L' U' - わ
+D' F' L' D L' L' B' - て
+D' F' L' D L' L' D' - 廈
+D' F' L' D L' L' F' - 禅
+D' F' L' D L' U' R' - 焼
+D' F' L' D L' U' L' - ఖ
+D' F' L' D L' U' U' - 士
+D' F' L' D L' U' B' - 夜
+D' F' L' D L' U' D' - 叉
+D' F' L' D L' U' F' - ‌
+D' F' L' D L' B' R' - ᬗ
+D' F' L' D L' B' L' - 布
+D' F' L' D L' B' U' - 汁
+D' F' L' D L' B' B' - ற
+D' F' L' D L' B' D' - ꮿ
+D' F' L' D L' B' F' - せ
+D' F' L' D L' D' R' - ਅ
+D' F' L' D L' D' L' - ᏼ
+D' F' L' D L' D' U' - ꮒ
+D' F' L' D L' D' B' - ਔ
+D' F' L' D L' D' D' - ਈ
+D' F' L' D L' D' F' - ਉ
+D' F' L' D L' F' R' - ⲣ
+D' F' L' D L' F' L' - ய
+D' F' L' D L' F' U' - ʈ
+D' F' L' D L' F' B' - ⲙ
+D' F' L' D L' F' D' - ำ
+D' F' L' D L' F' F' - อ
+D' F' L' D U' R' R' - ─
+D' F' L' D U' R' L' - ≤
+D' F' L' D U' R' U' - ᬸ
+D' F' L' D U' R' B' - 伸
+D' F' L' D U' R' D' - ᬘ
+D' F' L' D U' R' F' - ˑ
+D' F' L' D U' L' R' - 용
+D' F' L' D U' L' L' - ം
+D' F' L' D U' L' U' - 집
+D' F' L' D U' L' B' - ₡
+D' F' L' D U' L' D' - 維
+D' F' L' D U' L' F' - 錄
+D' F' L' D U' U' R' - ᬩ
+D' F' L' D U' U' L' - ἥ
+D' F' L' D U' U' U' - இ
+D' F' L' D U' U' B' - ɠ
+D' F' L' D U' U' D' - ɞ
+D' F' L' D U' U' F' - ɶ
+D' F' L' D U' B' R' - ɜ
+D' F' L' D U' B' L' - ʉ
+D' F' L' D U' B' U' - ɯ
+D' F' L' D U' B' B' - ʘ
+D' F' L' D U' B' D' - ව
+D' F' L' D U' B' F' - ɭ
+D' F' L' D U' D' R' - ₩
+D' F' L' D U' D' L' - ɸ
+D' F' L' D U' D' U' - 𐱁
+D' F' L' D U' D' B' - ɟ
+D' F' L' D U' D' D' - ሠ
+D' F' L' D U' D' F' - ǖ
+D' F' L' D U' F' R' - 𐰽
+D' F' L' D U' F' L' - ₣
+D' F' L' D U' F' U' - ₴
+D' F' L' D U' F' B' - 思
+D' F' L' D U' F' D' - ±
+D' F' L' D U' F' F' - ₵
+D' F' F B' L' R' R' - ἕ
+D' F' F B' L' R' L' - ǂ
+D' F' F B' L' R' U' - ȳ
+D' F' F B' L' R' B' - ќ
+D' F' F B' L' R' D' - ђ
+D' F' F B' L' R' F' - ċ
+D' F' F B' L' L' R' - ŗ
+D' F' F B' L' L' L' - ŝ
+D' F' F B' L' L' U' - ĵ
+D' F' F B' L' L' B' - ĺ
+D' F' F B' L' L' D' - ז
+D' F' F B' L' L' F' - 애
+D' F' F B' L' U' R' - ා
+D' F' F B' L' U' L' - ҁ
+D' F' F B' L' U' U' - ¨
+D' F' F B' L' U' B' - ა
+D' F' F B' L' U' D' - ♑
+D' F' F B' L' U' F' - গ
+D' F' F B' L' B' R' - ㅂ
+D' F' F B' L' B' L' - ㅘ
+D' F' F B' L' B' U' - ㅟ
+D' F' F B' L' B' B' - ㅞ
+D' F' F B' L' B' D' - ㅚ
+D' F' F B' L' B' F' - ἠ
+D' F' F B' L' D' R' - ᐃ
+D' F' F B' L' D' L' - ब
+D' F' F B' L' D' U' - 廢
+D' F' F B' L' D' B' - 伯
+D' F' F B' L' D' D' - 卜
+D' F' F B' L' D' F' - き
+D' F' F B' L' F' R' - こ
+D' F' F B' L' F' L' - ख
+D' F' F B' L' F' U' - ਨ
+D' F' F B' L' F' B' - ਮ
+D' F' F B' L' F' D' - ్
+D' F' F B' L' F' F' - ₤

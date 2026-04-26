@@ -1,0 +1,28 @@
+[project]
+name = "Smart-cube-gaming-controller-linux"
+version = "1.0"
+description = "Control your linux PC with a bluetooth rubiks cube"
+authors = [
+    { name = "Sam Decorte" },
+    { name = "Mathias Goovaerts" }
+]
+
+dependencies = [
+    "black",    # Python formatter
+    "pytest-env",
+    "pytest",
+    "evdev",
+    "wikitextparser",
+    "pyautogui",
+    "pyyaml"
+]
+
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
