@@ -11,7 +11,7 @@
             "name": "Python Debugger: Main",
             "type": "debugpy",
             "request": "launch",
-            "program": "src/SmartCubeGamingController/main.py",
+            "program": "src/SmartCubeGamingController/app.py",
             "console": "integratedTerminal"
         },
         {
